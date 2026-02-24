@@ -127,7 +127,7 @@
 }
 
 .pd-new-price {
-    color: #d4af37;
+    color: #94a691;
     /* Theme Gold */
     font-size: 24px;
     font-weight: 700;
@@ -176,7 +176,7 @@
 }
 
 .pd-social-share a:hover {
-    color: #d4af37;
+    color: #94a691;
 }
 
 .pd-action-links a {
@@ -279,7 +279,7 @@
 
 .pd-btn-add-cart {
     background: linear-gradient(135deg, #1f1f1f, #000);
-    color: #d4af37;
+    color: #94a691;
     border: 1px solid rgba(212, 175, 55, 0.5);
     padding: 12px 30px;
     font-size: 13px;
@@ -293,7 +293,7 @@
 }
 
 .pd-btn-add-cart:hover {
-    background: #d4af37;
+    background: #94a691;
     color: #000;
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
@@ -310,11 +310,11 @@
 }
 
 .pd-btn-wishlist:hover {
-    color: #d4af37;
+    color: #94a691;
 }
 
 .pd-btn-wishlist.active {
-    color: #d4af37;
+    color: #94a691;
 }
 
 .pd-btn-wishlist.active i {

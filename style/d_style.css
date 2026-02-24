@@ -1315,7 +1315,7 @@ body {
 }
 
 .d_cat_wishlist-btn.d_cat_liked i {
-  color: #d4af37 !important;
+  color: #94a691 !important;
 }
 
 .d_cat_wishlist-btn:hover {
@@ -1323,7 +1323,7 @@ body {
 }
 
 .d_cat_wishlist-btn:hover i {
-  color: #d4af37;
+  color: #94a691;
 }
 
 /* Overlay — hidden, slides up on hover */
