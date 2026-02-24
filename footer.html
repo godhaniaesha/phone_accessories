@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Unique Aesthetic Footer</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;1,9..40,200&family=Playfair+Display:ital,wght@0,400;1,500&display=swap');
+
+		:root {
+			--x-footer-bg: #faf9f6;
+			--x-footer-sage: #4a5759;
+			--x-footer-dark: #2d3436;
+		}
+
+		body {
+			background-color: var(--x-footer-bg);
+			font-family: 'DM Sans', sans-serif;
+		}
+
+		/* --- UNIQUE FLOATING NEWSLETTER --- */
+		.x_footer_newsletter_section {
+			margin-top: 50px;
+		}
+
+		.x_footer_newsletter_wrapper {
+			margin-bottom: -60px;
+			position: relative;
+			z-index: 10;
+		}
+
+		.x_footer_newsletter_inner {
+			background: #ffffff;
+			border-radius: 100px;
+			padding: 25px 50px;
+			box-shadow: 0 20px 40px rgb(148 166 145 / 50%);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border: 1px solid rgba(148, 166, 145, 0.08);
+		}
+
+		.x_footer_newsletter_text h4 {
+			font-family: 'Fredoka', sans-serif;
+			margin: 0;
+			/* font-style: italic; */
+			color: var(--x-footer-sage);
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+
+		.x_footer_input_group {
+			display: flex;
+			background: #e7e7e5;
+			border-radius: 50px;
+			padding: 6px 6px 6px 25px;
+			width: 420px;
+			transition: 0.3s;
+			border: 1px solid transparent;
+		}
+
+		.x_footer_input_group:focus-within {
+			border-color: var(--x-footer-sage);
+			background: #fff;
+		}
+
+		.x_footer_input_group input {
+			border: none;
+			background: transparent;
+			width: 100%;
+			outline: none;
+			font-size: 14px;
+			color: var(--x-footer-dark);
+		}
+
+		.x_footer_btn_submit {
+			background: var(--x-footer-sage);
+			color: white;
+			border: none;
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		.x_footer_btn_submit:hover {
+			transform: rotate(-15deg);
+			background: var(--x-footer-dark);
+			color: white;
+		}
+
+		/* --- ASYMMETRIC MODERN FOOTER --- */
+		.x_footer_main {
+			background: #e7e7e5;
+			padding: 130px 0 50px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.x_footer_brand_side {
+			font-family: 'Playfair Display', serif;
+			writing-mode: vertical-rl;
+			text-transform: uppercase;
+			letter-spacing: 10px;
+			font-size: 3.5rem;
+			color: rgba(148, 166, 145, 0.12);
+			position: absolute;
+			left: 30px;
+			top: 80px;
+			pointer-events: none;
+			user-select: none;
+		}
+
+		.x_footer_heading {
+			font-size: 16px;
+			text-transform: uppercase;
+			letter-spacing: 2.5px;
+			color: var(--x-footer-sage);
+			margin-bottom: 35px;
+			font-weight: 800;
+		}
+
+		.x_footer_link {
+			display: block;
+			color: var(--x-footer-dark);
+			text-decoration: none;
+			font-size: 15px;
+			margin-bottom: 15px;
+			font-weight: 400;
+			transition: 0.3s ease;
+			opacity: 0.8;
+		}
+
+		.x_footer_link:hover {
+			transform: translateX(8px);
+		}
+
+		.x_footer_social_text {
+			font-size: 20px;
+			margin-right: 25px;
+			text-decoration: none;
+			color: var(--x-footer-dark);
+			font-weight: 500;
+			position: relative;
+			padding-bottom: 4px;
+			transition: 0.3s;
+		}
+
+		.x_footer_social_text:hover {
+			transform: scale(1.2);
+		}
+
+		.x_footer_bottom_bar {
+			border-top: 1px solid rgba(0, 0, 0, 0.06);
+			padding-top: 35px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.x_footer_copy {
+			font-size: 13px;
+			color: #888;
+			font-weight: 300;
+		}
+
+		.x_footer_payments {
+			opacity: 0.4;
+			filter: grayscale(1);
+			display: flex;
+			gap: 20px;
+		}
+
+		@media (max-width: 992px) {
+			.x_footer_newsletter_inner {
+				flex-direction: column;
+				border-radius: 40px;
+				text-align: center;
+				gap: 25px;
+				padding: 40px 30px;
+			}
+
+			.x_footer_input_group {
+				width: 100%;
+			}
+
+			.x_footer_brand_side {
+				display: none;
+			}
+
+			.x_footer_bottom_bar {
+				flex-direction: column;
+				gap: 20px;
+				text-align: center;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.x_footer_newsletter_inner {
+				padding: 40px 18px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="x_footer_newsletter_section">
+		<div class="container x_footer_newsletter_wrapper">
+			<div class="x_footer_newsletter_inner">
+				<div class="x_footer_newsletter_text">
+					<h4>Join Our Community</h4>
+					<p class="m-0 text-muted" style="font-size: 13px; font-weight: 300;">A little inspiration in your
+						inbox — only when it matters.</p>
+				</div>
+				<!-- <form class="x_footer_input_group">
+					<input type="email" placeholder="hello@yourmail.com" required>
+					<button type="submit" class="x_footer_btn_submit">
+						<i class="fas fa-arrow-up-right-from-square"></i>
+					</button>
+				</form> -->
+				<form class="x_footer_input_group" id="subscribeForm">
+					<input type="email" id="subscriberEmail" placeholder="hello@yourmail.com" required>
+					<button type="submit" class="x_footer_btn_submit">
+						<i class="fas fa-arrow-up-right-from-square"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="x_footer_main">
+		<div class="x_footer_brand_side">ACCESSORIES</div>
+
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-lg-4 col-md-12">
+					<h5 class="x_footer_heading">Logo</h5>
+					<p class="text-muted" style="font-weight: 300; line-height: 2; font-size: 15px;">
+						We craft high-quality mobile accessories designed for everyday performance. Sleek designs,
+						durable materials, and protection that keeps up with your lifestyle.
+					</p>
+				</div>
+
+				<div class="col-lg-2 col-6 offset-lg-1">
+					<h5 class="x_footer_heading">Quick Links</h5>
+					<a href="/shop.html" class="x_footer_link">Shop</a>
+					<a href="/about-us.html" class="x_footer_link">About</a>
+					<a href="/track-order.html" class="x_footer_link">Track Order</a>
+					<a href="/blog.html" class="x_footer_link">Blog</a>
+				</div>
+
+				<div class="col-lg-2 col-6">
+					<h5 class="x_footer_heading">Customer Service</h5>
+					<a href="/privacypolicy.html" class="x_footer_link">Privacy Policy</a>
+					<a href="/return-policy.html" class="x_footer_link">Returns</a>
+					<a href="/terms-and-conditions.html" class="x_footer_link">Terms & Conditions</a>
+					<a href="/faq.html" class="x_footer_link">FAQs</a>
+				</div>
+
+				<div class="col-lg-3 col-md-12">
+					<h5 class="x_footer_heading">Contact Info</h5>
+					<div class="d-flex flex-wrap mb-4">
+						<a href="#" class="x_footer_social_text"><i class="fa-brands fa-instagram"></i></a>
+						<a href="#" class="x_footer_social_text"><i class="fa-brands fa-pinterest"></i></a>
+						<a href="#" class="x_footer_social_text"><i class="fa-brands fa-facebook"></i></a>
+					</div>
+					<p class="x_footer_copy mt-2">
+						<i class="fas fa-map-marker-alt me-2" style="color: var(--x-footer-sage);"></i> Based in London,
+						UK.
+					</p>
+				</div>
+			</div>
+
+			<div class="x_footer_bottom_bar">
+				<div class="x_footer_copy">
+					© 2026 ACE ACCESSORIES. Built for the modern minimalist.
+				</div>
+				<div class="x_footer_payments">
+					<i class="fab fa-cc-apple-pay fa-2x"></i>
+					<i class="fab fa-cc-visa fa-2x"></i>
+					<i class="fab fa-cc-mastercard fa-2x"></i>
+					<i class="fab fa-cc-paypal fa-2x"></i>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/footer.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

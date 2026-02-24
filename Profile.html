@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile - Luxury Accessories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- External Custom CSS -->
+    <link rel="stylesheet" href="style/x_style.css">
+    <link rel="stylesheet" href="style/z_style.css">
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(14px, 3.5vw, 16px);
+            line-height: 1.6;
+        }
+
+        /* Profile Page Specific Styles */
+        .z_profile_page {
+            min-height: 100vh;
+            background-color: #f8f8f8;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        .z_profile_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .z_profile_layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+        }
+
+        /* Order Modal Styles */
+        .z_order_modal_overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .z_order_modal {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .z_order_modal_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .z_order_modal_header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .z_order_modal_close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .z_order_modal_close:hover {
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .z_order_modal_body {
+            padding: 24px;
+        }
+
+        .z_order_modal_section {
+            margin-bottom: 30px;
+        }
+
+        .z_order_modal_section h4 {
+            margin: 0 0 16px 0;
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .z_order_info_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .z_order_info_item {
+            display: flex;
+            gap: 4px;
+        }
+
+        .z_order_info_item label {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .z_order_info_item span {
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .z_order_total_amount {
+            font-weight: 700;
+            color: #94a691;
+            font-size: 1.1rem;
+        }
+
+        .z_order_modal_items {
+            display: grid;
+            gap: 16px;
+        }
+
+        .z_order_modal_item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .z_order_modal_item_image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .z_order_modal_item_details {
+            flex: 1;
+        }
+
+        .z_order_modal_item_name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .z_order_modal_item_meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .z_order_modal_item_total {
+            font-weight: 700;
+            color: #94a691;
+            font-size: 1.1rem;
+        }
+
+        /* Profile Sidebar */
+        .z_profile_sidebar {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .z_profile_sidebar_header {
+            background: #94a691;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .z_profile_sidebar_avatar {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2.5rem;
+            color: #94a691;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .z_profile_avatar_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .z_avatar_edit_btn {
+            position: absolute;
+            right: 4px;
+            bottom: 4px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #333;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        .z_avatar_edit_btn:hover {
+            color: #94a691;
+            border-color: #94a691;
+        }
+
+        .z_avatar_upload {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .z_avatar_preview {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f0f0f0;
+            background: #fafafa;
+            display: none;
+        }
+
+        .z_avatar_input {
+            width: 100%;
+        }
+
+        .z_profile_sidebar_name {
+            color: #fff;
+            font-size: clamp(14px, 4vw, 18px);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .z_profile_sidebar_email {
+            font-size: clamp(12px, 3vw, 14px);
+            font-size: 0.85rem;
+            color: #fff;
+        }
+
+        .z_profile_sidebar_menu {
+            padding: 10px 0;
+        }
+
+        .z_profile_sidebar_item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+
+        .z_profile_sidebar_item:hover {
+            background-color: #f8f8f8;
+            color: #94a691;
+        }
+
+        .z_profile_sidebar_item.active {
+            background-color: #faf8f0;
+            color: #94a691;
+            border-left-color: #94a691;
+            font-weight: 500;
+        }
+
+        .z_profile_sidebar_item i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .z_profile_sidebar_item.z_logout {
+            color: #b23522;
+            border-top: 1px solid #eee;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        .z_profile_sidebar_item.z_logout:hover {
+            background-color: #fff5f5;
+            color: #b23522;
+        }
+
+        /* Profile Content */
+        .z_profile_content {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            min-height: 500px;
+        }
+
+        .z_profile_content_header {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .z_profile_content_title {
+            font-size: clamp(18px, 4.5vw, 24px);
+            color: #000;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .z_profile_content_subtitle {
+            color: #666;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+
+        /* Tab Content Sections */
+        .z_tab_content {
+            display: none;
+        }
+
+        .z_tab_content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Edit Profile Form */
+        .z_edit_profile_form .z_form_row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .z_edit_profile_form .z_form_group {
+            margin-bottom: 20px;
+        }
+
+        .z_edit_profile_form label {
+            display: block;
+            font-size: clamp(12px, 3vw, 14px);
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .z_edit_profile_form input,
+        .z_edit_profile_form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: clamp(13px, 3.5vw, 15px);
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .z_edit_profile_form input:focus,
+        .z_edit_profile_form textarea:focus {
+            outline: none;
+            border-color: #94a691;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .z_edit_profile_form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .z_btn_save {
+            padding: 12px 30px;
+            background-color: #94a691;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: clamp(14px, 3.5vw, 16px);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .z_btn_save:hover {
+            background-color: #b8962e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Addresses Section */
+
+        .z_address_type,
+        .z_order_id,
+        .z_wishlist_name {
+            font-size: clamp(14px, 4vw, 16px);
+        }
+
+        .z_addresses_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .z_address_card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .z_address_card:hover {
+            border-color: #94a691;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1);
+        }
+
+        .z_address_card.z_default {
+            border-color: #94a691;
+            background-color: #faf8f0;
+        }
+
+        .z_address_badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #94a691;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .z_address_type {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .z_address_details,
+        .z_order_item_meta {
+            font-size: clamp(12px, 3.2vw, 14px);
+        }
+
+        .z_address_details {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .z_address_actions {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 15px;
+        }
+
+        .z_address_actions a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+
+        .z_address_actions a:hover {
+            color: #94a691;
+        }
+
+        .z_address_actions a.z_delete {
+            color: #b23522;
+        }
+
+        .z_address_actions a.z_delete:hover {
+            color: #cc0000;
+        }
+
+        .z_add_address_form {
+            display: none;
+        }
+
+        .z_add_address_form.active {
+            display: block;
+        }
+
+
+        .z_btn_add_address {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: none;
+            width: 100%;
+        }
+
+        .z_btn_add_address:hover {
+            border-color: #94a691;
+            background-color: #faf8f0;
+        }
+
+        .z_btn_add_address i {
+            font-size: 2rem;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .z_btn_add_address p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .z_add_address_form {
+            margin-top: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafafa;
+            display: none;
+        }
+
+        .z_add_address_form.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .z_add_address_form .z_form_row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .z_add_address_form .z_form_group {
+            margin-bottom: 20px;
+        }
+
+        .z_add_address_form label {
+            display: block;
+            font-size: clamp(12px, 3vw, 14px);
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .z_add_address_form input,
+        .z_add_address_form select,
+        .z_add_address_form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: clamp(13px, 3.5vw, 15px);
+            transition: all 0.2s ease;
+            font-family: inherit;
+            background: #fff;
+        }
+
+        .z_add_address_form input:focus,
+        .z_add_address_form select:focus,
+        .z_add_address_form textarea:focus {
+            outline: none;
+            border-color: #94a691;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .z_add_address_form textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .z_address_form_actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .z_btn_cancel {
+            padding: 12px 20px;
+            background: transparent;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: clamp(14px, 3.5vw, 16px);
+            transition: all 0.2s ease;
+        }
+
+        .z_btn_cancel:hover {
+            border-color: #94a691;
+            color: #94a691;
+        }
+
+        /* Orders Section */
+        .z_orders_list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .z_order_card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .z_order_header {
+            background: #f8f8f8;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .z_order_id {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .z_order_date {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .z_order_status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .z_order_status.z_pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .z_order_status.z_processing {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .z_order_status.z_shipped {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .z_order_status.z_delivered {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .z_order_body {
+            padding: 20px;
+        }
+
+        .z_order_items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .z_order_item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .z_order_item_image {
+            width: 60px;
+            height: 60px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .z_order_item_details {
+            flex: 1;
+        }
+
+        .z_order_item_name {
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 3px;
+        }
+
+        .z_order_item_meta {
+            color: #666;
+        }
+
+        .z_order_item_price {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .z_order_footer {
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .z_order_total {
+            font-size: clamp(15px, 4vw, 18px);
+            font-weight: 600;
+            color: #000;
+        }
+
+        .z_order_total span {
+            color: #94a691;
+        }
+
+        .z_btn_view_order {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .z_btn_view_order:hover {
+            border-color: #94a691;
+            color: #94a691;
+        }
+
+        /* Wishlist Section */
+        .z_wishlist_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .z_wishlist_card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .z_wishlist_card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .z_wishlist_image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .z_wishlist_body {
+            padding: 15px;
+        }
+
+        .z_wishlist_name {
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .z_wishlist_price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .z_wishlist_current_price {
+            font-weight: 600;
+            color: #94a691;
+            font-size: 1.1rem;
+        }
+
+        .z_wishlist_original_price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+
+        .z_wishlist_actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .z_btn_add_to_cart {
+            flex: 1;
+            padding: 10px;
+            background: #94a691;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .z_btn_add_to_cart:hover {
+            background: #b8962e;
+        }
+
+        .z_btn_remove_wishlist {
+            padding: 10px;
+            background: transparent;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #b23522;
+            transition: all 0.2s ease;
+        }
+
+        .z_btn_remove_wishlist:hover {
+            background: #fff5f5;
+            border-color: #b23522;
+        }
+
+        /* Settings Section */
+        .z_settings_section {
+            margin-bottom: 30px;
+        }
+
+        .z_settings_title {
+            font-size: clamp(15px, 4vw, 18px);
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .z_settings_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .z_settings_item:last-child {
+            border-bottom: none;
+        }
+
+        .z_settings_info h4 {
+            font-size: clamp(13px, 3.5vw, 15px);
+            color: #000;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .z_settings_info p {
+            font-size: clamp(12px, 3vw, 14px);
+            color: #666;
+        }
+
+        .z_toggle_switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .z_toggle_switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .z_toggle_slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 26px;
+        }
+
+        .z_toggle_slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .z_toggle_switch input:checked+.z_toggle_slider {
+            background-color: #94a691;
+        }
+
+        .z_toggle_switch input:checked+.z_toggle_slider:before {
+            transform: translateX(24px);
+        }
+
+        .z_btn_danger {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid #b23522;
+            color: #b23522;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .z_btn_danger:hover {
+            background: #b23522;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .z_profile_layout {
+                grid-template-columns: 1fr;
+            }
+
+            .z_profile_sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .z_profile_page {
+                padding-top: 70px;
+            }
+
+
+            .z_profile_content {
+                padding: 20px;
+            }
+
+            .z_edit_profile_form .z_form_row {
+                grid-template-columns: 1fr;
+            }
+
+            .z_add_address_form .z_form_row {
+                grid-template-columns: 1fr;
+            }
+
+            .z_addresses_grid {
+                grid-template-columns: 1fr;
+            }
+
+            .z_order_header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .z_profile_sidebar_item {
+                padding: 10px 15px;
+                white-space: nowrap;
+            }
+
+            .z_profile_sidebar_menu {
+                flex-direction: row;
+                display: flex;
+                white-space: nowrap;
+                overflow-x: scroll;
+            }
+
+            .z_profile_sidebar_item.z_logout {
+                border-top: none;
+            }
+
+            @media (max-width: 480px) {
+
+                body {
+                    font-size: 13px;
+                }
+
+                .z_profile_content_title {
+                    font-size: 18px;
+                }
+
+                .z_btn_save,
+                .z_btn_add_to_cart {
+                    font-size: 13px;
+                    padding: 10px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-container"></div>
+
+    <!-- Profile Page Content -->
+    <div class="z_profile_page">
+        <div class="z_profile_container">
+            <div class="z_profile_layout">
+                <!-- Sidebar -->
+                <aside class="z_profile_sidebar">
+                    <div class="z_profile_sidebar_header">
+                        <div class="z_profile_sidebar_avatar">
+                            <img id="profileAvatar" class="z_profile_avatar_img" alt="Profile avatar">
+                            <i class="fa-solid fa-user-circle" id="profileAvatarIcon"></i>
+                            <!-- <button type="button" class="z_avatar_edit_btn" id="avatarEditBtn" title="Change photo">
+                                <i class="fa-solid fa-camera"></i>
+                            </button> -->
+                        </div>
+                        <div class="z_profile_sidebar_name" id="profileName">John Doe</div>
+                        <div class="z_profile_sidebar_email" id="profileEmail">john.doe@example.com</div>
+                    </div>
+                    <div class="z_profile_sidebar_menu">
+                        <a href="#" class="z_profile_sidebar_item active" data-tab="edit-profile">
+                            <i class="fa-solid fa-user"></i> Edit Profile
+                        </a>
+                        <a href="#" class="z_profile_sidebar_item" data-tab="addresses">
+                            <i class="fa-solid fa-map-marker-alt"></i> Addresses
+                        </a>
+                        <a href="#" class="z_profile_sidebar_item" data-tab="orders">
+                            <i class="fa-solid fa-shopping-bag"></i> Orders
+                        </a>
+                        <a href="#" class="z_profile_sidebar_item" data-tab="wishlist">
+                            <i class="fa-solid fa-heart"></i> Wishlist
+                        </a>
+                        <a href="#" class="z_profile_sidebar_item" data-tab="settings">
+                            <i class="fa-solid fa-cog"></i> Settings
+                        </a>
+                        <a href="#" class="z_profile_sidebar_item z_logout" id="sidebarLogout">
+                            <i class="fa-solid fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="z_profile_content">
+                    <!-- Edit Profile Tab -->
+                    <div class="z_tab_content active" id="edit-profile">
+                        <div class="z_profile_content_header">
+                            <h2 class="z_profile_content_title">Edit Profile</h2>
+                            <p class="z_profile_content_subtitle">Update your personal information</p>
+                        </div>
+                        <form class="z_edit_profile_form" id="editProfileForm">
+                            <div class="z_form_group z_avatar_upload">
+                                <img id="avatarPreview" class="z_avatar_preview" alt="Avatar preview">
+                                <div class="z_avatar_input">
+                                    <label for="avatarInput">Profile Image</label>
+                                    <input type="file" id="avatarInput" name="avatarInput" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="z_form_row">
+                                <div class="z_form_group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" placeholder="First name">
+                                </div>
+                                <div class="z_form_group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="z_form_group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Email address">
+                            </div>
+                            <div class="z_form_group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Phone number">
+                            </div>
+                            <div class="z_form_group">
+                                <label for="bio">Bio</label>
+                                <textarea id="bio" name="bio" placeholder="Tell us about yourself..."></textarea>
+                            </div>
+                            <div class="z_address_form_actions">
+                                <button type="button" class="z_btn_save" id="editProfileBtn">Edit Profile</button>
+                                <button type="submit" class="z_btn_save" id="saveProfileBtn" style="display:none;">Save Changes</button>
+                                <button type="button" class="z_btn_cancel" id="cancelEditProfileBtn" style="display:none;">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Addresses Tab -->
+                    <div class="z_tab_content" id="addresses">
+                        <div class="z_profile_content_header">
+                            <h2 class="z_profile_content_title">My Addresses</h2>
+                            <p class="z_profile_content_subtitle">Manage your delivery addresses</p>
+                        </div>
+                        <div class="z_addresses_grid">
+                            <div class="z_address_card z_default">
+                                <span class="z_address_badge">Default</span>
+                                <div class="z_address_type">Home</div>
+                                <div class="z_address_details">
+                                    John Doe<br>
+                                    123 Main Street<br>
+                                    Apt 4B<br>
+                                    New York, NY 10001<br>
+                                    United States<br>
+                                    +1 (555) 123-4567
+                                </div>
+                                <div class="z_address_actions">
+                                    <a href="#">Edit</a>
+                                    <a href="#">Set as Default</a>
+                                    <a href="#" class="z_delete">Delete</a>
+                                </div>
+                            </div>
+                            <div class="z_address_card">
+                                <div class="z_address_type">Office</div>
+                                <div class="z_address_details">
+                                    John Doe<br>
+                                    456 Business Ave<br>
+                                    Floor 10, Suite 1001<br>
+                                    New York, NY 10002<br>
+                                    United States<br>
+                                    +1 (555) 987-6543
+                                </div>
+                                <div class="z_address_actions">
+                                    <a href="#">Edit</a>
+                                    <a href="#">Set as Default</a>
+                                    <a href="#" class="z_delete">Delete</a>
+                                </div>
+                            </div>
+                            <form class="z_btn_add_address" id="addAddressBtn">
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Add New Address</p>
+                            </form>
+                        </div>
+
+                        <form class="z_add_address_form" id="addAddressForm">
+                            <div class="z_profile_content_header" style="margin-bottom: 15px; padding-bottom: 10px;">
+                                <h3 class="z_profile_content_title" style="font-size: clamp(16px, 4vw, 20px);">
+                                    Add New Address
+                                </h3>
+                                <p class="z_profile_content_subtitle">Fill the details below</p>
+                            </div>
+
+                            <div class="z_form_row">
+                                <div class="z_form_group">
+                                    <label for="addrFullName">Full Name</label>
+                                    <input type="text" id="addrFullName" name="addrFullName" placeholder="Full name">
+                                </div>
+                                <div class="z_form_group">
+                                    <label for="addrPhone">Phone Number</label>
+                                    <input type="tel" id="addrPhone" name="addrPhone" placeholder="Phone number">
+                                </div>
+                            </div>
+
+                            <div class="z_form_group">
+                                <label for="addrLine1">Address Line 1</label>
+                                <input type="text" id="addrLine1" name="addrLine1"
+                                    placeholder="House no, building, street">
+                            </div>
+
+                            <div class="z_form_group">
+                                <label for="addrLine2">Address Line 2</label>
+                                <input type="text" id="addrLine2" name="addrLine2"
+                                    placeholder="Apartment, suite, landmark (optional)">
+                            </div>
+
+                            <div class="z_form_row">
+                                <div class="z_form_group">
+                                    <label for="addrCity">City</label>
+                                    <input type="text" id="addrCity" name="addrCity" placeholder="City">
+                                </div>
+                                <div class="z_form_group">
+                                    <label for="addrState">State</label>
+                                    <input type="text" id="addrState" name="addrState" placeholder="State">
+                                </div>
+                            </div>
+
+                            <div class="z_form_row">
+                                <div class="z_form_group">
+                                    <label for="addrZip">Zip / Postal Code</label>
+                                    <input type="text" id="addrZip" name="addrZip" placeholder="Zip code">
+                                </div>
+                                <div class="z_form_group">
+                                    <label for="addrCountry">Country</label>
+                                    <input type="text" id="addrCountry" name="addrCountry" placeholder="Country">
+                                </div>
+                            </div>
+
+                            <div class="z_form_row">
+                                <div class="z_form_group">
+                                    <label for="addrType">Address Type</label>
+                                    <select id="addrType" name="addrType">
+                                        <option value="Home" selected>Home</option>
+                                        <option value="Office">Office</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="z_form_group">
+                                    <label for="addrDefault">Set as Default</label>
+                                    <select id="addrDefault" name="addrDefault">
+                                        <option value="no" selected>No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="z_address_form_actions">
+                                <button type="submit" class="z_btn_save">Save Address</button>
+                                <button type="button" class="z_btn_cancel" id="cancelAddressBtn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Orders Tab -->
+                    <div class="z_tab_content" id="orders">
+                        <div class="z_profile_content_header">
+                            <h2 class="z_profile_content_title">My Orders</h2>
+                            <p class="z_profile_content_subtitle">View and track your order history</p>
+                        </div>
+                        <div class="z_orders_list">
+                            <div class="z_order_card">
+                                <div class="z_order_header">
+                                    <div>
+                                        <span class="z_order_id">Order #ORD-2024-001</span>
+                                        <span class="z_order_date">Jan 15, 2024</span>
+                                    </div>
+                                    <span class="z_order_status z_delivered">Delivered</span>
+                                </div>
+                                <div class="z_order_body">
+                                    <div class="z_order_items">
+                                        <div class="z_order_item">
+                                            <img src="https://via.placeholder.com/60?text=Product" alt="Product"
+                                                class="z_order_item_image">
+                                            <div class="z_order_item_details">
+                                                <div class="z_order_item_name">Premium Wireless Headphones</div>
+                                                <div class="z_order_item_meta">Qty: 1 | Black</div>
+                                            </div>
+                                            <div class="z_order_item_price">$299.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="z_order_footer">
+                                    <div class="z_order_total">Total: <span>$299.00</span></div>
+                                    <button class="z_btn_view_order">View Details</button>
+                                </div>
+                            </div>
+                            <div class="z_order_card">
+                                <div class="z_order_header">
+                                    <div>
+                                        <span class="z_order_id">Order #ORD-2024-002</span>
+                                        <span class="z_order_date">Feb 20, 2024</span>
+                                    </div>
+                                    <span class="z_order_status z_shipped">Shipped</span>
+                                </div>
+                                <div class="z_order_body">
+                                    <div class="z_order_items">
+                                        <div class="z_order_item">
+                                            <img src="https://via.placeholder.com/60?text=Product" alt="Product"
+                                                class="z_order_item_image">
+                                            <div class="z_order_item_details">
+                                                <div class="z_order_item_name">Bluetooth Speaker</div>
+                                                <div class="z_order_item_meta">Qty: 2 | Black</div>
+                                            </div>
+                                            <div class="z_order_item_price">$149.00</div>
+                                        </div>
+                                        <div class="z_order_item">
+                                            <img src="https://via.placeholder.com/60?text=Product" alt="Product"
+                                                class="z_order_item_image">
+                                            <div class="z_order_item_details">
+                                                <div class="z_order_item_name">Premium Cable</div>
+                                                <div class="z_order_item_meta">Qty: 1 | White</div>
+                                            </div>
+                                            <div class="z_order_item_price">$59.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="z_order_footer">
+                                    <div class="z_order_total">Total: <span>$357.00</span></div>
+                                    <button class="z_btn_view_order">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist Tab -->
+                    <div class="z_tab_content" id="wishlist">
+                        <div class="z_profile_content_header">
+                            <h2 class="z_profile_content_title">My Wishlist</h2>
+                            <p class="z_profile_content_subtitle">Your saved items</p>
+                        </div>
+                        <div class="z_wishlist_grid">
+                            <!-- Dynamically loaded from profile.js -->
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="z_tab_content" id="settings">
+                        <div class="z_profile_content_header">
+                            <h2 class="z_profile_content_title">Account Settings</h2>
+                            <p class="z_profile_content_subtitle">Manage your account preferences</p>
+                        </div>
+
+                        <div class="z_settings_section">
+                            <h3 class="z_settings_title">Notifications</h3>
+                            <div class="z_settings_item">
+                                <div class="z_settings_info">
+                                    <h4>Email Notifications</h4>
+                                    <p>Receive updates about your orders via email</p>
+                                </div>
+                                <label class="z_toggle_switch">
+                                    <input type="checkbox" checked>
+                                    <span class="z_toggle_slider"></span>
+                                </label>
+                            </div>
+                            <div class="z_settings_item">
+                                <div class="z_settings_info">
+                                    <h4>SMS Notifications</h4>
+                                    <p>Receive updates about your orders via SMS</p>
+                                </div>
+                                <label class="z_toggle_switch">
+                                    <input type="checkbox">
+                                    <span class="z_toggle_slider"></span>
+                                </label>
+                            </div>
+                            <div class="z_settings_item">
+                                <div class="z_settings_info">
+                                    <h4>Marketing Emails</h4>
+                                    <p>Receive promotional offers and news</p>
+                                </div>
+                                <label class="z_toggle_switch">
+                                    <input type="checkbox">
+                                    <span class="z_toggle_slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="z_settings_section">
+                            <h3 class="z_settings_title">Security</h3>
+                            <div class="z_settings_item">
+                                <div class="z_settings_info">
+                                    <h4>Change Password</h4>
+                                    <p>Update your account password</p>
+                                </div>
+                                <button class="z_btn_danger">Change</button>
+                            </div>
+                            <div class="z_settings_item">
+                                <div class="z_settings_info">
+                                    <h4>Two-Factor Authentication</h4>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <label class="z_toggle_switch">
+                                    <input type="checkbox">
+                                    <span class="z_toggle_slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="z_settings_section">
+                            <h3 class="z_settings_title">Danger Zone</h3>
+                            <div class="z_settings_item">
+                                <div class="z_settings_info">
+                                    <h4>Delete Account</h4>
+                                    <p>Permanently delete your account and all data</p>
+                                </div>
+                                <button class="z_btn_danger">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="./js/header.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/wishlist.js"></script>
+    <script src="./js/profile.js"></script>
+    <script>
+        // Check login status
+
+
+
+        // Tab Navigation
+        document.querySelectorAll('.z_profile_sidebar_item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove active class from all sidebar items
+                document.querySelectorAll('.z_profile_sidebar_item').forEach(i => i.classList.remove('active'));
+
+                // Add active class to clicked item
+                this.classList.add('active');
+
+                // Hide all tab content
+                document.querySelectorAll('.z_tab_content').forEach(tab => tab.classList.remove('active'));
+
+                // Show selected tab content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Load user data
+        function getUserDisplayName(user = {}) {
+            const firstName = (user["First Name"] || user.firstName || "").trim();
+            const lastName = (user["Last Name"] || user.lastName || "").trim();
+            const fullName = `${firstName} ${lastName}`.trim();
+            return fullName || user.name || firstName || "";
+        }
+
+        function readStoredCurrentUser() {
+            try {
+                const raw = localStorage.getItem("currentUser");
+                return raw ? JSON.parse(raw) : null;
+            } catch (_) {
+                return null;
+            }
+        }
+
+        async function resolveCurrentUser() {
+            const storedCurrentUser = readStoredCurrentUser();
+            const userId = (localStorage.getItem("userId") || storedCurrentUser?.id || "").toString().trim();
+            const email = ((localStorage.getItem("userEmail") || storedCurrentUser?.email || "") + "").trim().toLowerCase();
+
+            if (!userId && !email) return storedCurrentUser || null;
+
+            // 1) Try json-server API
+            try {
+                if (userId) {
+                    const byIdResponse = await fetch(`http://localhost:3000/users/${encodeURIComponent(userId)}`);
+                    if (byIdResponse.ok) {
+                        const userById = await byIdResponse.json();
+                        if (userById && userById.id != null) return userById;
+                    }
+                }
+
+                if (email) {
+                    const byEmailResponse = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`);
+                    if (byEmailResponse.ok) {
+                        const users = await byEmailResponse.json();
+                        if (Array.isArray(users) && users.length > 0) return users[0];
+                    }
+                }
+            } catch (error) {
+                console.warn("API user lookup failed, trying db.json fallback:", error);
+            }
+
+            // 2) Fallback: read local db.json directly (live-server mode)
+            try {
+                const dbResponse = await fetch("./db.json");
+                if (dbResponse.ok) {
+                    const db = await dbResponse.json();
+                    const users = Array.isArray(db?.users) ? db.users : [];
+
+                    if (userId) {
+                        const foundById = users.find(u => String(u.id) === String(userId));
+                        if (foundById) return foundById;
+                    }
+                    if (email) {
+                        const foundByEmail = users.find(u => (u.email || "").toLowerCase() === email);
+                        if (foundByEmail) return foundByEmail;
+                    }
+                }
+            } catch (error) {
+                console.error("db.json fallback failed:", error);
+            }
+
+            return storedCurrentUser || null;
+        }
+
+        let lastLoadedProfile = null;
+
+        function populateProfileForm(profile = {}) {
+            const name = (profile.name || "").trim();
+            const email = (profile.email || "").trim().toLowerCase();
+            const phone = (profile.phone || "").trim();
+            const bio = (profile.bio || "").trim();
+            const avatar = profile.avatar || "";
+
+            // Update sidebar
+            const profileNameEl = document.getElementById('profileName');
+            const profileEmailEl = document.getElementById('profileEmail');
+            if (profileNameEl) profileNameEl.textContent = name || "John Doe";
+            if (profileEmailEl) profileEmailEl.textContent = email || "john.doe@example.com";
+            setAvatar(avatar);
+
+            // Update form fields (split name into first and last)
+            const nameParts = (name || "").split(' ');
+            const firstName = nameParts[0] || '';
+            const lastName = nameParts.slice(1).join(' ') || '';
+            const editProfileForm = document.getElementById('editProfileForm');
+            const firstNameInput = editProfileForm?.querySelector('#firstName');
+            const lastNameInput = editProfileForm?.querySelector('#lastName');
+            const emailInput = editProfileForm?.querySelector('#email');
+            const phoneInput = editProfileForm?.querySelector('#phone');
+            const bioInput = editProfileForm?.querySelector('#bio');
+
+            if (firstNameInput) firstNameInput.value = firstName;
+            if (lastNameInput) lastNameInput.value = lastName;
+            if (emailInput) emailInput.value = email;
+            if (phoneInput) phoneInput.value = phone;
+            if (bioInput) bioInput.value = bio;
+        }
+
+        function setProfileEditMode(isEditMode) {
+            const form = document.getElementById('editProfileForm');
+            if (!form) return;
+
+            const firstNameInput = form.querySelector('#firstName');
+            const lastNameInput = form.querySelector('#lastName');
+            const emailInput = form.querySelector('#email');
+            const phoneInput = form.querySelector('#phone');
+            const bioInput = form.querySelector('#bio');
+            const avatarInput = form.querySelector('#avatarInput');
+
+            [firstNameInput, lastNameInput, emailInput, phoneInput, bioInput].forEach(el => {
+                if (!el) return;
+                el.readOnly = !isEditMode;
+                if (!isEditMode) {
+                    el.setAttribute('tabindex', '-1');
+                } else {
+                    el.removeAttribute('tabindex');
+                }
+            });
+
+            if (avatarInput) avatarInput.disabled = !isEditMode;
+
+            const editBtn = document.getElementById('editProfileBtn');
+            const saveBtn = document.getElementById('saveProfileBtn');
+            const cancelBtn = document.getElementById('cancelEditProfileBtn');
+            if (editBtn) editBtn.style.display = isEditMode ? 'none' : 'inline-block';
+            if (saveBtn) saveBtn.style.display = isEditMode ? 'inline-block' : 'none';
+            if (cancelBtn) cancelBtn.style.display = isEditMode ? 'inline-block' : 'none';
+        }
+
+        async function loadUserData() {
+            const currentUser = await resolveCurrentUser();
+            const resolvedName = getUserDisplayName(currentUser);
+            const resolvedEmail = (currentUser?.email || "").trim().toLowerCase();
+            const resolvedPhone = (currentUser?.phone || localStorage.getItem("userPhone") || "").toString().trim();
+            const resolvedBio = (currentUser?.bio || localStorage.getItem("userBio") || "").toString().trim();
+
+            const name = resolvedName || localStorage.getItem("userName") || "John Doe";
+            const email = resolvedEmail || localStorage.getItem("userEmail") || "john.doe@example.com";
+            const avatar = localStorage.getItem("userAvatar") || "";
+            const phone = resolvedPhone;
+            const bio = resolvedBio;
+
+            if (name) localStorage.setItem("userName", name);
+            if (email) localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPhone", phone);
+            localStorage.setItem("userBio", bio);
+            if (currentUser && currentUser.id != null) {
+                localStorage.setItem("userId", currentUser.id);
+                localStorage.setItem("currentUser", JSON.stringify({
+                    id: currentUser.id,
+                    email: email || currentUser.email || "",
+                    name: name,
+                    phone: phone,
+                    bio: bio
+                }));
+            }
+
+            lastLoadedProfile = { name, email, phone, bio, avatar };
+            populateProfileForm(lastLoadedProfile);
+            setProfileEditMode(false);
+        }
+
+        function setAvatar(src) {
+            const avatarImage = document.getElementById('profileAvatar');
+            const avatarIcon = document.getElementById('profileAvatarIcon');
+            const avatarPreview = document.getElementById('avatarPreview');
+
+            if (src) {
+                avatarImage.src = src;
+                avatarImage.style.display = "block";
+                if (avatarPreview) {
+                    avatarPreview.src = src;
+                    avatarPreview.style.display = "block";
+                }
+                if (avatarIcon) {
+                    avatarIcon.style.display = "none";
+                }
+            } else {
+                avatarImage.style.display = "none";
+                if (avatarPreview) {
+                    avatarPreview.style.display = "none";
+                }
+                if (avatarIcon) {
+                    avatarIcon.style.display = "flex";
+                }
+            }
+        }
+
+        const avatarInput = document.getElementById('avatarInput');
+        const avatarEditBtn = document.getElementById('avatarEditBtn');
+
+        if (avatarEditBtn && avatarInput) {
+            avatarEditBtn.addEventListener('click', function () {
+                avatarInput.click();
+            });
+        }
+
+        if (avatarInput) {
+            avatarInput.addEventListener('change', function () {
+                const file = this.files && this.files[0];
+                if (!file) return;
+                if (!file.type.startsWith("image/")) {
+                    alert("Please select an image file.");
+                    this.value = "";
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const dataUrl = event.target.result;
+                    localStorage.setItem("userAvatar", dataUrl);
+                    if (lastLoadedProfile) lastLoadedProfile.avatar = dataUrl;
+                    setAvatar(dataUrl);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Save profile changes
+        const editProfileForm = document.getElementById('editProfileForm');
+        editProfileForm?.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const firstNameInput = editProfileForm.querySelector('#firstName');
+            const lastNameInput = editProfileForm.querySelector('#lastName');
+            const emailInput = editProfileForm.querySelector('#email');
+            const phoneInput = editProfileForm.querySelector('#phone');
+            const bioInput = editProfileForm.querySelector('#bio');
+
+            const firstName = (firstNameInput?.value || '').trim();
+            const lastName = (lastNameInput?.value || '').trim();
+            const email = (emailInput?.value || '').trim().toLowerCase();
+            const phone = (phoneInput?.value || '').trim();
+            const bio = (bioInput?.value || '').trim();
+            const fullName = `${firstName} ${lastName}`.trim();
+
+            // Save to localStorage
+            localStorage.setItem("userName", fullName);
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPhone", phone);
+            localStorage.setItem("userBio", bio);
+
+            // Update sidebar
+            const profileNameEl = document.getElementById('profileName');
+            const profileEmailEl = document.getElementById('profileEmail');
+            if (profileNameEl) profileNameEl.textContent = fullName;
+            if (profileEmailEl) profileEmailEl.textContent = email;
+
+            // Keep currentUser cache in sync
+            const currentUser = readStoredCurrentUser() || {};
+            const mergedUser = {
+                ...currentUser,
+                id: localStorage.getItem("userId") || currentUser.id,
+                name: fullName,
+                email,
+                phone,
+                bio
+            };
+            localStorage.setItem("currentUser", JSON.stringify(mergedUser));
+
+            // Best-effort API sync
+            const userId = localStorage.getItem("userId");
+            if (userId) {
+                try {
+                    await fetch(`http://localhost:3000/users/${encodeURIComponent(userId)}`, {
+                        method: "PATCH",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            "First Name": firstName,
+                            "Last Name": lastName,
+                            email,
+                            phone,
+                            bio
+                        })
+                    });
+                } catch (err) {
+                    console.warn("Profile API sync failed:", err);
+                }
+            }
+
+            lastLoadedProfile = {
+                name: fullName,
+                email,
+                phone,
+                bio,
+                avatar: localStorage.getItem("userAvatar") || ""
+            };
+            setProfileEditMode(false);
+            alert('Profile updated successfully!');
+        });
+
+        // Edit/Cancel actions for static profile view
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const cancelEditProfileBtn = document.getElementById('cancelEditProfileBtn');
+        editProfileBtn?.addEventListener('click', () => setProfileEditMode(true));
+        cancelEditProfileBtn?.addEventListener('click', () => {
+            if (lastLoadedProfile) {
+                populateProfileForm(lastLoadedProfile);
+            }
+            setProfileEditMode(false);
+        });
+
+        // Logout functionality
+        function logout() {
+            localStorage.removeItem("userLoggedIn");
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userId");
+            localStorage.removeItem("currentUser");
+            localStorage.removeItem("userPhone");
+            localStorage.removeItem("userBio");
+            alert('Logged out successfully!');
+            window.location.href = "Home.html";
+        }
+
+        // Add logout event listeners
+        const sidebarLogoutBtn = document.getElementById('sidebarLogout');
+        sidebarLogoutBtn?.addEventListener('click', function (e) {
+            e.preventDefault();
+            logout();
+        });
+
+        const headerLogoutBtn = document.getElementById('logoutBtn');
+        headerLogoutBtn?.addEventListener('click', function (e) {
+            e.preventDefault();
+            logout();
+        });
+        // Initialize
+        loadUserData();
+    </script>
+
+    <script>
+        const addAddressBtn = document.getElementById("addAddressBtn");
+        const addAddressForm = document.getElementById("addAddressForm");
+        const cancelAddressBtn = document.getElementById("cancelAddressBtn");
+
+        // Open form
+        addAddressBtn.addEventListener("click", () => {
+            addAddressForm.classList.add("active");
+            addAddressForm.scrollIntoView({ behavior: "smooth" });
+        });
+
+        // Close form
+        cancelAddressBtn.addEventListener("click", () => {
+            addAddressForm.classList.remove("active");
+        });
+    </script>
+
+
+</body>
+
+</html>

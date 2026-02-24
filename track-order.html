@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order | Premium Accessories Store</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style/d_style.css">
+    <link rel="stylesheet" href="/style/x_style.css">
+</head>
+
+<body style="margin:0;">
+
+    <div id="header-container"></div>
+
+    <div class="d_track-wrapper">
+        <div class="d_track-card">
+
+            <div class="d_track-left">
+                <h1>Track Order</h1>
+                <p>Find out exactly where your package is.</p>
+
+                <div class="d_track-form-group">
+                    <label class="d_track-label">Order ID</label>
+                    <input type="text" id="orderId" class="d_track-input" placeholder="e.g. ORD-10293">
+                </div>
+
+                <div class="d_track-form-group">
+                    <label class="d_track-label">Email Address</label>
+                    <input type="email" id="contact" class="d_track-input" placeholder="you@example.com">
+                </div>
+
+                <button onclick="trackOrder()" class="d_track-btn">Track Now</button>
+            </div>
+
+            <div class="d_track-right">
+                <div id="placeholder" style="text-align:center; color: var(--muted); opacity: 0.7;">
+                    <p>Results will be displayed here.</p>
+                </div>
+
+                <div class="d_track-loader" id="loader">
+                    <div class="d_track-spinner"></div>
+                    <p style="font-size: 0.9rem; color: var(--muted);">Checking our database...</p>
+                </div>
+
+                <div class="d_track-status-content" id="statusContent">
+                    <div class="d_track-status-header">
+                        <h3 id="statusText" style="color:var(--dark); margin-bottom: 5px;">In Transit</h3>
+                        <p id="statusMsg" style="font-size:0.85rem; color:var(--muted)">Your package is on its way.</p>
+                    </div>
+
+                    <div class="d_track-progress-container">
+                        <div class="d_track-progress-track">
+                            <div class="d_track-progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="d_track-steps">
+                            <div class="d_track-step" id="s1">
+                                <div class="d_track-dot"></div><span class="d_track-step-label">PLACED</span>
+                            </div>
+                            <div class="d_track-step" id="s2">
+                                <div class="d_track-dot"></div><span class="d_track-step-label">SHIPPED</span>
+                            </div>
+                            <div class="d_track-step" id="s3">
+                                <div class="d_track-dot"></div><span class="d_track-step-label">OUT</span>
+                            </div>
+                            <div class="d_track-step" id="s4">
+                                <div class="d_track-dot"></div><span class="d_track-step-label">DONE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d_track-order-details-box">
+                        <h4>Order Summary</h4>
+                        <div class="d_track-detail-row"><span>Product:</span><span id="d-prod">iPhone 15 Case</span>
+                        </div>
+                        <div class="d_track-detail-row"><span>Quantity:</span><span>1 Unit</span></div>
+                        <div class="d_track-detail-row"><span>Total:</span><span id="d-price">₹1,299.00</span></div>
+                        <div class="d_track-detail-row"><span>Method:</span><span>Online Payment</span></div>
+                        <div class="d_track-detail-row"><span>City:</span><span>Surat, India</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer"></div>
+    <script src="./js/script.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/wishlist.js"></script>
+    <script src="./js/cart.js"></script>
+
+
+    <script>
+        function trackOrder() {
+            const oid = document.getElementById("orderId").value;
+            const mail = document.getElementById("contact").value;
+
+            if (!oid || !mail) {
+                alert("Please enter both Order ID and Email"); return;
+            }
+
+            document.getElementById("placeholder").style.display = "none";
+            document.getElementById("statusContent").style.display = "none";
+            document.getElementById("loader").style.display = "block";
+
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("statusContent").style.display = "block";
+
+                const scenarios = [
+                    { status: "Order Shipped", msg: "Your package has left our Surat warehouse.", fill: 35, step: 2, prod: "Wireless Earbuds X2" },
+                    { status: "Out for Delivery", msg: "The delivery partner is near your area.", fill: 70, step: 3, prod: "65W Fast Charger" },
+                    { status: "Delivered", msg: "Delivered successfully. Thank you!", fill: 100, step: 4, prod: "Matte Glass Screen Guard" }
+                ];
+
+                const pick = scenarios[Math.floor(Math.random() * scenarios.length)];
+
+                document.getElementById("statusText").innerText = pick.status;
+                document.getElementById("statusMsg").innerText = pick.msg;
+                document.getElementById("d-prod").innerText = pick.prod;
+
+                setTimeout(() => {
+                    document.getElementById("progressFill").style.width = pick.fill + "%";
+                }, 100);
+
+                for (let i = 1; i <= 4; i++) {
+                    document.getElementById("s" + i).classList.toggle("d_track-active", i <= pick.step);
+                }
+            }, 1200);
+        }
+    </script>
+
+</body>
+
+</html>

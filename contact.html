@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- External Custom CSS -->
+    <link rel="stylesheet" href="style/a_style.css">
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <section class="a_contact_v2">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-5 position-relative mb-5 mb-lg-0">
+                    <div class="a_contact-image-wrap">
+                        <img src="https://i.pinimg.com/1200x/b4/ff/84/b4ff84369c0810643ebcd8d5df379681.jpg"
+                            alt="Aesthetic Product" class="img-fluid main-img">
+                        <div class="a_floating-contact-card">
+                            <div class="a_contact-badge">Connect</div>
+                            <h3 class="mt-3 serif-font">Let's create something beautiful.</h3>
+                            <p class="text-muted small italic">We typically reply within a few hours.</p>
+                            <div class="mt-4 contact-info-links">
+                                <a href="mailto:hi@aceaccessories.com" class="contact-link">hi@aceaccessories.com</a>
+                                <a href="tel:123456" class="contact-link">+1 (800) 123 4567</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="form-header mb-5">
+                        <span class="sub-title">Get In Touch</span>
+                        <h2 class="display-5 fw-bold mt-2">Say Hello.</h2>
+                    </div>
+
+                    <form class="minimal-form" id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <input type="text" id="contactName" class="form-input" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <input type="email" id="contactEmail" class="form-input" placeholder="Email Address"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <select id="contactSubject" class="form-input" required>
+                                <option value="" selected disabled>How can we help?</option>
+                                <option value="Order Support">Order Support</option>
+                                <option value="Partnerships">Partnerships</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="mb-5">
+                            <textarea id="contactMessage" class="form-input" rows="3"
+                                placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-aesthetic" id="contactSubmitBtn">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                        <div id="contactResponse" class="mt-4" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="map-container-aesthetic">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.462947472015!2d72.8291416759522!3d21.21346398099354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04eec2973167b%3A0x66f9180735398701!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/wishlist.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/contact.js"></script>
+    <script src="./js/header.js"></script>
+
+</body>
+
+</html>

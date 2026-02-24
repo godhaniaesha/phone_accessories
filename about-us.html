@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Glaze & Guard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&family=Fredoka:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pastel-pink: #ffe5ec;
+            --pastel-blue: #d8e2dc;
+            --pastel-yellow: #fefae0;
+            --pastel-purple: #f3e5f5;
+            --text-main: #4a5759;
+            --accent: #9d8189;
+            --glass: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Main Wrapper Style */
+        .d_abt_wrapper {
+            font-family: 'Outfit', sans-serif;
+            background-color: #faf9f6;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .d_abt_wrapper h1,
+        .d_abt_wrapper h2,
+        .d_abt_wrapper h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--accent);
+        }
+
+        /* --- MODERN HERO --- */
+        .d_abt_hero_wrap {
+            padding: 120px 0 80px;
+            background: radial-gradient(circle at top right, var(--pastel-pink), transparent),
+                radial-gradient(circle at bottom left, var(--pastel-blue), transparent);
+            text-align: left;
+            position: relative;
+        }
+
+        .d_abt_hero_title {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 0.9;
+            letter-spacing: -2px;
+        }
+
+        .d_abt_hero_image_container {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .d_abt_img_main_wrapper {
+            width: 75%;
+            z-index: 2;
+            transform: rotate(-3deg);
+            transition: 0.5s ease;
+            animation: d_abt_float-anim 4s ease-in-out infinite;
+        }
+
+        .d_abt_img_main_premium {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 50px;
+            box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.1);
+            border: 8px solid white;
+        }
+
+        .d_abt_img_floating_lifestyle {
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 40px;
+            z-index: 3;
+            border: 6px solid white;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.08);
+            transform: rotate(12deg);
+            animation: d_abt_float-anim 5s ease-in-out infinite reverse;
+        }
+
+        .d_abt_glass_info_tag {
+            position: absolute;
+            bottom: 40px;
+            left: -30px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 30px;
+            z-index: 4;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 200px;
+        }
+
+        @keyframes d_abt_float-anim {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(-1deg);
+            }
+        }
+
+        .d_abt_hero_image_container:hover .d_abt_img_main_wrapper {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        /* --- MARQUEE --- */
+        .d_abt_marquee_text {
+            background: var(--accent);
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transform: rotate(-1deg);
+            width: 110vw;
+            margin-left: -5vw;
+        }
+
+        .d_abt_marquee_content {
+            display: inline-block;
+            animation: d_abt_scroll 30s linear infinite;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes d_abt_scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* --- FEATURE CARDS --- */
+        .d_abt_feature_card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 35px;
+            padding: 40px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .d_abt_feature_card:hover {
+            transform: translateY(-10px);
+            background: white;
+        }
+
+        /* --- STORY SECTION --- */
+        .d_abt_story_visual_container {
+            position: relative;
+            padding: 20px;
+        }
+
+        .d_abt_floating_img {
+            border-radius: 30px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+            transition: 0.5s ease;
+            background: white;
+            padding: 10px;
+        }
+
+        .d_abt_img_tilt_left {
+            transform: rotate(-5deg);
+        }
+
+        .d_abt_img_tilt_right {
+            transform: rotate(5deg);
+        }
+
+        .d_abt_stats_pill_group {
+            background: white;
+            border-radius: 100px;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            border: 1px solid var(--pastel-blue);
+        }
+
+        .d_abt_stat_item h4 {
+            margin-bottom: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        /* --- BUTTONS --- */
+        .d_abt_btn_main {
+            background: var(--text-main);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .d_abt_btn_main:hover {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .d_abt_story_btn {
+            padding: 18px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        @media (max-width: 576px) {
+            .d_abt_btn_main {
+                padding: 14px 18px;
+            }
+
+            .d_abt_story_btn {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-container"></div>
+
+    <div class="d_abt_wrapper">
+
+        <header class="d_abt_hero_wrap">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <span class="text-uppercase fw-bold mb-3 d-block"
+                            style="letter-spacing: 3px; color: var(--accent);">Est. 2026</span>
+                        <h1 class="d_abt_hero_title mb-4">Soft on hands. <br><span style="color: #b8bedd;">Tough</span>
+                            on drops.</h1>
+                        <p class="lead mb-5 opacity-75" style="max-width: 500px;">We design mobile armor for the modern
+                            minimalist. Beautifully muted tones meet military-grade protection.</p>
+                        <div class="d-flex gap-3">
+                            <a href="#collection" class="d_abt_btn_main">Shop Collection</a>
+                            <a href="#story" class="d_abt_story_btn">Our Story →</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="d_abt_hero_image_container">
+                            <div class="d_abt_img_main_wrapper">
+                                <img src="https://i.pinimg.com/1200x/d8/67/e2/d867e25416f27feca2d56e08b4ce7523.jpg"
+                                    class="d_abt_img_main_premium" alt="Premium Case">
+                            </div>
+                            <img src="https://i.pinimg.com/736x/32/6d/77/326d778e18a2e5d74dc0e80a6ee481ef.jpg"
+                                class="d_abt_img_floating_lifestyle" alt="Lifestyle Detail">
+
+                            <div class="d_abt_glass_info_tag text-center">
+                                <span class="d-block fw-bold" style="font-size: 0.9rem;">Cloud Series</span>
+                                <small class="opacity-75">New Pastel Drop</small>
+                                <div class="mt-2 text-warning">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="d_abt_marquee_text">
+            <div class="d_abt_marquee_content">
+                ✦ CLOUD-FEEL TEXTURE ✦ 10FT DROP TESTED ✦ MAGSAFE COMPATIBLE ✦ SUSTAINABLE PACKAGING ✦ NO-FADE PIGMENTS
+                ✦ CLOUD-FEEL TEXTURE ✦ 10FT DROP TESTED ✦ MAGSAFE COMPATIBLE ✦ SUSTAINABLE PACKAGING ✦ NO-FADE PIGMENTS
+                ✦
+            </div>
+        </div>
+
+        <section class="container py-5 mt-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4">Built for the "Oops" moments.</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-xl-3">
+                    <div class="d_abt_feature_card text-center" style="background: var(--pastel-pink);">
+                        <h3>01</h3>
+                        <h5 class="fw-bold">Velvet Grip</h5>
+                        <p class="small mb-0">Our signature liquid silicone finish that never slips but feels like silk.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="d_abt_feature_card text-center" style="background: var(--pastel-blue);">
+                        <h3>02</h3>
+                        <h5 class="fw-bold">MagSafe+</h5>
+                        <p class="small mb-0">Integrated N52 magnets for the strongest snap-on connection in the game.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="d_abt_feature_card text-center" style="background: var(--pastel-yellow);">
+                        <h3>03</h3>
+                        <h5 class="fw-bold">Eco-Shield</h5>
+                        <p class="small mb-0">Crafted from 65% plant-based materials without compromising strength.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="d_abt_feature_card text-center" style="background: var(--pastel-purple);">
+                        <h3>04</h3>
+                        <h5 class="fw-bold">Lens Guard</h5>
+                        <p class="small mb-0">Raised 2mm bezels to keep your pro-grade lenses scratch-free.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container py-5" id="story">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <h2 class="display-5 mb-4">The Curators <br>of <span style="color: var(--accent);">Calm Tech</span>
+                    </h2>
+                    <p class="mb-4 lead" style="color: var(--text-main);">Why choose between a tank and a fashion
+                        statement?</p>
+                    <p class="mb-4 opacity-75">Glaze & Guard was born in 2024 from a simple frustration: tech
+                        accessories were either "industrial-ugly" or "fragile-pretty." We spent 14 months in the lab
+                        perfecting our <strong>Dust-Repel™ silicone</strong>—a material that feels like a cloud but
+                        protects like armor.</p>
+
+                    <div class="d_abt_stats_pill_group">
+                        <div class="d_abt_stat_item text-center">
+                            <h4>12k+</h4>
+                            <small class="text-muted">Users</small>
+                        </div>
+                        <div class="d_abt_stat_item text-center">
+                            <h4>22</h4>
+                            <small class="text-muted">Shades</small>
+                        </div>
+                        <div class="d_abt_stat_item text-center">
+                            <h4>100%</h4>
+                            <small class="text-muted">Eco</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="row g-4 d_abt_story_visual_container">
+                        <div class="col-6">
+                            <img src="https://img.freepik.com/premium-photo/illustration-cute-boy-avatar-graphic-white-background-created-with-generative-ai-technology_67092-4564.jpg"
+                                class="w-100 d_abt_floating_img d_abt_img_tilt_left mb-4" alt="Studio">
+                            <div class="p-4 rounded-5 text-center" style="background: var(--pastel-yellow);">
+                                <span class="d-block fw-bold">Studio Born</span>
+                                <small>London, UK</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 rounded-5 text-center mb-4" style="background: var(--pastel-purple);">
+                                <p class="mb-0 small fw-bold italic">"The softest case I've ever owned."</p>
+                            </div>
+                            <img src="https://img.freepik.com/premium-photo/illustration-cute-girl-avatar-graphic-white-background-created-with-generative-ai-technology_67092-4964.jpg"
+                                class="w-100 d_abt_floating_img d_abt_img_tilt_right" alt="Texture">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="container text-center">
+            <div class="py-5" style="border-top: 1px solid #eee;">
+                <h3 class="mb-4">Elevate your everyday carry.</h3>
+                <a href="#" class="d_abt_btn_main">Browse All Accessories</a>
+            </div>
+        </footer>
+
+    </div>
+    <div id="footer"></div>
+    <script src="./js/wishlist.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/header.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique E-commerce Why Choose Us</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+        .d_unique_wrapper {
+            --d-sage: #9fb094;
+            --d-clay: #d7c4a3;
+            --d-cream: #f9f7f2;
+            --d-dark: #3e4139;
+            --d-white: #ffffff;
+            
+            background: var(--d-cream);
+            /* padding: 100px 0; */
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            position: relative;
+            border-top: 1px dashed #abb1a3;
+            /* border-bottom: 1px dashed #abb1a3; */
+        }
+
+        /* Abstract Background Decor */
+        .d_unique_wrapper::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--d-sage) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .d_unique_wrapper .d_title_area {
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .d_unique_wrapper .d_badge {
+            background: var(--d-clay);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* THE PEBBLE CARD */
+        .d_unique_wrapper .d_pebble_card {
+            background: var(--d-white);
+            padding: 40px 25px;
+            /* Unique Organic Shape */
+            border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            text-align: center;
+            border: 1px solid rgba(159, 176, 148, 0.1);
+            position: relative;
+            box-shadow: 20px 20px 60px #cfcfce, -20px -20px 60px #ffffff;
+        }
+
+        /* Alternate shapes for every second card */
+        .d_unique_wrapper .col-md-3:nth-child(even) .d_pebble_card {
+            border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+            margin-top: 30px; /* Staggered effect */
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .d_unique_wrapper .d_pebble_card:hover {
+            border-radius: 50% !important;
+            transform: scale(1.05) rotate(2deg);
+            background: var(--d-sage) !important;
+            box-shadow: 0 30px 50px rgba(159, 176, 148, 0.4);
+        }
+
+        /* ICON JELLY ANIMATION */
+        .d_unique_wrapper .d_icon_wrap {
+            width: 80px;
+            height: 80px;
+            background: var(--d-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--d-sage);
+            transition: 0.5s;
+        }
+
+        .d_unique_wrapper .d_pebble_card:hover .d_icon_wrap {
+            background: white;
+            color: var(--d-clay);
+            animation: d_jelly 0.6s both;
+        }
+
+        @keyframes d_jelly {
+            0% { transform: scale(1, 1); }
+            30% { transform: scale(1.25, 0.75); }
+            40% { transform: scale(0.75, 1.25); }
+            50% { transform: scale(1.15, 0.85); }
+            65% { transform: scale(0.95, 1.05); }
+            75% { transform: scale(1.05, 0.95); }
+            100% { transform: scale(1, 1); }
+        }
+
+        .d_unique_wrapper .d_card_title {
+            font-weight: 800;
+            color: var(--d-dark);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .d_unique_wrapper .d_card_desc {
+            font-size: 0.85rem;
+            color: #7a7a7a;
+            line-height: 1.6;
+        }
+
+        .d_unique_wrapper .d_pebble_card:hover .d_card_title,
+        .d_unique_wrapper .d_pebble_card:hover .d_card_desc {
+            color: white;
+        }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .d_unique_wrapper .col-6 {
+                padding: 10px;
+            }
+            .d_unique_wrapper .d_pebble_card {
+                padding: 30px 15px;
+            }
+            .d_unique_wrapper .col-md-3:nth-child(even) .d_pebble_card {
+                margin-top: 15px;
+            }
+            .d_unique_wrapper .d_main_h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="d_unique_wrapper x_section">
+    <div class="container">
+        
+        <div class="row justify-content-center text-center d_title_area">
+            <div class="col-lg-7">
+                <span class="d_badge">The Experience</span>
+                <h2 class="d_main_h2" style="font-weight: 900; font-family: 'Fredoka'; color: #7c6f64;">Why Our Curated Shop?</h2>
+                <p class="opacity-75">Moving beyond transactions into a sustainable lifestyle.</p>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="d_pebble_card">
+                    <div class="d_icon_wrap">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <h5 class="d_card_title">Carbon Neutral</h5>
+                    <p class="d_card_desc">Breath easy knowing our shipping is offset.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="d_pebble_card">
+                    <div class="d_icon_wrap">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </div>
+                    <h5 class="d_card_title">Unique Finds</h5>
+                    <p class="d_card_desc">Items you won't find in big-box stores.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="d_pebble_card">
+                    <div class="d_icon_wrap">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h5 class="d_card_title">Pure Source</h5>
+                    <p class="d_card_desc">Ethics first, products second. Always.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="d_pebble_card">
+                    <div class="d_icon_wrap">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h5 class="d_card_title">Magic Unboxing</h5>
+                    <p class="d_card_desc">Every package includes a small surprise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Entertaining Script: Hover Sound effect or Gyroscope feel
+    const cards = document.querySelectorAll('.d_pebble_card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add a subtle vibration for mobile users who hold-press
+            if ('vibrate' in navigator) {
+                navigator.vibrate(10);
+            }
+        });
+
+        // Unique Interaction: Randomly shift the border radius slightly on click
+        card.addEventListener('mousedown', function() {
+            const randomShape = `${Math.random()*100}% ${Math.random()*100}% ${Math.random()*100}% ${Math.random()*100}%`;
+            this.style.borderRadius = randomShape;
+        });
+    });
+</script>
+
+</body>
+</html>

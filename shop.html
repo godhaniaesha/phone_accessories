@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shop - Luxury Accessories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- External Custom CSS -->
+    <link rel="stylesheet" href="style/x_style.css">
+    <link rel="stylesheet" href="style/z_style.css">
+    <link rel="stylesheet" href="style/shop.css">
+</head>
+
+<body>
+
+    <div id="header-container"></div>
+
+    <!-- Shop Hero Section -->
+    <section class="s_shop_hero">
+        <div class="s_shop_hero_overlay"></div>
+        <div class="container s_shop_hero_container">
+            <h1 class="s_shop_hero_title">Shop Our Collection</h1>
+            <p class="s_shop_hero_subtitle">Discover luxury accessories for your lifestyle.</p>
+        </div>
+    </section>
+
+    <!-- Main Shop Section -->
+    <section class="s_shop_main_section">
+        <div class="container">
+            <div class="row mt-5">
+                <!-- Sidebar (Desktop) -->
+                <aside class="col-lg-3 s_shop_sidebar d-none d-lg-block">
+                    <!-- Filter By Widget -->
+                    <div class="s_sidebar_widget">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="s_sidebar_title mb-0">Filter By</h4>
+                            <a href="#" id="clearFilters" class="text-muted small text-decoration-none"
+                                style="display: none; font-size: 13px;">Clear all</a>
+                        </div>
+
+                        <div class="s_filter_box border p-4 rounded-1">
+                            <!-- Category Filter -->
+                            <div class="s_filter_section mb-4">
+                                <h6 class="s_filter_subtitle mb-3">Categories</h6>
+                                <ul class="s_category_list" id="categoryList">
+                                    <li><a href="#">Mobile Covers & Cases</a></li>
+                                    <li><a href="#">Screen Protectors</a></li>
+                                    <li><a href="#">Chargers & Adapters</a></li>
+                                    <li><a href="#">USB Cables</a></li>
+                                    <li><a href="#">Power Banks</a></li>
+                                    <li><a href="#">Earphones & Headphones</a></li>
+                                    <li><a href="#">Bluetooth Speakers</a></li>
+                                    <li><a href="#">Other Accessories</a></li>
+                                </ul>
+                            </div>
+                            <!-- Brands Filter -->
+                            <div class="s_filter_section mb-4">
+                                <h6 class="s_filter_subtitle mb-3">Brands</h6>
+                                <ul class="s_brand_list">
+                                    <li><a href="#">Sony</a></li>
+                                    <li><a href="#">Panasonic</a></li>
+                                    <li><a href="#">Apple </a></li>
+                                    <li><a href="#">Samsung </a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Product Grid -->
+                <div class="col-lg-9 s_shop_products">
+                    <!-- Toolbar with Mobile Filter and Sort By -->
+                    <div class="d-block d-md-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+                        <!-- Mobile Filter Toggle Button -->
+                        <div class="d-lg-none mb-4 mb-md-0">
+                            <button class="btn btn-outline-dark w-100 w-md-auto" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas"
+                                aria-controls="filterOffcanvas">
+                                <i class="fas fa-filter me-2"></i> Filter
+                            </button>
+                        </div>
+
+                        <!-- Sort By Dropdown -->
+                        <div class="d-flex align-items-center gap-2 ms-md-auto mx-auto mx-md-0">
+                            <label for="sortBy" class="mb-0 fw-semibold" style="white-space: nowrap;">Sort By:</label>
+                            <select id="sortBy" class="form-select form-select-sm s_sort_dropdown">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Rating: High to Low</option>
+                                <option value="name-az">Name: A-Z</option>
+                                <option value="name-za">Name: Z-A</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-4" id="product-grid">
+                        <!-- Products will be injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="s_shop_pagination">
+                <a href="#" class="s_page_link s_rec_prev"><i class="fas fa-arrow-left"></i>Prev</a>
+                <div class="s_page_numbers">
+                    <a href="#" class="s_page_number active">1</a>
+                    <a href="#" class="s_page_number">2</a>
+                    <a href="#" class="s_page_number">3</a>
+                    <span class="s_dots">...</span>
+                    <a href="#" class="s_page_number">8</a>
+                    <a href="#" class="s_page_number">9</a>
+                    <a href="#" class="s_page_number">10</a>
+                </div>
+                <a href="#" class="s_page_link s_rec_next">Next<i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="s_shop_recommendations">
+        <div class="container">
+            <div class="s_rec_header">
+                <h3>Explore our recommendations</h3>
+            </div>
+
+            <div class="owl-carousel owl-theme" id="recommendationsCarousel"></div>
+
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <!-- Mobile Filter Offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="filterOffcanvasLabel">Filter Products</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            <!-- Filter By Widget -->
+            <div class="s_sidebar_widget">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="s_sidebar_title mb-0">Filter By</h4>
+                    <a href="#" id="clearFiltersMobile" class="text-muted small text-decoration-none"
+                        style="display: none; font-size: 13px;">Clear all</a>
+                </div>
+                <div class="s_filter_box border p-4 rounded-1">
+
+                    <!-- Brands Filter -->
+                    <div class="s_filter_section mb-4">
+                        <h6 class="s_filter_subtitle mb-3">Brands</h6>
+                        <ul class="s_brand_list">
+                            <li><a href="#">Sony </a></li>
+                            <li><a href="#">Panasonic </a></li>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Samsung </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="s_filter_section mb-4">
+                        <h6 class="s_filter_subtitle mb-3">Categories</h6>
+                        <ul class="s_category_list">
+                            <li><a href="#">Mobile Covers & Cases</a></li>
+                            <li><a href="#">Screen Protectors</a></li>
+                            <li><a href="#">Chargers & Adapters</a></li>
+                            <li><a href="#">USB Cables</a></li>
+                            <li><a href="#">Power Banks</a></li>
+                            <li><a href="#">Earphones & Headphones</a></li>
+                            <li><a href="#">Bluetooth Speakers</a></li>
+                            <li><a href="#">Other Accessories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/wishlist.js"></script>
+    <script src="./js/shop.js"></script>
+    <script src="./js/recommendations.js"></script>
+</body>
+
+</html>

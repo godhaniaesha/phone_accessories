@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "api": "json-server db.json",
+    "start:api": "json-server db.json",
+    "serve": "npx serve . -l 5000"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.6"
+  }
+}

@@ -1,0 +1,2080 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "First Name": "user",
+      "Last Name": "user",
+      "email": "user@example.com",
+      "phone": "1234567890",
+      "password": "user123",
+      "role": "user",
+      "bio": ""
+    },
+    {
+      "id": "2",
+      "First Name": "admin",
+      "Last Name": "admin",
+      "email": "admin@example.com",
+      "phone": "1234567890",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "528d",
+      "First Name": "Aesha",
+      "Last Name": "Godhani",
+      "email": "aesha.kalathiyainfotech@gmail.com",
+      "phone": "8523697412",
+      "password": "Aesha@123",
+      "role": "user"
+    },
+    {
+      "id": "c537",
+      "First Name": "Shweta",
+      "Last Name": "Beladiya",
+      "email": "shweta@gmail.com",
+      "phone": "9638527410",
+      "password": "shweta@123",
+      "role": "user"
+    },
+    {
+      "id": "50db",
+      "First Name": "hasti",
+      "Last Name": "prajapati",
+      "email": "hasti@gmail.com",
+      "phone": "07069229312",
+      "password": "hasti@1711",
+      "role": "user"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Mobile Covers & Cases",
+      "shortName": "Covers",
+      "slug": "mobile-covers-cases",
+      "icon": "fa-mobile-screen"
+    },
+    {
+      "id": "2",
+      "name": "Screen Protectors",
+      "shortName": "Screens",
+      "slug": "screen-protectors",
+      "icon": "fa-shield-halved"
+    },
+    {
+      "id": "3",
+      "name": "Chargers & Adapters",
+      "shortName": "Chargers",
+      "slug": "chargers-adapters",
+      "icon": "fa-bolt"
+    },
+    {
+      "id": "4",
+      "name": "USB Cables",
+      "shortName": "Cables",
+      "slug": "usb-cables",
+      "icon": "fa-plug"
+    },
+    {
+      "id": "5",
+      "name": "Power Banks",
+      "shortName": "Power",
+      "slug": "power-banks",
+      "icon": "fa-battery-full"
+    },
+    {
+      "id": "6",
+      "name": "Earphones & Headphones",
+      "shortName": "Audio",
+      "slug": "earphones-headphones",
+      "icon": "fa-headphones"
+    },
+    {
+      "id": "7",
+      "name": "Bluetooth Speakers",
+      "shortName": "Speakers",
+      "slug": "bluetooth-speakers",
+      "icon": "fa-volume-high"
+    },
+    {
+      "id": "8",
+      "name": "Smart Watches & Bands",
+      "shortName": "Watches",
+      "slug": "smart-watches-bands",
+      "icon": "fa-clock"
+    },
+    {
+      "id": "9",
+      "name": "Car Accessories",
+      "shortName": "Car",
+      "slug": "car-accessories",
+      "icon": "fa-car"
+    },
+    {
+      "id": "10",
+      "name": "Mobile Holders & Stands",
+      "shortName": "Holders",
+      "slug": "mobile-holders-stands",
+      "icon": "fa-tablet-screen-button"
+    },
+    {
+      "id": "11",
+      "name": "Gaming Accessories",
+      "shortName": "Gaming",
+      "slug": "gaming-accessories",
+      "icon": "fa-gamepad"
+    },
+    {
+      "id": "12",
+      "name": "Memory Cards & Storage",
+      "shortName": "Storage",
+      "slug": "memory-cards-storage",
+      "icon": "fa-sd-card"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "shortTitle": "iPhone 13 Mini Tempered Glass",
+      "ProductTitle": "OpenTech Military-Grade Tempered Glass Screen Protector Compatible For Iphone 13 Mini",
+      "Description": "Protect your iPhone 13 Mini with our military-grade tempered glass. Features 9H hardness, anti-scratch coating, and crystal clear clarity for the ultimate viewing experience.",
+      "image": "Image/s1.jpg",
+      "rating": "4",
+      "RatingCount": "110",
+      "currentPrice": 200,
+      "OldPrice": 300,
+      "cat_id": 2,
+      "brand": "Apple",
+      "thumbImage": [
+        "Image/s1.jpg",
+        "Image/s2.jpg",
+        "Image/s3.jpg",
+        "Image/s4.jpg",
+        "Image/s5.jpg"
+      ]
+    },
+    {
+      "id": "2",
+      "shortTitle": "Foldable 360° Mobile Stand",
+      "ProductTitle": "Mobile Stand Foldable & 360° Rotatable Mobile Stand",
+      "Description": "This mobile stand holder is compatible with a wide range of devices, allowing you to comfortably view your screen at various angles.",
+      "image": "Image/s6.jpg",
+      "rating": "4.5",
+      "RatingCount": "190",
+      "currentPrice": 520,
+      "OldPrice": 600,
+      "cat_id": 10,
+      "brand": "ACE",
+      "thumbImage": [
+        "Image/s6.jpg",
+        "Image/s7.jpg",
+        "Image/s8.jpg",
+        "Image/s9.jpg",
+        "Image/s10.jpg"
+      ]
+    },
+    {
+      "id": "3",
+      "shortTitle": "Spigen 15W Wireless Charger",
+      "ProductTitle": "Spigen Wireless Charger for iPhone 17/16/15/13/12/11 Series, Samsung Galaxy S25/S24/S23/S22/S21/S20, OnePlus with USB-A to C Cable - Black",
+      "Description": "Fast wireless charging up to 15W for compatible devices. Qi-certified for safe charging with built-in temperature control and overcharge protection.",
+      "image": "Image/s1.jpeg",
+      "rating": "4.1",
+      "RatingCount": "80",
+      "currentPrice": 200,
+      "OldPrice": 300,
+      "cat_id": 3,
+      "brand": "Samsung",
+      "thumbImage": [
+        "Image/s1.jpeg",
+        "Image/s2.jpeg",
+        "Image/s3.jpeg",
+        "Image/s4.jpeg",
+        "Image/s5.jpeg"
+      ]
+    },
+    {
+      "id": "4",
+      "shortTitle": "Samsung S24 Ultra Silicone Case",
+      "ProductTitle": "Silicone Shockproof Phone Case for Samsung Galaxy S24 Ultra - Transparent",
+      "Description": "Premium silicone case with military-grade drop protection. Raised edges protect camera and screen. Ultra-clear design shows off your phone's original color.",
+      "image": "Image/s11.jpg",
+      "rating": "4.3",
+      "RatingCount": "245",
+      "currentPrice": 350,
+      "OldPrice": 500,
+      "cat_id": 1,
+      "brand": "Samsung",
+      "thumbImage": [
+        "Image/s11.jpg",
+        "Image/s12.jpg",
+        "Image/s13.jpg",
+        "Image/s14.jpg",
+        "Image/s15.jpg"
+      ]
+    },
+    {
+      "id": "5",
+      "shortTitle": "USB-C Braided Cable 3-Pack 6ft",
+      "ProductTitle": "USB-C Fast Charging Cable 3-Pack (6ft) - Braided Nylon",
+      "Description": "Durable braided nylon cables with reinforced connectors. Supports fast charging up to 60W and data transfer speeds up to 480Mbps. Compatible with all USB-C devices.",
+      "image": "Image/s16.jpg",
+      "rating": "4.6",
+      "RatingCount": "520",
+      "currentPrice": 450,
+      "OldPrice": 650,
+      "cat_id": 4,
+      "thumbImage": [
+        "Image/s16.jpg",
+        "Image/s17.jpg",
+        "Image/s18.jpg"
+      ]
+    },
+    {
+      "id": "6",
+      "shortTitle": "20000mAh Power Bank Dual USB",
+      "ProductTitle": "20000mAh Power Bank with Dual USB Ports & LED Display - Black",
+      "Description": "High-capacity portable charger with intelligent LED display showing exact battery percentage. Dual USB outputs for charging two devices simultaneously. Fast charging support.",
+      "image": "Image/s19.jpg",
+      "rating": "4.4",
+      "RatingCount": "380",
+      "currentPrice": 1200,
+      "OldPrice": 1800,
+      "cat_id": 5,
+      "thumbImage": [
+        "Image/s19.jpg",
+        "Image/s20.jpg",
+        "Image/s21.jpg",
+        "Image/s22.jpg"
+      ]
+    },
+    {
+      "id": "7",
+      "shortTitle": "TWS 5.3 Wireless Earbuds",
+      "ProductTitle": "Wireless Bluetooth Earbuds with Charging Case - TWS 5.3",
+      "Description": "True wireless stereo earbuds with latest Bluetooth 5.3 technology. 30-hour total playtime with charging case. IPX7 waterproof rating and touch controls.",
+      "image": "Image/s23.jpg",
+      "rating": "4.2",
+      "RatingCount": "670",
+      "currentPrice": 899,
+      "OldPrice": 1499,
+      "cat_id": 6,
+      "thumbImage": [
+        "Image/s23.jpg",
+        "Image/s24.jpg",
+        "Image/s25.jpg",
+        "Image/s26.jpg",
+        "Image/s27.jpg"
+      ]
+    },
+    {
+      "id": "8",
+      "shortTitle": "Car Dashboard Phone Mount",
+      "ProductTitle": "Car Phone Holder Mount - Dashboard & Windshield Compatible",
+      "Description": "Universal car mount with strong suction cup and adjustable arm. 360-degree rotation for perfect viewing angle. Compatible with all phone sizes 4-7 inches.",
+      "image": "Image/s28.jpg",
+      "rating": "4.5",
+      "RatingCount": "290",
+      "currentPrice": 299,
+      "OldPrice": 450,
+      "cat_id": 9,
+      "thumbImage": [
+        "Image/s28.jpg",
+        "Image/s29.jpg",
+        "Image/s30.jpg",
+        "Image/s31.jpg"
+      ]
+    },
+    {
+      "id": "9",
+      "shortTitle": "Marble PopSocket Grip & Stand",
+      "ProductTitle": "PopSocket Grip & Stand - Marble Design",
+      "Description": "Collapsible grip and stand for phones and tablets. Secure grip for texting, calling, photos, and selfies. Repositionable and sticks to most devices and cases.",
+      "image": "Image/s32.jpg",
+      "rating": "4.7",
+      "RatingCount": "1200",
+      "currentPrice": 150,
+      "OldPrice": 250,
+      "cat_id": 10,
+      "thumbImage": [
+        "Image/s32.jpg",
+        "Image/s33.jpg",
+        "Image/s34.jpg",
+        "Image/s35.jpg",
+        "Image/s36.jpg"
+      ]
+    },
+    {
+      "id": "10",
+      "shortTitle": "iPhone 15 Pro Max Privacy Glass",
+      "ProductTitle": "Privacy Screen Protector for iPhone 15 Pro Max - Anti-Spy Tempered Glass",
+      "Description": "Advanced privacy protection that darkens screen when viewed from sides. 9H hardness tempered glass with oleophobic coating. Easy bubble-free installation.",
+      "image": "Image/s37.jpg",
+      "rating": "4.3",
+      "RatingCount": "156",
+      "currentPrice": 399,
+      "OldPrice": 599,
+      "cat_id": 2,
+      "brand": "Apple",
+      "thumbImage": [
+        "Image/s37.jpg",
+        "Image/s38.jpg",
+        "Image/s39.jpg",
+        "Image/s40.jpg"
+      ]
+    },
+    {
+      "id": "11",
+      "shortTitle": "65W GaN 3-Port Fast Charger",
+      "ProductTitle": "65W GaN Fast Charger with 3 Ports (2 USB-C + 1 USB-A) - Compact Design",
+      "Description": "Ultra-compact GaN technology charger. Charge laptop, tablet, and phone simultaneously. Intelligent power distribution and universal compatibility.",
+      "image": "Image/s41.jpg",
+      "rating": "4.8",
+      "RatingCount": "445",
+      "currentPrice": 1599,
+      "OldPrice": 2499,
+      "cat_id": 3,
+      "thumbImage": [
+        "Image/s41.jpg",
+        "Image/s42.jpg",
+        "Image/s43.jpg",
+        "Image/s44.jpg",
+        "Image/s45.jpg"
+      ]
+    },
+    {
+      "id": "12",
+      "shortTitle": "MagSafe Magnetic Car Vent Mount",
+      "ProductTitle": "Magnetic Car Phone Mount - MagSafe Compatible",
+      "Description": "Strong magnetic mount for car air vents. MagSafe compatible for iPhone 12 and newer. Includes metal ring for non-MagSafe phones. 360-degree rotation.",
+      "image": "Image/s46.jpg",
+      "rating": "4.4",
+      "RatingCount": "320",
+      "currentPrice": 399,
+      "OldPrice": 600,
+      "cat_id": 9,
+      "thumbImage": [
+        "Image/s46.jpg",
+        "Image/s47.jpg",
+        "Image/s48.jpg",
+        "Image/s49.jpg"
+      ]
+    },
+    {
+      "id": "13",
+      "shortTitle": "iPhone 14 Leather Wallet Case",
+      "ProductTitle": "Leather Wallet Phone Case for iPhone 14 - Card Holder & Kickstand",
+      "Description": "Premium PU leather case with 3 card slots and cash pocket. Built-in kickstand for hands-free viewing. Magnetic closure and precise cutouts.",
+      "image": "Image/s50.jpg",
+      "rating": "4.1",
+      "RatingCount": "198",
+      "currentPrice": 549,
+      "OldPrice": 899,
+      "cat_id": 1,
+      "brand": "Apple",
+      "thumbImage": [
+        "Image/s50.jpg",
+        "Image/s51.jpg",
+        "Image/s52.jpg",
+        "Image/s53.jpg"
+      ]
+    },
+    {
+      "id": "14",
+      "shortTitle": "10\" LED Selfie Ring Light & Tripod",
+      "ProductTitle": "Selfie Ring Light with Tripod Stand - 10 Inch LED Ring",
+      "Description": "Professional ring light with 3 color modes and 10 brightness levels. Includes phone holder and adjustable tripod. Perfect for selfies, makeup, and video calls.",
+      "image": "Image/s54.jpg",
+      "rating": "4.6",
+      "RatingCount": "890",
+      "currentPrice": 799,
+      "OldPrice": 1299,
+      "cat_id": 10,
+      "thumbImage": [
+        "Image/s54.jpg",
+        "Image/s55.jpg",
+        "Image/s56.jpg",
+        "Image/s57.jpg",
+        "Image/s58.jpg"
+      ]
+    },
+    {
+      "id": "15",
+      "shortTitle": "Samsung S24 Ultra Lens Protector",
+      "ProductTitle": "Camera Lens Protector for Samsung Galaxy S24 Ultra - Tempered Glass 3-Pack",
+      "Description": "Ultra-thin tempered glass lens protectors. Maintains photo quality while protecting from scratches. Easy installation with alignment frame included.",
+      "image": "Image/s59.jpg",
+      "rating": "4.2",
+      "RatingCount": "167",
+      "currentPrice": 249,
+      "OldPrice": 399,
+      "cat_id": 2,
+      "thumbImage": [
+        "Image/s59.jpg",
+        "Image/s60.jpg",
+        "Image/s61.jpg",
+        "Image/s62.jpg"
+      ]
+    },
+    {
+      "id": "16",
+      "shortTitle": "Type-C Hi-Res Wired Earphones",
+      "ProductTitle": "Wired Earphones with Mic - Type-C Connector - Hi-Res Audio",
+      "Description": "High-resolution audio earphones with Type-C connector. Built-in microphone and remote control. Comfortable in-ear design with multiple ear tip sizes.",
+      "image": "Image/s6.jpeg",
+      "rating": "4.0",
+      "RatingCount": "234",
+      "currentPrice": 299,
+      "OldPrice": 499,
+      "cat_id": 6,
+      "thumbImage": [
+        "Image/s6.jpeg",
+        "Image/s7.jpeg",
+        "Image/s8.jpeg",
+        "Image/s9.jpeg",
+        "Image/s10.jpeg"
+      ]
+    },
+    {
+      "id": "17",
+      "shortTitle": "IPX8 Waterproof Phone Pouch",
+      "ProductTitle": "Waterproof Phone Pouch - Universal Floating Dry Bag",
+      "Description": "IPX8 certified waterproof pouch for phones up to 7 inches. Touch-sensitive transparent windows. Perfect for swimming, boating, and beach activities.",
+      "image": "Image/s63.jpg",
+      "rating": "4.3",
+      "RatingCount": "412",
+      "currentPrice": 199,
+      "OldPrice": 350,
+      "cat_id": 1,
+      "thumbImage": [
+        "Image/s63.jpg",
+        "Image/s64.jpg",
+        "Image/s65.jpg",
+        "Image/s66.jpg"
+      ]
+    },
+    {
+      "id": "18",
+      "shortTitle": "3-in-1 Apple Wireless Charger",
+      "ProductTitle": "3-in-1 Wireless Charging Station for Apple Devices - iPhone, AirPods, Apple Watch",
+      "Description": "Charge all your Apple devices simultaneously. Fast wireless charging with intelligent temperature control. Sleek aluminum design with LED indicators.",
+      "image": "Image/s67.jpg",
+      "rating": "4.7",
+      "RatingCount": "567",
+      "currentPrice": 2499,
+      "OldPrice": 3999,
+      "cat_id": 3,
+      "thumbImage": [
+        "Image/s67.jpg",
+        "Image/s68.jpg",
+        "Image/s69.jpg",
+        "Image/s70.jpg",
+        "Image/s71.jpg"
+      ]
+    },
+    {
+      "id": "19",
+      "shortTitle": "Phone Screen Cleaning Kit",
+      "ProductTitle": "Phone Cleaning Kit - Screen Cleaner Spray & Microfiber Cloth Set",
+      "Description": "Professional cleaning kit with alcohol-free spray solution and premium microfiber cloths. Safe for all screens and anti-reflective coatings.",
+      "image": "Image/s11.jpeg",
+      "rating": "4.5",
+      "RatingCount": "789",
+      "currentPrice": 149,
+      "OldPrice": 250,
+      "cat_id": 10,
+      "thumbImage": [
+        "Image/s11.jpeg",
+        "Image/s12.jpeg",
+        "Image/s13.jpeg"
+      ]
+    },
+    {
+      "id": "20",
+      "shortTitle": "Sweatproof Running Phone Armband",
+      "ProductTitle": "Armband Phone Holder for Running & Exercise - Adjustable & Sweatproof",
+      "Description": "Comfortable armband for phones up to 6.7 inches. Sweatproof and lightweight design. Reflective strips for night safety. Touch-sensitive screen window.",
+      "image": "Image/s72.jpg",
+      "rating": "4.1",
+      "RatingCount": "345",
+      "currentPrice": 249,
+      "OldPrice": 399,
+      "cat_id": 10,
+      "thumbImage": [
+        "Image/s72.jpg",
+        "Image/s73.jpg",
+        "Image/s74.jpg",
+        "Image/s75.jpg"
+      ]
+    },
+    {
+      "id": "21",
+      "shortTitle": "Bluetooth Car FM Transmitter",
+      "ProductTitle": "Bluetooth FM Transmitter for Car - USB Charger & Hands-Free Calling",
+      "Description": "Stream music from phone to car stereo via FM radio. Dual USB charging ports. Built-in microphone for hands-free calls. LED display shows battery voltage.",
+      "image": "Image/s76.jpg",
+      "rating": "4.4",
+      "RatingCount": "456",
+      "currentPrice": 599,
+      "OldPrice": 899,
+      "cat_id": 9,
+      "thumbImage": [
+        "Image/s76.jpg",
+        "Image/s77.jpg",
+        "Image/s78.jpg",
+        "Image/s79.jpg",
+        "Image/s80.jpg"
+      ]
+    },
+    {
+      "id": "22",
+      "shortTitle": "3-Axis Phone Gimbal Stabilizer",
+      "ProductTitle": "Phone Gimbal Stabilizer - 3-Axis Handheld Smartphone Stabilizer",
+      "Description": "Professional 3-axis gimbal for smooth video recording. Face tracking and gesture control. Foldable design with 12-hour battery life. Compatible with all smartphones.",
+      "image": "Image/s81.jpg",
+      "rating": "4.6",
+      "RatingCount": "234",
+      "currentPrice": 3499,
+      "OldPrice": 5999,
+      "cat_id": 10,
+      "thumbImage": [
+        "Image/s81.jpg",
+        "Image/s82.jpg",
+        "Image/s83.jpg",
+        "Image/s84.jpg",
+        "Image/s85.jpg"
+      ]
+    },
+    {
+      "id": "23",
+      "shortTitle": "EMF Anti-Radiation Phone Sticker",
+      "ProductTitle": "Anti-Radiation Phone Sticker - EMF Protection Shield (5-Pack)",
+      "Description": "Reduce electromagnetic radiation exposure from mobile devices. Ultra-thin design doesn't interfere with signal. Easy peel-and-stick application.",
+      "image": "Image/s14.jpeg",
+      "rating": "3.9",
+      "RatingCount": "123",
+      "currentPrice": 199,
+      "OldPrice": 350,
+      "cat_id": 1,
+      "thumbImage": [
+        "Image/s14.jpeg",
+        "Image/s15.jpeg",
+        "Image/s16.jpeg",
+        "Image/s17.jpeg"
+      ]
+    },
+    {
+      "id": "24",
+      "shortTitle": "USB-C to USB 3.0 OTG Adapter 3-Pack",
+      "ProductTitle": "USB OTG Adapter - Type-C to USB 3.0 (3-Pack)",
+      "Description": "Connect USB devices to your Type-C phone or tablet. Supports USB flash drives, keyboards, mice, and game controllers. High-speed data transfer up to 5Gbps.",
+      "image": "Image/s86.jpg",
+      "rating": "4.2",
+      "RatingCount": "678",
+      "currentPrice": 199,
+      "OldPrice": 350,
+      "cat_id": 4,
+      "thumbImage": [
+        "Image/s86.jpg",
+        "Image/s87.jpg",
+        "Image/s88.jpg",
+        "Image/s89.jpg",
+        "Image/s90.jpg"
+      ]
+    },
+    {
+      "id": "25",
+      "shortTitle": "IPX7 Mini Bluetooth Speaker",
+      "ProductTitle": "Portable Mini Bluetooth Speaker - Waterproof & Wireless",
+      "Description": "Compact wireless speaker with 360-degree sound. IPX7 waterproof rating for outdoor use. 10-hour battery life and built-in microphone for calls.",
+      "image": "Image/s1.webp",
+      "rating": "4.5",
+      "RatingCount": "890",
+      "currentPrice": 799,
+      "OldPrice": 1299,
+      "cat_id": 7,
+      "thumbImage": [
+        "Image/s1.webp",
+        "Image/s2.webp",
+        "Image/s3.webp",
+        "Image/s4.webp",
+        "Image/s5.webp"
+      ]
+    },
+    {
+      "id": "26",
+      "shortTitle": "PopSocket Wallet Grip",
+      "ProductTitle": "PopSocket Wallet Grip - Card Holder & Phone Stand",
+      "Description": "PopSocket wallet grip with card holder slots. Secure grip for texting and selfies. Repositionable and works as a kickstand.",
+      "image": "Image/popsocket1.png",
+      "rating": "4.5",
+      "RatingCount": "320",
+      "currentPrice": 199,
+      "OldPrice": 299,
+      "cat_id": 10,
+      "bestSeller": true,
+      "thumbImage": [
+        "Image/popsocket1.png",
+        "Image/popsocket2.jpg",
+        "Image/popsocket3.jpg",
+        "Image/popsocket4.jpg",
+        "Image/popsocket5.jpg"
+      ]
+    },
+    {
+      "id": "27",
+      "shortTitle": "Wireless Earbuds",
+      "ProductTitle": "Wireless Bluetooth Earbuds - TWS with Charging Case",
+      "Description": "True wireless earbuds with premium sound. Long battery life and comfortable fit. Perfect for music and calls.",
+      "image": "Image/buds1.webp",
+      "rating": "4.3",
+      "RatingCount": "450",
+      "currentPrice": 199,
+      "OldPrice": 299,
+      "cat_id": 6,
+      "bestSeller": true,
+      "thumbImage": [
+        "Image/buds1.webp",
+        "Image/buds2.jpg",
+        "Image/buds3.jpg",
+        "Image/buds4.jpeg",
+        "Image/buds5.jpg"
+      ]
+    },
+    {
+      "id": "28",
+      "shortTitle": "Portable Speaker-Cum-Mobile Stand",
+      "ProductTitle": "Portable Bluetooth Speaker with Mobile Stand - Mini MOT",
+      "Description": "Dual-purpose portable speaker with built-in phone stand. Great sound and hands-free viewing. Perfect for desk and travel.",
+      "image": "Image/mobileStand1.jpg",
+      "rating": "4.4",
+      "RatingCount": "280",
+      "currentPrice": 199,
+      "OldPrice": 299,
+      "cat_id": 7,
+      "bestSeller": true,
+      "thumbImage": [
+        "Image/mobileStand1.jpg",
+        "Image/mobileStand2.jpeg",
+        "Image/mobileStand3.jpeg",
+        "Image/mobileStand4.jpeg"
+      ]
+    },
+    {
+      "id": "29",
+      "shortTitle": "Smartphone Ring Light with Tripod Stand",
+      "ProductTitle": "Smartphone Ring Light with Tripod Stand for Streaming & Photography",
+      "Description": "LED ring light with adjustable tripod. Perfect for selfies, video calls, and content creation. Multiple brightness levels.",
+      "image": "Image/tripod1.png",
+      "rating": "4.6",
+      "RatingCount": "510",
+      "currentPrice": 199,
+      "OldPrice": 299,
+      "cat_id": 10,
+      "bestSeller": true,
+      "thumbImage": [
+        "Image/tripod1.png",
+        "Image/tripod2.jpg",
+        "Image/tripod3.jpg",
+        "Image/tripod4.jpg",
+        "Image/tripod5.jpg"
+      ]
+    },
+    {
+      "id": "30",
+      "shortTitle": "Ring Holder Case",
+      "ProductTitle": "360° Rotating Ring Stand Mobile Back Cover",
+      "Description": "Durable mobile case with built-in 360° rotating ring holder for better grip and hands-free viewing.",
+      "image": "https://i.pinimg.com/1200x/b0/be/a2/b0bea2a402ae479569453387eada6252.jpg",
+      "rating": "4.5",
+      "RatingCount": "320",
+      "currentPrice": 22.99,
+      "OldPrice": 29.99,
+      "cat_id": 1,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/b0/be/a2/b0bea2a402ae479569453387eada6252.jpg"
+      ]
+    },
+    {
+      "id": "31",
+      "shortTitle": "Matte Frosted Case",
+      "ProductTitle": "Anti-Fingerprint Matte Frosted Mobile Case",
+      "Description": "Slim matte finish case with anti-fingerprint coating for clean look and premium feel.",
+      "image": "https://i.pinimg.com/1200x/8b/07/78/8b0778b78b3318af1a9072ebd6cbe0f5.jpg",
+      "rating": "4.3",
+      "RatingCount": "210",
+      "currentPrice": 16.99,
+      "OldPrice": 21.99,
+      "cat_id": 1,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/8b/07/78/8b0778b78b3318af1a9072ebd6cbe0f5.jpg"
+      ]
+    },
+    {
+      "id": "32",
+      "shortTitle": "Floral Print Case",
+      "ProductTitle": "Trendy Summer Floral Print Mobile Case",
+      "Description": "Stylish floral print case designed for summer vibes. Lightweight, protective and fashionable.",
+      "image": "https://i.pinimg.com/1200x/18/8e/17/188e17be092db887e427e43557960918.jpg",
+      "rating": "4.7",
+      "RatingCount": "410",
+      "currentPrice": 19.99,
+      "OldPrice": 25.99,
+      "cat_id": 1,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/18/8e/17/188e17be092db887e427e43557960918.jpg"
+      ]
+    },
+    {
+      "id": "33",
+      "shortTitle": "Leather Flip Case",
+      "ProductTitle": "Premium Genuine Leather Flip Cover Case",
+      "Description": "Elegant leather flip case offering full body protection with card slots and magnetic lock.",
+      "image": "https://i.pinimg.com/1200x/f3/c2/45/f3c245fef33a94e978d907fa25b11f85.jpg",
+      "rating": "4.8",
+      "RatingCount": "590",
+      "currentPrice": 24.99,
+      "OldPrice": 34.99,
+      "cat_id": 1,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/f3/c2/45/f3c245fef33a94e978d907fa25b11f85.jpg"
+      ]
+    },
+    {
+      "id": "34",
+      "shortTitle": "120W GaN Charger",
+      "ProductTitle": "120W GaN Fast Charger for All Devices",
+      "Description": "Ultra-fast 120W GaN charger compatible with smartphones, tablets, and laptops. Compact design with high efficiency power delivery.",
+      "image": "https://i.pinimg.com/736x/ac/fb/a7/acfba7cf73d8b374a43ebfa16f2ee1b1.jpg",
+      "rating": "4.8",
+      "RatingCount": "320",
+      "currentPrice": 45.99,
+      "OldPrice": 59.99,
+      "cat_id": 3,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/ac/fb/a7/acfba7cf73d8b374a43ebfa16f2ee1b1.jpg"
+      ]
+    },
+    {
+      "id": "35",
+      "shortTitle": "Wireless Pad 15W",
+      "ProductTitle": "15W Qi2 Certified Wireless Charging Pad",
+      "Description": "High-speed 15W wireless charging pad with Qi2 certification. Slim design and safe charging protection.",
+      "image": "https://i.pinimg.com/1200x/4d/6b/29/4d6b294cd098f595fa609fc43c67c44b.jpg",
+      "rating": "4.5",
+      "RatingCount": "210",
+      "currentPrice": 39.99,
+      "OldPrice": 49.99,
+      "cat_id": 3,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/4d/6b/29/4d6b294cd098f595fa609fc43c67c44b.jpg"
+      ]
+    },
+    {
+      "id": "36",
+      "shortTitle": "MagSafe Charger",
+      "ProductTitle": "MagSafe Magnetic Fast Charger",
+      "Description": "Magnetic alignment for seamless charging experience. Supports fast charging for compatible devices.",
+      "image": "https://i.pinimg.com/1200x/40/e7/b0/40e7b0435a9bc0bfa185679602eb5af9.jpg",
+      "rating": "4.7",
+      "RatingCount": "410",
+      "currentPrice": 59.99,
+      "OldPrice": 69.99,
+      "cat_id": 3,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/40/e7/b0/40e7b0435a9bc0bfa185679602eb5af9.jpg"
+      ]
+    },
+    {
+      "id": "37",
+      "shortTitle": "Solar Charger",
+      "ProductTitle": "Eco-Friendly Solar Power Charger",
+      "Description": "Portable solar charger with eco-friendly power generation. Ideal for outdoor travel and emergency backup charging.",
+      "image": "https://i.pinimg.com/736x/6c/46/52/6c4652e88b087be5c069bd34b4aa0ab4.jpg",
+      "rating": "4.4",
+      "RatingCount": "180",
+      "currentPrice": 52.99,
+      "OldPrice": 64.99,
+      "cat_id": 3,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/6c/46/52/6c4652e88b087be5c069bd34b4aa0ab4.jpg"
+      ]
+    },
+    {
+      "id": "38",
+      "shortTitle": "Bone Conduction Headphones",
+      "ProductTitle": "Bone Conduction Wireless Headphones with Open-Ear Technology",
+      "Description": "Advanced open-ear bone conduction headphones that deliver premium sound while keeping you aware of your surroundings.",
+      "image": "https://i.pinimg.com/1200x/b8/41/bd/b841bd1c3920b29e350fe5e0e6fb4153.jpg",
+      "rating": "4.5",
+      "RatingCount": "320",
+      "currentPrice": 6599,
+      "OldPrice": 7999,
+      "cat_id": 6,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/b8/41/bd/b841bd1c3920b29e350fe5e0e6fb4153.jpg"
+      ]
+    },
+    {
+      "id": "39",
+      "shortTitle": "Pro ANC Earbuds",
+      "ProductTitle": "Pro ANC Wireless Earbuds with Active Noise Cancellation",
+      "Description": "Premium earbuds with active noise cancellation technology, crystal clear calls, and immersive sound experience.",
+      "image": "https://i.pinimg.com/1200x/b7/fb/a0/b7fba0cfd525f8355fd517208e01b735.jpg",
+      "rating": "4.7",
+      "RatingCount": "540",
+      "currentPrice": 7399,
+      "OldPrice": 8999,
+      "cat_id": 6,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/b7/fb/a0/b7fba0cfd525f8355fd517208e01b735.jpg"
+      ]
+    },
+    {
+      "id": "40",
+      "shortTitle": "Bass Boost TWS",
+      "ProductTitle": "Bass Boost TWS Earbuds with 40 Hours Battery Life",
+      "Description": "Powerful bass earbuds with extended 40-hour battery backup, fast charging support, and ergonomic design.",
+      "image": "https://i.pinimg.com/736x/10/5e/fa/105efa4075c4afb20497adcda2f33305.jpg",
+      "rating": "4.4",
+      "RatingCount": "280",
+      "currentPrice": 4099,
+      "OldPrice": 4999,
+      "cat_id": 6,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/10/5e/fa/105efa4075c4afb20497adcda2f33305.jpg"
+      ]
+    },
+    {
+      "id": "41",
+      "shortTitle": "Sports Earbuds",
+      "ProductTitle": "Sports Wireless Earbuds with IPX7 Waterproof Rating",
+      "Description": "IPX7 waterproof sports earbuds designed for workouts, running, and outdoor activities with secure fit design.",
+      "image": "https://i.pinimg.com/736x/5f/cb/40/5fcb40967a55489dfbbf91ca7fbec609.jpg",
+      "rating": "4.3",
+      "RatingCount": "190",
+      "currentPrice": 3299,
+      "OldPrice": 3999,
+      "cat_id": 6,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/5f/cb/40/5fcb40967a55489dfbbf91ca7fbec609.jpg"
+      ]
+    },
+    {
+      "id": "42",
+      "shortTitle": "20000mAh Ultra Power Bank",
+      "ProductTitle": "20000mAh Ultra Power Bank with 65W Fast Charging",
+      "Description": "High-capacity 20000mAh power bank with 65W fast charging support. Ideal for laptops, smartphones, and tablets.",
+      "image": "https://i.pinimg.com/1200x/b2/74/f5/b274f50c6f7b9553de9764fb68fa84b9.jpg",
+      "rating": "4.7",
+      "RatingCount": "820",
+      "currentPrice": 59.99,
+      "OldPrice": 79.99,
+      "cat_id": 5,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/b2/74/f5/b274f50c6f7b9553de9764fb68fa84b9.jpg"
+      ]
+    },
+    {
+      "id": "43",
+      "shortTitle": "10000mAh Slim Power Bank",
+      "ProductTitle": "10000mAh Slim Power Bank with Credit Card Thin Design",
+      "Description": "Ultra-slim 10000mAh power bank with compact design. Easy to carry in pocket and perfect for daily travel use.",
+      "image": "https://i.pinimg.com/1200x/e3/9d/52/e39d527bfe5922ef7e775909b4c2afe6.jpg",
+      "rating": "4.5",
+      "RatingCount": "640",
+      "currentPrice": 34.99,
+      "OldPrice": 49.99,
+      "cat_id": 5,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/e3/9d/52/e39d527bfe5922ef7e775909b4c2afe6.jpg"
+      ]
+    },
+    {
+      "id": "44",
+      "shortTitle": "MagSafe 5000mAh Power Bank",
+      "ProductTitle": "MagSafe 5000mAh Wireless + Wired Combo Power Bank",
+      "Description": "Compact 5000mAh MagSafe power bank with wireless and wired charging combo. Perfect for iPhone and compatible devices.",
+      "image": "https://i.pinimg.com/736x/66/38/59/663859cde43d05a4446470eb153fd505.jpg",
+      "rating": "4.6",
+      "RatingCount": "710",
+      "currentPrice": 49.99,
+      "OldPrice": 64.99,
+      "cat_id": 5,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/66/38/59/663859cde43d05a4446470eb153fd505.jpg"
+      ]
+    },
+    {
+      "id": "45",
+      "shortTitle": "Solar 30000mAh Power Bank",
+      "ProductTitle": "Solar 30000mAh Eco-Friendly High Capacity Power Bank",
+      "Description": "Massive 30000mAh solar power bank with eco charging support. Perfect for outdoor travel, camping, and emergency backup.",
+      "image": "https://i.pinimg.com/736x/66/37/ea/6637ea948c5446cc213a04b8118215ee.jpg",
+      "rating": "4.8",
+      "RatingCount": "930",
+      "currentPrice": 72.99,
+      "OldPrice": 89.99,
+      "cat_id": 5,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/66/37/ea/6637ea948c5446cc213a04b8118215ee.jpg"
+      ]
+    },
+    {
+      "id": "46",
+      "shortTitle": "GT4 Pro Watch",
+      "ProductTitle": "GT4 Pro Smart Watch with AMOLED Always-On Display",
+      "Description": "Premium smartwatch featuring AMOLED always-on display, fitness tracking, heart rate monitoring and smart notifications.",
+      "image": "https://i.pinimg.com/736x/2d/c0/9d/2dc09d8599573d971ced60ebef6e59d0.jpg",
+      "rating": "4.7",
+      "RatingCount": "820",
+      "currentPrice": 199.99,
+      "OldPrice": 249.99,
+      "cat_id": 8,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/2d/c0/9d/2dc09d8599573d971ced60ebef6e59d0.jpg"
+      ]
+    },
+    {
+      "id": "47",
+      "shortTitle": "Health Tracker",
+      "ProductTitle": "Advanced Health Tracker Smart Watch with ECG & Blood Oxygen Monitor",
+      "Description": "Smart health tracking watch with ECG monitoring, blood oxygen sensor, sleep analysis and multi-sport modes.",
+      "image": "https://i.pinimg.com/1200x/e4/3a/79/e43a7962422ac1eaee2dbd4a4f23a6b5.jpg",
+      "rating": "4.5",
+      "RatingCount": "640",
+      "currentPrice": 149.99,
+      "OldPrice": 189.99,
+      "cat_id": 8,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/e4/3a/79/e43a7962422ac1eaee2dbd4a4f23a6b5.jpg"
+      ]
+    },
+    {
+      "id": "48",
+      "shortTitle": "Kids GPS Watch",
+      "ProductTitle": "Kids Smart Watch with GPS Tracking & SOS Emergency Calling",
+      "Description": "Smartwatch for kids with real-time GPS tracking, SOS emergency button, calling feature and parental control support.",
+      "image": "https://i.pinimg.com/1200x/39/c6/df/39c6dfb2536b7e06ef649604686dbe1b.jpg",
+      "rating": "4.3",
+      "RatingCount": "390",
+      "currentPrice": 89.99,
+      "OldPrice": 119.99,
+      "cat_id": 8,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/39/c6/df/39c6dfb2536b7e06ef649604686dbe1b.jpg"
+      ]
+    },
+    {
+      "id": "49",
+      "shortTitle": "Outdoor GPS Watch",
+      "ProductTitle": "Outdoor GPS Smart Watch with Topo Maps & Altimeter",
+      "Description": "Rugged outdoor smartwatch with GPS navigation, topographic maps, altimeter, compass and long battery life.",
+      "image": "https://i.pinimg.com/1200x/04/5b/18/045b188f829c4976d70a310f3fe009a9.jpg",
+      "rating": "4.8",
+      "RatingCount": "970",
+      "currentPrice": 249.99,
+      "OldPrice": 299.99,
+      "cat_id": 8,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/04/5b/18/045b188f829c4976d70a310f3fe009a9.jpg"
+      ]
+    },
+    {
+      "id": "50",
+      "shortTitle": "Car Phone Mount",
+      "ProductTitle": "Car Phone Mount - MagSafe Dashboard Holder",
+      "Description": "Strong magnetic MagSafe car phone mount for dashboard use. Secure grip with 360° rotation for easy viewing while driving.",
+      "image": "https://i.pinimg.com/736x/e3/b2/80/e3b280ec074da03d46dde272a0e10e53.jpg",
+      "rating": "4.5",
+      "RatingCount": "320",
+      "currentPrice": 27.99,
+      "OldPrice": 35.99,
+      "cat_id": 10,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/e3/b2/80/e3b280ec074da03d46dde272a0e10e53.jpg"
+      ]
+    },
+    {
+      "id": "51",
+      "shortTitle": "Ring Grip Stand",
+      "ProductTitle": "360° Universal Ring Grip Stand for Smartphones",
+      "Description": "Premium 360° rotating ring grip stand. Provides secure hold and doubles as a kickstand for hands-free viewing.",
+      "image": "https://i.pinimg.com/1200x/95/6b/56/956b5677931902686bed4724a0994dc3.jpg",
+      "rating": "4.4",
+      "RatingCount": "275",
+      "currentPrice": 12.99,
+      "OldPrice": 18.99,
+      "cat_id": 10,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/95/6b/56/956b5677931902686bed4724a0994dc3.jpg"
+      ]
+    },
+    {
+      "id": "52",
+      "shortTitle": "Desk Stand Pro",
+      "ProductTitle": "Adjustable Arm Desk Stand Pro for Mobile Phones",
+      "Description": "Heavy-duty adjustable desk stand with flexible arm. Perfect for video calls, streaming, and hands-free multitasking.",
+      "image": "https://i.pinimg.com/736x/9d/6f/ce/9d6fce1724054d7848f2d8f48cd7952b.jpg",
+      "rating": "4.7",
+      "RatingCount": "410",
+      "currentPrice": 34.99,
+      "OldPrice": 44.99,
+      "cat_id": 10,
+      "bestSeller": true,
+      "thumbImage": [
+        "https://i.pinimg.com/736x/9d/6f/ce/9d6fce1724054d7848f2d8f48cd7952b.jpg"
+      ]
+    },
+    {
+      "id": "53",
+      "shortTitle": "Bike Phone Mount",
+      "ProductTitle": "Bike Phone Mount - Anti-Shake Clamp Holder",
+      "Description": "Durable anti-shake bike phone mount with strong clamp grip. Ideal for cycling, mountain biking, and long rides.",
+      "image": "https://i.pinimg.com/1200x/5b/9c/23/5b9c23ccd1c607563645caba881e9478.jpg",
+      "rating": "4.3",
+      "RatingCount": "190",
+      "currentPrice": 22.99,
+      "OldPrice": 29.99,
+      "cat_id": 10,
+      "bestSeller": false,
+      "thumbImage": [
+        "https://i.pinimg.com/1200x/5b/9c/23/5b9c23ccd1c607563645caba881e9478.jpg"
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "message": "I have a question about your products.",
+      "saved": true
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "message": "I would like to know more about your accessories.",
+      "saved": false
+    },
+    {
+      "id": "3",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "message": "I'm interested in your latest accessories.",
+      "saved": false
+    },
+    {
+      "id": "4",
+      "name": "Bob Brown",
+      "email": "bob.brown@example.com",
+      "message": "I'm interested in your latest accessories.",
+      "saved": false
+    },
+    {
+      "id": "5",
+      "name": "Charlie Davis",
+      "email": "charlie.davis@example.com",
+      "message": "I'm interested in your latest accessories.",
+      "saved": false
+    },
+    {
+      "id": "4519",
+      "name": "shweta patel",
+      "email": "shweta@gmail.com",
+      "subject": "Order Support",
+      "message": "Hello........",
+      "status": "unread",
+      "createdAt": "2026-02-20T08:59:57.568Z"
+    }
+  ],
+  "subscribers": [
+    {
+      "id": "1",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": "2",
+      "email": "charlie.davis@example.com"
+    },
+    {
+      "id": "3",
+      "email": "alice.johnson@example.com"
+    },
+    {
+      "id": "f06a",
+      "email": "aesha.kalathiyainfotech@gmail.com"
+    },
+    {
+      "id": "c75e",
+      "email": "hasti@gmail.com"
+    }
+  ],
+  "wishlists": [
+    {
+      "id": "1",
+      "userId": 1,
+      "productIds": [
+        "6",
+        "2",
+        "4",
+        "37",
+        "27"
+      ]
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "productIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "3f2b",
+      "userId": "c537",
+      "productIds": [
+        "4",
+        "2",
+        "14",
+        "12"
+      ]
+    },
+    {
+      "id": "ced5",
+      "userId": "50db",
+      "productIds": [
+        "1",
+        "28"
+      ]
+    },
+    {
+      "id": "6126",
+      "userId": "528d",
+      "productIds": [
+        "28"
+      ]
+    }
+  ],
+  "carts": [
+    {
+      "id": "cart_mlyosle0",
+      "userId": "1",
+      "items": [
+        {
+          "id": "1",
+          "quantity": 8
+        },
+        {
+          "id": "3",
+          "quantity": 2
+        },
+        {
+          "id": "33",
+          "quantity": 1
+        },
+        {
+          "id": "41",
+          "quantity": 1
+        },
+        {
+          "id": "34",
+          "quantity": 1
+        },
+        {
+          "id": "27",
+          "quantity": 3
+        },
+        {
+          "id": "5",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mltadp0l",
+      "userId": "c537",
+      "items": []
+    },
+    {
+      "id": "cart_mlusxcvh",
+      "userId": "1",
+      "items": [
+        {
+          "id": "2",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlusxkve",
+      "userId": "1",
+      "items": [
+        {
+          "id": "6",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlusz86h",
+      "userId": "1",
+      "items": [
+        {
+          "id": "3",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlutjn36",
+      "userId": "1",
+      "items": [
+        {
+          "id": "1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlutkech",
+      "userId": "1",
+      "items": [
+        {
+          "id": "2",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlutshjk",
+      "userId": "1",
+      "items": [
+        {
+          "id": "3",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlutsiq9",
+      "userId": "1",
+      "items": [
+        {
+          "id": "3",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlutsjq1",
+      "userId": "1",
+      "items": [
+        {
+          "id": "2",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mluuops9",
+      "userId": "1",
+      "items": [
+        {
+          "id": "1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mluuorp4",
+      "userId": "1",
+      "items": [
+        {
+          "id": "2",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mlyyiy17",
+      "userId": "50db",
+      "items": [
+        {
+          "id": "5",
+          "quantity": 1
+        },
+        {
+          "id": "28",
+          "quantity": 1
+        },
+        {
+          "id": "27",
+          "quantity": 3
+        },
+        {
+          "id": "2",
+          "quantity": 1
+        },
+        {
+          "id": "26",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "cart_mm0ewuk6",
+      "userId": "528d",
+      "items": [
+        {
+          "id": "29",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "addresses": [
+    {
+      "id": "1",
+      "userId": 1,
+      "fullName": "User Name",
+      "phone": "1234567890",
+      "address": "Street 1",
+      "city": "Surat",
+      "state": "Gujarat",
+      "pincode": "395006",
+      "isDefault": true
+    },
+    {
+      "id": "6f74",
+      "userId": "guest",
+      "fullName": "Beverly Stanton",
+      "phone": "+1 (505) 315-2429",
+      "email": "rijamog@mailinator.com",
+      "address": "Quis expedita labore sit ratione",
+      "address2": "Pariatur Obcaecati voluptatem et totam excepturi molestiae error consequatur ipsa cupidatat est r",
+      "city": "Corporis expedita molestiae quidem eum",
+      "state": "Adipisicing labore consequatur quia consequatur Ut amet cupidatat",
+      "pincode": "80515",
+      "country": "US",
+      "isDefault": true
+    },
+    {
+      "id": "d339",
+      "userId": "c537",
+      "fullName": "Shweta Patel",
+      "phone": "5823364174",
+      "email": "shweta@gmail.com",
+      "address": "A-1001, mota varachha",
+      "address2": "",
+      "city": "Surat",
+      "state": "Gujarat",
+      "pincode": "963852",
+      "country": "IN",
+      "isDefault": true
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": 1,
+      "items": [
+        {
+          "id": 1,
+          "shortTitle": "iPhone 13 Mini Tempered Glass",
+          "ProductTitle": "OpenTech Military-Grade Tempered Glass Screen Protector Compatible For Iphone 13 Mini",
+          "Description": "Protect your iPhone 13 Mini with our military-grade tempered glass. Features 9H hardness, anti-scratch coating, and crystal clear clarity for the ultimate viewing experience.",
+          "image": "Image/s1.jpg",
+          "rating": "4",
+          "RatingCount": "110",
+          "currentPrice": 200,
+          "OldPrice": 300,
+          "cat_id": 2,
+          "thumbImage": [
+            "Image/s1.jpg",
+            "Image/s2.jpg",
+            "Image/s3.jpg",
+            "Image/s4.jpg",
+            "Image/s5.jpg"
+          ]
+        },
+        {
+          "id": 2,
+          "shortTitle": "Foldable 360° Mobile Stand",
+          "ProductTitle": "Mobile Stand Foldable & 360° Rotatable Mobile Stand",
+          "Description": "This mobile stand holder is compatible with a wide range of devices, allowing you to comfortably view your screen at various angles.",
+          "image": "Image/s6.jpg",
+          "rating": "4.5",
+          "RatingCount": "190",
+          "currentPrice": 520,
+          "OldPrice": 600,
+          "cat_id": 10,
+          "thumbImage": [
+            "Image/s6.jpg",
+            "Image/s7.jpg",
+            "Image/s8.jpg",
+            "Image/s9.jpg",
+            "Image/s10.jpg"
+          ]
+        },
+        {
+          "id": 3,
+          "shortTitle": "Spigen 15W Wireless Charger",
+          "ProductTitle": "Spigen Wireless Charger for iPhone 17/16/15/13/12/11 Series, Samsung Galaxy S25/S24/S23/S22/S21/S20, OnePlus with USB-A to C Cable - Black",
+          "Description": "Fast wireless charging up to 15W for compatible devices. Qi-certified for safe charging with built-in temperature control and overcharge protection.",
+          "image": "Image/s1.jpeg",
+          "rating": "4.1",
+          "RatingCount": "80",
+          "currentPrice": 200,
+          "OldPrice": 300,
+          "cat_id": 3,
+          "thumbImage": [
+            "Image/s1.jpeg",
+            "Image/s2.jpeg",
+            "Image/s3.jpeg",
+            "Image/s4.jpeg",
+            "Image/s5.jpeg"
+          ]
+        },
+        {
+          "id": 4,
+          "shortTitle": "Samsung S24 Ultra Silicone Case",
+          "ProductTitle": "Silicone Shockproof Phone Case for Samsung Galaxy S24 Ultra - Transparent",
+          "Description": "Premium silicone case with military-grade drop protection. Raised edges protect camera and screen. Ultra-clear design shows off your phone's original color.",
+          "image": "Image/s11.jpg",
+          "rating": "4.3",
+          "RatingCount": "245",
+          "currentPrice": 350,
+          "OldPrice": 500,
+          "cat_id": 1,
+          "thumbImage": [
+            "Image/s11.jpg",
+            "Image/s12.jpg",
+            "Image/s13.jpg",
+            "Image/s14.jpg",
+            "Image/s15.jpg"
+          ]
+        },
+        {
+          "id": 5,
+          "shortTitle": "USB-C Braided Cable 3-Pack 6ft",
+          "ProductTitle": "USB-C Fast Charging Cable 3-Pack (6ft) - Braided Nylon",
+          "Description": "Durable braided nylon cables with reinforced connectors. Supports fast charging up to 60W and data transfer speeds up to 480Mbps. Compatible with all USB-C devices.",
+          "image": "Image/s16.jpg",
+          "rating": "4.6",
+          "RatingCount": "520",
+          "currentPrice": 450,
+          "OldPrice": 650,
+          "cat_id": 4,
+          "thumbImage": [
+            "Image/s16.jpg",
+            "Image/s17.jpg",
+            "Image/s18.jpg"
+          ]
+        },
+        {
+          "id": 6,
+          "shortTitle": "20000mAh Power Bank Dual USB",
+          "ProductTitle": "20000mAh Power Bank with Dual USB Ports & LED Display - Black",
+          "Description": "High-capacity portable charger with intelligent LED display showing exact battery percentage. Dual USB outputs for charging two devices simultaneously. Fast charging support.",
+          "image": "Image/s19.jpg",
+          "rating": "4.4",
+          "RatingCount": "380",
+          "currentPrice": 1200,
+          "OldPrice": 1800,
+          "cat_id": 5,
+          "thumbImage": [
+            "Image/s19.jpg",
+            "Image/s20.jpg",
+            "Image/s21.jpg",
+            "Image/s22.jpg"
+          ]
+        },
+        {
+          "id": 7,
+          "shortTitle": "TWS 5.3 Wireless Earbuds",
+          "ProductTitle": "Wireless Bluetooth Earbuds with Charging Case - TWS 5.3",
+          "Description": "True wireless stereo earbuds with latest Bluetooth 5.3 technology. 30-hour total playtime with charging case. IPX7 waterproof rating and touch controls.",
+          "image": "Image/s23.jpg",
+          "rating": "4.2",
+          "RatingCount": "670",
+          "currentPrice": 899,
+          "OldPrice": 1499,
+          "cat_id": 6,
+          "thumbImage": [
+            "Image/s23.jpg",
+            "Image/s24.jpg",
+            "Image/s25.jpg",
+            "Image/s26.jpg",
+            "Image/s27.jpg"
+          ]
+        },
+        {
+          "id": 8,
+          "shortTitle": "Car Dashboard Phone Mount",
+          "ProductTitle": "Car Phone Holder Mount - Dashboard & Windshield Compatible",
+          "Description": "Universal car mount with strong suction cup and adjustable arm. 360-degree rotation for perfect viewing angle. Compatible with all phone sizes 4-7 inches.",
+          "image": "Image/s28.jpg",
+          "rating": "4.5",
+          "RatingCount": "290",
+          "currentPrice": 299,
+          "OldPrice": 450,
+          "cat_id": 9,
+          "thumbImage": [
+            "Image/s28.jpg",
+            "Image/s29.jpg",
+            "Image/s30.jpg",
+            "Image/s31.jpg"
+          ]
+        },
+        {
+          "id": 9,
+          "shortTitle": "Marble PopSocket Grip & Stand",
+          "ProductTitle": "PopSocket Grip & Stand - Marble Design",
+          "Description": "Collapsible grip and stand for phones and tablets. Secure grip for texting, calling, photos, and selfies. Repositionable and sticks to most devices and cases.",
+          "image": "Image/s32.jpg",
+          "rating": "4.7",
+          "RatingCount": "1200",
+          "currentPrice": 150,
+          "OldPrice": 250,
+          "cat_id": 10,
+          "thumbImage": [
+            "Image/s32.jpg",
+            "Image/s33.jpg",
+            "Image/s34.jpg",
+            "Image/s35.jpg",
+            "Image/s36.jpg"
+          ]
+        },
+        {
+          "id": 10,
+          "shortTitle": "iPhone 15 Pro Max Privacy Glass",
+          "ProductTitle": "Privacy Screen Protector for iPhone 15 Pro Max - Anti-Spy Tempered Glass",
+          "Description": "Advanced privacy protection that darkens screen when viewed from sides. 9H hardness tempered glass with oleophobic coating. Easy bubble-free installation.",
+          "image": "Image/s37.jpg",
+          "rating": "4.3",
+          "RatingCount": "156",
+          "currentPrice": 399,
+          "OldPrice": 599,
+          "cat_id": 2,
+          "thumbImage": [
+            "Image/s37.jpg",
+            "Image/s38.jpg",
+            "Image/s39.jpg",
+            "Image/s40.jpg"
+          ]
+        },
+        {
+          "id": 11,
+          "shortTitle": "65W GaN 3-Port Fast Charger",
+          "ProductTitle": "65W GaN Fast Charger with 3 Ports (2 USB-C + 1 USB-A) - Compact Design",
+          "Description": "Ultra-compact GaN technology charger. Charge laptop, tablet, and phone simultaneously. Intelligent power distribution and universal compatibility.",
+          "image": "Image/s6.jpg",
+          "rating": "4.8",
+          "RatingCount": "445",
+          "currentPrice": 1599,
+          "OldPrice": 2499,
+          "cat_id": 3,
+          "thumbImage": [
+            "Image/s41.jpg",
+            "Image/s42.jpg",
+            "Image/s43.jpg",
+            "Image/s44.jpg",
+            "Image/s45.jpg"
+          ]
+        },
+        {
+          "id": 12,
+          "shortTitle": "MagSafe Magnetic Car Vent Mount",
+          "ProductTitle": "Magnetic Car Vent Phone Mount - MagSafe Compatible",
+          "Description": "Strong magnetic mount for car air vents. MagSafe compatible for iPhone 12 and newer. Includes metal ring for non-MagSafe phones. 360-degree rotation.",
+          "image": "Image/s1.jpg",
+          "rating": "4.4",
+          "RatingCount": "320",
+          "currentPrice": 399,
+          "OldPrice": 600,
+          "cat_id": 9,
+          "thumbImage": [
+            "Image/s46.jpg",
+            "Image/s47.jpg",
+            "Image/s48.jpg",
+            "Image/s49.jpg"
+          ]
+        },
+        {
+          "id": 13,
+          "shortTitle": "iPhone 14 Leather Wallet Case",
+          "ProductTitle": "Leather Wallet Phone Case for iPhone 14 - Card Holder & Kickstand",
+          "Description": "Premium PU leather case with 3 card slots and cash pocket. Built-in kickstand for hands-free viewing. Magnetic closure and precise cutouts.",
+          "image": "Image/s6.jpg",
+          "rating": "4.1",
+          "RatingCount": "198",
+          "currentPrice": 549,
+          "OldPrice": 899,
+          "cat_id": 1,
+          "thumbImage": [
+            "Image/s50.jpg",
+            "Image/s51.jpg",
+            "Image/s52.jpg",
+            "Image/s53.jpg"
+          ]
+        },
+        {
+          "id": 14,
+          "shortTitle": "10\" LED Selfie Ring Light & Tripod",
+          "ProductTitle": "Selfie Ring Light with Tripod Stand - 10 Inch LED Ring",
+          "Description": "Professional ring light with 3 color modes and 10 brightness levels. Includes phone holder and adjustable tripod. Perfect for selfies, makeup, and video calls.",
+          "image": "Image/s1.jpg",
+          "rating": "4.6",
+          "RatingCount": "890",
+          "currentPrice": 799,
+          "OldPrice": 1299,
+          "cat_id": 10,
+          "thumbImage": [
+            "Image/s54.jpg",
+            "Image/s55.jpg",
+            "Image/s56.jpg",
+            "Image/s57.jpg",
+            "Image/s58.jpg"
+          ]
+        },
+        {
+          "id": 15,
+          "shortTitle": "Samsung S24 Ultra Lens Protector",
+          "ProductTitle": "Camera Lens Protector for Samsung Galaxy S24 Ultra - Tempered Glass 3-Pack",
+          "Description": "Ultra-thin tempered glass lens protectors. Maintains photo quality while protecting from scratches. Easy installation with alignment frame included.",
+          "image": "Image/s6.jpg",
+          "rating": "4.2",
+          "RatingCount": "167",
+          "currentPrice": 249,
+          "OldPrice": 399,
+          "cat_id": 2,
+          "thumbImage": [
+            "Image/s59.jpg",
+            "Image/s60.jpg",
+            "Image/s61.jpg",
+            "Image/s62.jpg"
+          ]
+        },
+        {
+          "id": 16,
+          "shortTitle": "Type-C Hi-Res Wired Earphones",
+          "ProductTitle": "Wired Earphones with Mic - Type-C Connector - Hi-Res Audio",
+          "Description": "High-resolution audio earphones with Type-C connector. Built-in microphone and remote control. Comfortable in-ear design with multiple ear tip sizes.",
+          "image": "Image/s1.jpg",
+          "rating": "4.0",
+          "RatingCount": "234",
+          "currentPrice": 299,
+          "OldPrice": 499,
+          "cat_id": 6,
+          "thumbImage": [
+            "Image/s6.jpeg",
+            "Image/s7.jpeg",
+            "Image/s8.jpeg",
+            "Image/s9.jpeg",
+            "Image/s10.jpeg"
+          ]
+        },
+        {
+          "id": 17,
+          "shortTitle": "IPX8 Waterproof Phone Pouch",
+          "ProductTitle": "Waterproof Phone Pouch - Universal Floating Dry Bag",
+          "Description": "IPX8 certified waterproof pouch for phones up to 7 inches. Touch-sensitive transparent windows. Perfect for swimming, boating, and beach activities.",
+          "image": "Image/s6.jpg",
+          "rating": "4.3",
+          "RatingCount": "412",
+          "currentPrice": 199,
+          "OldPrice": 350,
+          "cat_id": 1,
+          "thumbImage": [
+            "Image/s63.jpg",
+            "Image/s64.jpg",
+            "Image/s65.jpg",
+            "Image/s66.jpg"
+          ]
+        },
+        {
+          "id": 18,
+          "shortTitle": "3-in-1 Apple Wireless Charger",
+          "ProductTitle": "3-in-1 Wireless Charging Station for Apple Devices - iPhone, AirPods, Apple Watch",
+          "Description": "Charge all your Apple devices simultaneously. Fast wireless charging with intelligent temperature control. Sleek aluminum design with LED indicators.",
+          "image": "Image/s1.jpg",
+          "rating": "4.7",
+          "RatingCount": "567",
+          "currentPrice": 2499,
+          "OldPrice": 3999,
+          "cat_id": 3,
+          "thumbImage": [
+            "Image/s67.jpg",
+            "Image/s68.jpg",
+            "Image/s69.jpg",
+            "Image/s70.jpg",
+            "Image/s71.jpg"
+          ]
+        },
+        {
+          "id": 19,
+          "shortTitle": "Phone Screen Cleaning Kit",
+          "ProductTitle": "Phone Cleaning Kit - Screen Cleaner Spray & Microfiber Cloth Set",
+          "Description": "Professional cleaning kit with alcohol-free spray solution and premium microfiber cloths. Safe for all screens and anti-reflective coatings.",
+          "image": "Image/s6.jpg",
+          "rating": "4.5",
+          "RatingCount": "789",
+          "currentPrice": 149,
+          "OldPrice": 250,
+          "cat_id": 10,
+          "thumbImage": [
+            "Image/s11.jpeg",
+            "Image/s12.jpeg",
+            "Image/s13.jpeg"
+          ]
+        },
+        {
+          "id": 20,
+          "shortTitle": "Sweatproof Running Phone Armband",
+          "ProductTitle": "Armband Phone Holder for Running & Exercise - Adjustable & Sweatproof",
+          "Description": "Comfortable armband for phones up to 6.7 inches. Sweatproof and lightweight design. Reflective strips for night safety. Touch-sensitive screen window.",
+          "image": "Image/s1.jpg",
+          "rating": "4.1",
+          "RatingCount": "345",
+          "currentPrice": 249,
+          "OldPrice": 399,
+          "cat_id": 10,
+          "thumbImage": [
+            "Image/s72.jpg",
+            "Image/s73.jpg",
+            "Image/s74.jpg",
+            "Image/s75.jpg"
+          ]
+        },
+        {
+          "id": 21,
+          "shortTitle": "Bluetooth Car FM Transmitter",
+          "ProductTitle": "Bluetooth FM Transmitter for Car - USB Charger & Hands-Free Calling",
+          "Description": "Stream music from phone to car stereo via FM radio. Dual USB charging ports. Built-in microphone for hands-free calls. LED display shows battery voltage.",
+          "image": "Image/s6.jpg",
+          "rating": "4.4",
+          "RatingCount": "456",
+          "currentPrice": 599,
+          "OldPrice": 899,
+          "cat_id": 9,
+          "thumbImage": [
+            "Image/s76.jpg",
+            "Image/s77.jpg",
+            "Image/s78.jpg",
+            "Image/s79.jpg",
+            "Image/s80.jpg"
+          ]
+        },
+        {
+          "id": 22,
+          "shortTitle": "3-Axis Phone Gimbal Stabilizer",
+          "ProductTitle": "Phone Gimbal Stabilizer - 3-Axis Handheld Smartphone Stabilizer",
+          "Description": "Professional 3-axis gimbal for smooth video recording. Face tracking and gesture control. Foldable design with 12-hour battery life. Compatible with all smartphones.",
+          "image": "Image/s1.jpg",
+          "rating": "4.6",
+          "RatingCount": "234",
+          "currentPrice": 3499,
+          "OldPrice": 5999,
+          "cat_id": 10,
+          "thumbImage": [
+            "Image/s81.jpg",
+            "Image/s82.jpg",
+            "Image/s83.jpg",
+            "Image/s84.jpg",
+            "Image/s85.jpg"
+          ]
+        },
+        {
+          "id": 23,
+          "shortTitle": "EMF Anti-Radiation Phone Sticker",
+          "ProductTitle": "Anti-Radiation Phone Sticker - EMF Protection Shield (5-Pack)",
+          "Description": "Reduce electromagnetic radiation exposure from mobile devices. Ultra-thin design doesn't interfere with signal. Easy peel-and-stick application.",
+          "image": "Image/s6.jpg",
+          "rating": "3.9",
+          "RatingCount": "123",
+          "currentPrice": 199,
+          "OldPrice": 350,
+          "cat_id": 1,
+          "thumbImage": [
+            "Image/s14.jpeg",
+            "Image/s15.jpeg",
+            "Image/s16.jpeg",
+            "Image/s17.jpeg"
+          ]
+        },
+        {
+          "id": 24,
+          "shortTitle": "USB-C to USB 3.0 OTG Adapter 3-Pack",
+          "ProductTitle": "USB OTG Adapter - Type-C to USB 3.0 (3-Pack)",
+          "Description": "Connect USB devices to your Type-C phone or tablet. Supports USB flash drives, keyboards, mice, and game controllers. High-speed data transfer up to 5Gbps.",
+          "image": "Image/s1.jpg",
+          "rating": "4.2",
+          "RatingCount": "678",
+          "currentPrice": 199,
+          "OldPrice": 350,
+          "cat_id": 4,
+          "thumbImage": [
+            "Image/s86.jpg",
+            "Image/s87.jpg",
+            "Image/s88.jpg",
+            "Image/s89.jpg",
+            "Image/s90.jpg"
+          ]
+        },
+        {
+          "id": 25,
+          "shortTitle": "IPX7 Mini Bluetooth Speaker",
+          "ProductTitle": "Portable Mini Bluetooth Speaker - Waterproof & Wireless",
+          "Description": "Compact wireless speaker with 360-degree sound. IPX7 waterproof rating for outdoor use. 10-hour battery life and built-in microphone for calls.",
+          "image": "Image/s6.jpg",
+          "rating": "4.5",
+          "RatingCount": "890",
+          "currentPrice": 799,
+          "OldPrice": 1299,
+          "cat_id": 7,
+          "thumbImage": [
+            "Image/s1.webp",
+            "Image/s2.webp",
+            "Image/s3.webp",
+            "Image/s4.webp",
+            "Image/s5.webp"
+          ]
+        }
+      ],
+      "totalAmount": 650,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "krupali kumbhani",
+        "phone": "+918160503291",
+        "address": "hjsdgfgas",
+        "address2": "mk llhu",
+        "city": "dhsfhsh",
+        "state": "Gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-02-18"
+    },
+    {
+      "id": "c87b",
+      "userId": "b356",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1,
+          "price": 450
+        },
+        {
+          "productId": "3",
+          "quantity": 1,
+          "price": 200
+        }
+      ],
+      "totalAmount": 650,
+      "paymentMethod": "paypal",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "krupali kumbhani",
+        "phone": "+918160503291",
+        "address": "hjsdgfgas",
+        "address2": "mk llhu",
+        "city": "dhsfhsh",
+        "state": "Gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-02-18"
+    },
+    {
+      "id": "9d17",
+      "userId": "b356",
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 1,
+          "price": 350
+        },
+        {
+          "productId": "1",
+          "quantity": 1,
+          "price": 200
+        },
+        {
+          "productId": "2",
+          "quantity": 1,
+          "price": 520
+        },
+        {
+          "productId": "5",
+          "quantity": 1,
+          "price": 450
+        },
+        {
+          "productId": "6",
+          "quantity": 1,
+          "price": 1200
+        },
+        {
+          "productId": "3",
+          "quantity": 1,
+          "price": 200
+        }
+      ],
+      "totalAmount": 2920,
+      "paymentMethod": "card",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "krupali kumbhani",
+        "phone": "+918160503291",
+        "address": "hjsdgfgas",
+        "address2": "mk llhu",
+        "city": "dhsfhsh",
+        "state": "Gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-02-18"
+    },
+    {
+      "id": "05fc",
+      "userId": "b356",
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 1,
+          "price": 350
+        }
+      ],
+      "totalAmount": 350,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "krupali kumbhani",
+        "phone": "+918160503291",
+        "address": "hjsdgfgas",
+        "address2": "mk llhu",
+        "city": "dhsfhsh",
+        "state": "Gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-02-18"
+    },
+    {
+      "id": "1b75",
+      "userId": "guest",
+      "items": [
+        {
+          "productId": "1",
+          "quantity": 1,
+          "price": 200
+        }
+      ],
+      "totalAmount": 200,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Beverly Stanton",
+        "phone": "+1 (505) 315-2429",
+        "address": "Quis expedita labore sit ratione",
+        "address2": "Pariatur Obcaecati voluptatem et totam excepturi molestiae error consequatur ipsa cupidatat est r",
+        "city": "Corporis expedita molestiae quidem eum",
+        "state": "Adipisicing labore consequatur quia consequatur Ut amet cupidatat",
+        "pincode": "80515",
+        "country": "US"
+      },
+      "createdAt": "2026-02-19"
+    },
+    {
+      "id": "2b51",
+      "userId": "c537",
+      "items": [
+        {
+          "productId": "3",
+          "quantity": 1,
+          "price": 200
+        }
+      ],
+      "totalAmount": 200,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Shweta Otto",
+        "phone": "5823364174",
+        "address": "A-1001, mota varachha",
+        "address2": "",
+        "city": "Surat",
+        "state": "Gujarat",
+        "pincode": "963852",
+        "country": "IN"
+      },
+      "createdAt": "2026-02-20"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "productId": 1,
+      "userId": 1,
+      "rating": 5,
+      "comment": "Very good quality!",
+      "createdAt": "2026-02-17"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "1",
+      "code": "SAVE10",
+      "discount": 10,
+      "type": "percentage",
+      "description": "Get 10% off on your order.",
+      "min_purchase": 500,
+      "expiry_date": "2024-12-31"
+    },
+    {
+      "id": "2",
+      "code": "FREESHIP",
+      "discount": 100,
+      "type": "fixed",
+      "description": "Free shipping on all orders.",
+      "min_purchase": 299,
+      "expiry_date": "2024-12-31"
+    }
+  ]
+}
