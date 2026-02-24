@@ -743,11 +743,11 @@ body {
   z-index: 1;
 }
 
-.x_price_box {
+/* .x_price_box {
   display: flex;
   gap: 15px;
   align-items: center;
-}
+} */
 
 .x_old_price {
   color: rgba(124, 111, 100, 0.6);

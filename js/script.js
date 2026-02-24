@@ -298,7 +298,6 @@ async function loadBestSellers() {
 					<div class="x_product_info">
 						<h3 class="x_product_title">${product.shortTitle || product.ProductTitle}</h3>
 						<div class="x_price_box">
-							<span class="x_old_price">$${parseFloat(product.OldPrice).toFixed(2)} USD</span>
 							<span class="x_current_price">$${parseFloat(product.currentPrice).toFixed(2)} USD</span>
 						</div>
 					</div>
