@@ -572,6 +572,16 @@
 			});
 		}
 
+		// Mobile navbar close button
+		const navbarCloseBtn = document.getElementById("navbarCloseBtn");
+		const navbarCollapse = document.getElementById("mainNav");
+		if (navbarCloseBtn && navbarCollapse && typeof bootstrap !== "undefined") {
+			navbarCloseBtn.addEventListener("click", () => {
+				const collapseInstance = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+				collapseInstance.hide();
+			});
+		}
+
 		updateUserIcon();
 
 		// Initialize cart badge on page load (via API)
