@@ -602,7 +602,7 @@
     /* ====================================================
        STATE
     ==================================================== */
-    const USER_ID = "528d";
+    const USER_ID = localStorage.getItem("userId");
     const wishlist = new Set();
     let userWishlistIds = [];
     let currentCatId = null;
@@ -891,7 +891,7 @@
     Added!
   `;
 
-      const userId = "528d"; // <-- normally login mathi levu
+      const userId = localStorage.getItem("userId"); // <-- normally login mathi levu
 
       try {
         // 1️⃣ Check if cart already exists
