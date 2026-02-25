@@ -377,8 +377,15 @@
     }
 
     .add-cart-btn.added {
-      background: #4CAF50;
+      background: #fff;
+      color: var(--d_cat_primary);
+    }
+
+    .add-cart-btn.in-cart {
+      background: var(--d_cat_primary);
       color: #fff;
+      pointer-events: none;
+      opacity: 0.8;
     }
 
     /* =====================================================
@@ -605,6 +612,7 @@
     const USER_ID = localStorage.getItem("userId");
     const wishlist = new Set();
     let userWishlistIds = [];
+    let cartProductIds = new Set(); // Track products in cart
     let currentCatId = null;
     let currentPage = 1;
     let seeAllMode = false;
@@ -708,6 +716,7 @@
 
       toRender.forEach(p => {
         const isLiked = userWishlistIds.includes(String(p.id));
+        const isInCart = cartProductIds.has(String(p.id));
         const card = document.createElement('div');
         card.className = 'product-card';
         card.setAttribute('data-id', p.id);
@@ -744,9 +753,9 @@
 
         <div class="overlay-footer">
           <div class="overlay-price">${priceStr}</div>
-          <button class="add-cart-btn">
-            <i class="fa-solid fa-cart-plus" style="margin-right:4px;"></i>
-            Add to Cart
+          <button class="add-cart-btn ${isInCart ? 'in-cart' : ''}">
+            <i class="fa-solid ${isInCart ? 'fa-check' : 'fa-cart-plus'}" style="margin-right:4px;"></i>
+            ${isInCart ? 'In Cart' : 'Add to Cart'}
           </button>
         </div>
       </div>
@@ -878,20 +887,33 @@
       }
     }
     /* ====================================================
+       LOAD USER'S CART ITEMS
+    ==================================================== */
+    async function loadUserCart() {
+      try {
+        const res = await fetch(`http://localhost:3000/carts?userId=${USER_ID}`);
+        const carts = await res.json();
+        cartProductIds.clear();
+        if (carts.length > 0) {
+          carts[0].items.forEach(item => {
+            cartProductIds.add(String(item.id));
+          });
+        }
+      } catch (error) {
+        console.error("Cart load error:", error);
+        cartProductIds.clear();
+      }
+    }
+
+    /* ====================================================
              ADD TO CART
           ==================================================== */
     async function addToCart(productId, title, price, btn) {
       if (!btn) return;
 
-      if (btn.classList.contains('added')) return;
+      if (cartProductIds.has(String(productId))) return; // Already in cart
 
-      btn.classList.add('added');
-      btn.innerHTML = `
-    <i class="fa-solid fa-check" style="margin-right:4px;"></i>
-    Added!
-  `;
-
-      const userId = localStorage.getItem("userId"); // <-- normally login mathi levu
+      const userId = localStorage.getItem("userId");
 
       try {
         // 1️⃣ Check if cart already exists
@@ -940,17 +962,19 @@
           });
         }
 
+        // Update the product in cart
+        cartProductIds.add(String(productId));
+
+        // Update button UI
+        btn.classList.add('in-cart');
+        btn.innerHTML = `
+      <i class="fa-solid fa-check" style="margin-right:4px;"></i>
+      In Cart
+    `;
+
       } catch (err) {
         console.error("Cart error:", err);
       }
-
-      setTimeout(() => {
-        btn.classList.remove('added');
-        btn.innerHTML = `
-      <i class="fa-solid fa-cart-plus" style="margin-right:4px;"></i>
-      Add to Cart
-    `;
-      }, 1500);
     }
 
     /* ====================================================
@@ -1023,6 +1047,7 @@
        ==================================================== */
     async function initCategorySection() {
       await loadUserWishlist();
+      await loadUserCart();
       await loadTopCategories(); // builds top categories by product count and loads products for the first one
     }
 
