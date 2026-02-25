@@ -952,13 +952,85 @@
     `;
       }, 1500);
     }
+
+    /* ====================================================
+       LOAD TOP 6 CATEGORIES BY PRODUCT COUNT
+    ==================================================== */
+    async function loadTopCategories() {
+      const track = document.getElementById('categoryTrack');
+      if (!track) return;
+      track.innerHTML = '';
+
+      try {
+        const [productsRes, categoriesRes] = await Promise.all([
+          fetch('http://localhost:3000/products'),
+          fetch('http://localhost:3000/categories')
+        ]);
+        const [products, categories] = await Promise.all([productsRes.json(), categoriesRes.json()]);
+
+        // Build counts by cat_id
+        const counts = products.reduce((acc, p) => {
+          const id = Number(p.cat_id);
+          if (!isNaN(id)) acc[id] = (acc[id] || 0) + 1;
+          return acc;
+        }, {});
+
+        // Top 6 categories by product count (ignore zero-count)
+        let catsWithCount = categories
+          .map(c => ({ ...c, count: counts[c.id] || 0 }))
+          .filter(c => c.count > 0)
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 6);
+
+        // Fallback: if nothing has products yet, show first 6
+        if (catsWithCount.length === 0) {
+          catsWithCount = categories.slice(0, 6).map(c => ({ ...c, count: 0 }));
+        }
+
+        // Render category buttons
+        catsWithCount.forEach((c) => {
+          const btn = document.createElement('button');
+          btn.className = 'cat-btn';
+          btn.setAttribute('data-id', String(c.id));
+          btn.setAttribute('data-slug', c.slug || '');
+          btn.innerHTML = `
+              <i class="fa-solid ${c.icon || 'fa-tags'}"></i>
+              <span class="cat-label">${c.shortName || c.name}</span>
+            `;
+          btn.addEventListener('click', function () { setCategory(this); });
+          track.appendChild(btn);
+        });
+
+        // Activate first and load products
+        const first = track.querySelector('.cat-btn');
+        if (first) {
+          first.classList.add('active');
+          currentCatId = parseInt(first.getAttribute('data-id'), 10);
+          scrollActiveBtn(first);
+          await loadAndRenderProducts();
+        }
+
+        // Apply fade edges if overflow
+        checkCategoryOverflow();
+      } catch (e) {
+        console.error('Failed to load categories/products:', e);
+        checkCategoryOverflow();
+      }
+    }
+
     /* ====================================================
           INIT
        ==================================================== */
-    window.addEventListener('load', async () => {
+    async function initCategorySection() {
       await loadUserWishlist();
-      loadTopCategories(); // builds top categories by product count and loads products for the first one
-    });
+      await loadTopCategories(); // builds top categories by product count and loads products for the first one
+    }
+
+    if (document.readyState === 'complete') {
+      initCategorySection();
+    } else {
+      window.addEventListener('load', initCategorySection);
+    }
 
     window.addEventListener('resize', () => {
       checkCategoryOverflow();
@@ -967,70 +1039,3 @@
 </body>
 
 </html>
-
-<script>
-  /* ====================================================
-     LOAD TOP 6 CATEGORIES BY PRODUCT COUNT
-  ==================================================== */
-  async function loadTopCategories() {
-    const track = document.getElementById('categoryTrack');
-    if (!track) return;
-    track.innerHTML = '';
-
-    try {
-      const [productsRes, categoriesRes] = await Promise.all([
-        fetch('http://localhost:3000/products'),
-        fetch('http://localhost:3000/categories')
-      ]);
-      const [products, categories] = await Promise.all([productsRes.json(), categoriesRes.json()]);
-
-      // Build counts by cat_id
-      const counts = products.reduce((acc, p) => {
-        const id = Number(p.cat_id);
-        if (!isNaN(id)) acc[id] = (acc[id] || 0) + 1;
-        return acc;
-      }, {});
-
-      // Top 6 categories by product count (ignore zero-count)
-      let catsWithCount = categories
-        .map(c => ({ ...c, count: counts[c.id] || 0 }))
-        .filter(c => c.count > 0)
-        .sort((a, b) => b.count - a.count)
-        .slice(0, 6);
-
-      // Fallback: if nothing has products yet, show first 6
-      if (catsWithCount.length === 0) {
-        catsWithCount = categories.slice(0, 6).map(c => ({ ...c, count: 0 }));
-      }
-
-      // Render category buttons
-      catsWithCount.forEach((c) => {
-        const btn = document.createElement('button');
-        btn.className = 'cat-btn';
-        btn.setAttribute('data-id', String(c.id));
-        btn.setAttribute('data-slug', c.slug || '');
-        btn.innerHTML = `
-            <i class="fa-solid ${c.icon || 'fa-tags'}"></i>
-            <span class="cat-label">${c.shortName || c.name}</span>
-          `;
-        btn.addEventListener('click', function () { setCategory(this); });
-        track.appendChild(btn);
-      });
-
-      // Activate first and load products
-      const first = track.querySelector('.cat-btn');
-      if (first) {
-        first.classList.add('active');
-        currentCatId = parseInt(first.getAttribute('data-id'), 10);
-        scrollActiveBtn(first);
-        await loadAndRenderProducts();
-      }
-
-      // Apply fade edges if overflow
-      checkCategoryOverflow();
-    } catch (e) {
-      console.error('Failed to load categories/products:', e);
-      checkCategoryOverflow();
-    }
-  }
-</script>
