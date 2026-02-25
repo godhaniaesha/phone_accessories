@@ -1225,7 +1225,16 @@
     {
       "id": "cart_mltadp0l",
       "userId": "c537",
-      "items": []
+      "items": [
+        {
+          "id": "1",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": "cart_mlusxcvh",
