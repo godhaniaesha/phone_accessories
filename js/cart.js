@@ -284,7 +284,9 @@ async function loadOffcanvasCart(cart = null) {
 
         return `
     <div class="z_cart_item" data-cart-id="${item.cartId}" data-product-id="${item.productId}">
-        <img src="${item.image || ''}" alt="${productName}" class="z_item_image" onerror="this.style.display='none'" />
+        <a href="/productDetails.html?id=${item.productId}">
+            <img src="${item.image || ''}" alt="${productName}" class="z_item_image" onerror="this.style.display='none'" />
+        </a>
         <div class="z_item_details">
             <h4>${productName}</h4>
             ${item.color ? `<p class="z_item_meta"><span class="z_label">Color:</span> ${item.color}</p>` : ''}
