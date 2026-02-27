@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="style/z_style.css">
     <title>Checkout | Luxury</title>
 </head>
+
 <body>
 
     <div id="header-container"></div>
-    
+
 
     <div class="z_checkout_page">
         <div class="z_checkout_container">
@@ -35,7 +36,8 @@
                             </h2>
                             <div class="z_form_group">
                                 <label for="checkoutEmail">Email address</label>
-                                <input type="email" id="checkoutEmail" name="email" placeholder="you@example.com" required>
+                                <input type="email" id="checkoutEmail" name="email" placeholder="you@example.com"
+                                    required>
                                 <span class="z_error_msg" id="checkoutEmailError"></span>
                             </div>
                             <div class="z_form_group">
@@ -53,20 +55,25 @@
                             <div class="z_form_row">
                                 <div class="z_form_group">
                                     <label for="firstNameCheckout">First name</label>
-                                    <input type="text" id="firstNameCheckout" name="firstName" placeholder="First name" required>
+                                    <input type="text" id="firstNameCheckout" name="firstName" placeholder="First name"
+                                        required>
                                 </div>
                                 <div class="z_form_group">
                                     <label for="lastNameCheckout">Last name</label>
-                                    <input type="text" id="lastNameCheckout" name="lastName" placeholder="Last name" required>
+                                    <input type="text" id="lastNameCheckout" name="lastName" placeholder="Last name"
+                                        required>
                                 </div>
                             </div>
                             <div class="z_form_group">
                                 <label for="checkoutAddress">Address</label>
-                                <input type="text" id="checkoutAddress" name="address" placeholder="Street address" required>
+                                <input type="text" id="checkoutAddress" name="address" placeholder="Street address"
+                                    required>
                             </div>
                             <div class="z_form_group">
-                                <label for="checkoutAddress2">Apartment, suite, etc. <span class="z_optional">(optional)</span></label>
-                                <input type="text" id="checkoutAddress2" name="address2" placeholder="Apt, suite, unit, building, floor, etc.">
+                                <label for="checkoutAddress2">Apartment, suite, etc. <span
+                                        class="z_optional">(optional)</span></label>
+                                <input type="text" id="checkoutAddress2" name="address2"
+                                    placeholder="Apt, suite, unit, building, floor, etc.">
                             </div>
                             <div class="z_form_row">
                                 <div class="z_form_group">
@@ -79,7 +86,8 @@
                                 </div>
                                 <div class="z_form_group">
                                     <label for="checkoutZip">ZIP / Postal code</label>
-                                    <input type="text" id="checkoutZip" name="zip" placeholder="ZIP or postal code" required>
+                                    <input type="text" id="checkoutZip" name="zip" placeholder="ZIP or postal code"
+                                        required>
                                 </div>
                             </div>
                             <div class="z_form_group">
@@ -127,21 +135,25 @@
                             <div class="z_card_fields" id="cardFields">
                                 <div class="z_form_group">
                                     <label for="cardNumber">Card number</label>
-                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number">
+                                    <input type="text" id="cardNumber" name="cardNumber"
+                                        placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number">
                                 </div>
                                 <div class="z_form_row">
                                     <div class="z_form_group">
                                         <label for="cardExpiry">Expiry date</label>
-                                        <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp">
+                                        <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY"
+                                            maxlength="5" autocomplete="cc-exp">
                                     </div>
                                     <div class="z_form_group">
                                         <label for="cardCvc">CVC</label>
-                                        <input type="text" id="cardCvc" name="cardCvc" placeholder="123" maxlength="4" autocomplete="cc-csc">
+                                        <input type="text" id="cardCvc" name="cardCvc" placeholder="123" maxlength="4"
+                                            autocomplete="cc-csc">
                                     </div>
                                 </div>
                                 <div class="z_form_group">
                                     <label for="cardName">Name on card</label>
-                                    <input type="text" id="cardName" name="cardName" placeholder="Name as shown on card" autocomplete="cc-name">
+                                    <input type="text" id="cardName" name="cardName" placeholder="Name as shown on card"
+                                        autocomplete="cc-name">
                                 </div>
                             </div>
                         </section>
@@ -210,7 +222,7 @@
         // Format: { id, userId, items: [{id, quantity}] }
         // Product details fetched dynamically from products API
         // =============================================
-        const CART_API_URL    = 'http://localhost:3000/carts';
+        const CART_API_URL = 'http://localhost:3000/carts';
         const COUPONS_API_URL = 'http://localhost:3000/coupons';
 
         function getUserId() {
@@ -224,22 +236,22 @@
                 const cartRes = await fetch(`${CART_API_URL}?userId=${getUserId()}`);
                 if (!cartRes.ok) throw new Error('API error');
                 const userCarts = await cartRes.json();
-                
+
                 if (userCarts.length === 0) return [];
-                
+
                 const userCart = userCarts[0];
                 if (!userCart.items || userCart.items.length === 0) return [];
-                
+
                 // Get all products
                 const productsRes = await fetch('http://localhost:3000/products');
                 if (!productsRes.ok) throw new Error('Products API error');
                 const allProducts = await productsRes.json();
-                
+
                 // Map cart items with product details
                 return userCart.items.map(cartItem => {
                     const product = allProducts.find(p => p.id === cartItem.id);
                     if (!product) return null;
-                    
+
                     return {
                         cartId: userCart.id,
                         productId: product.id,
@@ -257,9 +269,9 @@
 
         // Render Order Summary from API
         async function loadCheckoutSummary() {
-            const container  = document.getElementById('checkoutItemsContainer');
+            const container = document.getElementById('checkoutItemsContainer');
             const subtotalEl = document.getElementById('checkoutSubtotal');
-            const totalEl    = document.getElementById('checkoutTotal');
+            const totalEl = document.getElementById('checkoutTotal');
             if (!container) return;
 
             const items = await getCartFromAPI();
@@ -271,18 +283,18 @@
                         <p>Your cart is empty.</p>
                     </div>`;
                 if (subtotalEl) subtotalEl.textContent = '$0.00';
-                if (totalEl)    totalEl.textContent    = '$0.00';
+                if (totalEl) totalEl.textContent = '$0.00';
                 return;
             }
 
             let subtotal = 0;
             container.innerHTML = items.map(item => {
-                const qty   = item.quantity || 1;
+                const qty = item.quantity || 1;
                 const price = parseFloat(item.price) || 0;
                 subtotal += qty * price;
                 const meta = [
                     item.color ? 'Color: ' + item.color : '',
-                    item.size  ? 'Size: '  + item.size  : ''
+                    item.size ? 'Size: ' + item.size : ''
                 ].filter(Boolean).join(' � ');
                 return `
                 <div class="z_checkout_item">
@@ -301,10 +313,10 @@
 
         // Calculate and show totals with discount
         function applyTotals(subtotal) {
-            const totalEl     = document.getElementById('checkoutTotal');
-            const discountEl  = document.getElementById('checkoutDiscount');
+            const totalEl = document.getElementById('checkoutTotal');
+            const discountEl = document.getElementById('checkoutDiscount');
             const discountRow = document.getElementById('discountRow');
-            const discount    = parseFloat(localStorage.getItem('checkoutDiscount') || 0);
+            const discount = parseFloat(localStorage.getItem('checkoutDiscount') || 0);
 
             if (discount > 0 && discountRow && discountEl) {
                 discountRow.style.display = '';
@@ -325,9 +337,9 @@
             if (!code) return;
 
             try {
-                const coupons  = await (await fetch(COUPONS_API_URL)).json();
-                const coupon   = coupons.find(c => c.code === code);
-                const items    = await getCartFromAPI();
+                const coupons = await (await fetch(COUPONS_API_URL)).json();
+                const coupon = coupons.find(c => c.code === code);
+                const items = await getCartFromAPI();
                 const subtotal = items.reduce((acc, p) => acc + ((parseFloat(p.price) || 0) * (p.quantity || 1)), 0);
 
                 if (coupon) {
@@ -356,4 +368,5 @@
         loadCheckoutSummary();
     </script>
 </body>
+
 </html>

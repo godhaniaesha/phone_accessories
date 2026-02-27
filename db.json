@@ -39,12 +39,13 @@
     },
     {
       "id": "50db",
-      "First Name": "hasti",
-      "Last Name": "prajapati",
+      "First Name": "Hasti",
+      "Last Name": "Prajapati",
       "email": "hasti@gmail.com",
-      "phone": "07069229312",
+      "phone": "8403946545",
       "password": "hasti@1711",
-      "role": "user"
+      "role": "user",
+      "bio": ""
     }
   ],
   "categories": [
@@ -1064,6 +1065,46 @@
       "thumbImage": [
         "https://i.pinimg.com/1200x/5b/9c/23/5b9c23ccd1c607563645caba881e9478.jpg"
       ]
+    },
+    {
+      "id": "54",
+      "shortTitle": "GameSir G8 Galileo Mobile Gamepad",
+      "ProductTitle": "GameSir G8 Galileo Wireless Mobile Gamepad with 100ms Response Time",
+      "Description": "High-performance wireless mobile gamepad with 100ms response time, 360° rotation, and customizable buttons.",
+      "image": "./Image/gamepad1.jpg",
+      "rating": "4.6",
+      "RatingCount": "520",
+      "currentPrice": 49.99,
+      "OldPrice": 69.99,
+      "cat_id": 11,
+      "bestSeller": true,
+      "thumbImage": [
+        "./Image/gamepad1.jpg",
+        "./Image/gamepad2.jpg",
+        "./Image/gamepad3.jpg",
+        "./Image/gamepad4.jpg",
+        "./Image/gamepad5.jpg"
+      ]
+    },
+    {
+      "id": "55",
+      "shortTitle": "EVM EVMPD 32GB USB 2.0 Pendrive (Metallic Black)",
+      "ProductTitle": "EVM EVMPD 32GB USB 2.0 Pendrive (Metallic Black)",
+      "Description": "High-speed USB 2.0 pendrive with 32GB storage capacity. Metallic black finish for a sleek look.",
+      "image": "./Image/pendrive1.jpeg",
+      "rating": "4.2",
+      "RatingCount": "180",
+      "currentPrice": 14.99,
+      "OldPrice": 19.99,
+      "cat_id": 12,
+      "bestSeller": false,
+      "thumbImage": [
+        "./Image/pendrive1.jpeg",
+        "./Image/pendrive2.jpeg",
+        "./Image/pendrive3.jpeg",
+        "./Image/pendrive4.jpeg",
+        "./Image/pendrive5.jpeg"
+      ]
     }
   ],
   "contacts": [
@@ -1169,7 +1210,9 @@
       "userId": "50db",
       "productIds": [
         "1",
-        "28"
+        "28",
+        "51",
+        "26"
       ]
     },
     {
@@ -1345,19 +1388,15 @@
           "quantity": 1
         },
         {
-          "id": "28",
+          "id": "53",
           "quantity": 1
         },
         {
-          "id": "27",
-          "quantity": 3
-        },
-        {
-          "id": "2",
+          "id": "9",
           "quantity": 1
         },
         {
-          "id": "26",
+          "id": "51",
           "quantity": 1
         }
       ]
@@ -1420,6 +1459,34 @@
       "pincode": "963852",
       "country": "IN",
       "isDefault": true
+    },
+    {
+      "id": "5ea9",
+      "userId": "50db",
+      "fullName": "Hasti Prajapati",
+      "phone": "8406536564",
+      "address": "sarthana jakatnaka",
+      "address2": "",
+      "city": "surat",
+      "state": "gujarat",
+      "pincode": "395006",
+      "country": "India",
+      "type": "Home",
+      "isDefault": true
+    },
+    {
+      "id": "1b0b",
+      "userId": "50db",
+      "fullName": "Dhanvi Prajapati",
+      "phone": "9687027739",
+      "address": "Yogichawk",
+      "address2": "",
+      "city": "surat",
+      "state": "gujarat",
+      "pincode": "395006",
+      "country": "India",
+      "type": "Office",
+      "isDefault": false
     }
   ],
   "orders": [
@@ -2065,6 +2132,47 @@
         "country": "IN"
       },
       "createdAt": "2026-02-20"
+    },
+    {
+      "id": "d78c",
+      "userId": "50db",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1,
+          "price": 450
+        },
+        {
+          "productId": "28",
+          "quantity": 1,
+          "price": 199
+        },
+        {
+          "productId": "26",
+          "quantity": 1,
+          "price": 199
+        },
+        {
+          "productId": "52",
+          "quantity": 1,
+          "price": 34.99
+        }
+      ],
+      "totalAmount": 882.99,
+      "paymentMethod": "card",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Hasti Prajapati prajapati",
+        "phone": "+917069229312",
+        "address": "sarthana jakatnaka",
+        "address2": "",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-02-26"
     }
   ],
   "reviews": [

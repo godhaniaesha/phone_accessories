@@ -42,7 +42,6 @@
   position: relative;
 }
 
-
 .x_dropdown_menu.z_active {
   opacity: 1;
   visibility: visible;
@@ -740,10 +739,9 @@
   .x_dropdown_menu {
     position: fixed;
     top: auto;
-    right: 10px;
-    bottom: 80px;
-    left: 10px;
-    max-width: none;
+    /* right: 10px; */
+    left: 100px;
+    max-width: 160px;
     min-width: auto;
     margin-top: 0;
     border-radius: 12px;
@@ -899,9 +897,9 @@
   }
 
   .x_dropdown_menu {
-    right: 5px;
-    left: 5px;
-    bottom: 60px;
+    /* right: 5px; */
+    left: 75px;
+    /* bottom: 60px; */
   }
 
   .x_dropdown_item {
@@ -1026,7 +1024,7 @@
 .z_cart_container {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 46px 16px 70px;
+  padding: 46px 16px 40px;
 }
 
 .z_cart_header_area {
@@ -1088,7 +1086,7 @@
 
 .z_cart_table_head {
   display: grid;
-  grid-template-columns: 1.6fr 0.45fr 0.7fr 0.45fr;
+  grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(120px, 1fr)) !important;
   gap: 12px;
   font-size: clamp(12px, 2.6vw, 14px);
   color: #777;
@@ -1098,11 +1096,21 @@
 
 .z_cart_th {
   font-weight: 600;
+  text-align: left;
+}
+
+.z_cart_th,
+.z_cart_product,
+.z_cart_price,
+.z_cart_qty,
+.z_cart_total {
+  justify-self: start;
+  text-align: left;
 }
 
 .z_cart_row {
   display: grid;
-  grid-template-columns: 1.6fr 0.45fr 0.7fr 0.45fr;
+  grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(120px, 1fr)) !important;
   gap: 12px;
   align-items: center;
   padding: 18px 0;
@@ -1134,7 +1142,6 @@
   color: #777;
 }
 
-
 .z_cart_product {
   display: flex;
   gap: 14px;
@@ -1150,7 +1157,7 @@
 }
 
 .z_cart_product_info h4 {
-  font-size: clamp(14px, 2.6vw, 16px);
+  font-size: clamp(14px, 2.6vw, 14px);
   margin-bottom: 4px;
   color: #111;
 }
@@ -1212,10 +1219,17 @@
 
 .z_coupon_input {
   flex: 1;
-  border: 1px solid #e5e5e5;
-  border-radius: 26px;
-  padding: 10px 14px;
+  /* border: 1px solid #e5e5e5; */
+  /* border-radius: 26px; */
+  border: none;
+  /* padding: 10px 14px; */
   font-size: 14px;
+  width: 100%;
+}
+.z_coupon_input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
 
 .z_coupon_btn {
@@ -1499,7 +1513,6 @@
 }
 
 @media (hover: none) {
-
   .z_card_icons,
   .z_quick_add {
     opacity: 1;
@@ -1523,7 +1536,7 @@
 
 @media (max-width: 768px) {
   .z_cart_container {
-    padding: 28px 14px 40px;
+    padding: 28px 14px 14px;
   }
 
   .z_cart_table_head {
@@ -1554,12 +1567,12 @@
   }
 
   .z_cart_qty {
-    border: none;
-    padding: 0;
+    /* border: none; */
+    padding: 3px;
   }
 
   .z_cart_qty {
-    padding: 0;
+    padding: 2px;
   }
 
   .z_cart_coupon {
@@ -1897,6 +1910,12 @@
   min-width: 0;
 }
 
+.z_coupon_input_div {
+  border: 1px solid #e5e5e5;
+  border-radius: 26px;
+  padding: 10px 14px;
+}
+
 .z_checkout_coupon .z_coupon_btn {
   flex-shrink: 0;
 }
@@ -1963,6 +1982,7 @@
 
   .z_checkout_form .z_form_row {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .z_payment_options {
@@ -2146,17 +2166,15 @@
   flex-direction: column;
 }
 
-
 /* Tablet + Mobile Scroll */
 @media (max-width: 991px) {
-
   .z_cart_table_wrap {
-    overflow-x: auto;
+    /* overflow-x: auto; */
     -webkit-overflow-scrolling: touch;
   }
 
   .z_cart_table {
-    min-width: 750px;
+    min-width: 740px;
     /* table ni fixed minimum width */
     width: 100%;
   }
@@ -2167,44 +2185,35 @@
   .z_cart_left {
     display: flex;
     flex-direction: column;
-    overflow-x: scroll;
+    overflow-x: auto;
     width: 100%;
     white-space: nowrap;
   }
 
   .z_cart_table_head,
   .z_cart_row {
-    display: flex !important;
-    /* Keep flex-direction: row */
-    flex-wrap: nowrap !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
     align-items: center;
     padding: 15px 10px;
   }
 
-  /* Remove the labels (e.g., "Price:", "Total:") that appear in the stacked grid */
+  /* Remove stacked labels for compact horizontal layout */
   .z_cart_price::before,
   .z_cart_qty::before,
   .z_cart_total::before {
     display: none !important;
   }
 
-  /* Reset widths to ensure columns align */
-  .z_col_product,
-  .z_cart_product {
-    flex: 2;
-    min-width: 200px;
-  }
-
   .z_cart_th,
+  .z_cart_product,
   .z_cart_price,
   .z_cart_qty,
   .z_cart_total {
-    flex: 1;
-    text-align: center;
-    min-width: 100px;
+    min-width: 0;
+    text-align: left;
   }
 
-  /* Ensure the product image and text stay side-by-side */
   .z_cart_product {
     display: flex;
     align-items: center;

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     let allProducts = [];
     let products = [];
     let categories = [];
@@ -9,20 +9,50 @@ document.addEventListener('DOMContentLoaded', () => {
     let userWishlistIds = [];
     let userCartItemIds = [];
 
+    const normalize = (v) => String(v || '').trim().toLowerCase();
+
     const productGrid = document.getElementById('product-grid');
     const paginationContainer = document.querySelector('.s_page_numbers');
-    const prevBtn = document.querySelector('.s_shop_pagination .s_rec_prev');
-    const nextBtn = document.querySelector('.s_shop_pagination .s_rec_next');
     const sortBySelect = document.getElementById('sortBy');
 
-    // Keep it in sync with cart.js getUserId logic
     function getCurrentUserId() {
         return localStorage.getItem('userId') || 'guest';
     }
 
+    function renderCategoryFilters() {
+        const lists = document.querySelectorAll('.s_category_list');
+        if (!lists.length || !Array.isArray(categories)) return;
+
+        const html = categories.map(cat => `
+            <li>
+                <a href="shop.html?category=${encodeURIComponent(cat.slug || cat.name)}"
+                   data-category-name="${cat.name}"
+                   data-category-slug="${cat.slug || ''}">
+                    <i class="fas ${cat.icon || 'fa-tags'}" style="margin-right:8px;"></i>
+                    ${cat.name}
+                </a>
+            </li>
+        `).join('');
+
+        lists.forEach(list => {
+            list.innerHTML = html;
+        });
+
+        updateActiveCategoryLink();
+    }
+
+    function updateActiveCategoryLink() {
+        const selected = normalize(currentFilter.category);
+        document.querySelectorAll('.s_category_list a').forEach(link => {
+            const linkName = normalize(link.dataset.categoryName || link.textContent);
+            const linkSlug = normalize(link.dataset.categorySlug);
+            const isActive = !!selected && (selected === linkName || selected === linkSlug);
+            link.classList.toggle('active', isActive);
+        });
+    }
+
     async function fetchData() {
         try {
-            // Fetch wishlist first if logged in
             const userId = localStorage.getItem('userId');
             if (userId) {
                 const wishRes = await fetch(`http://localhost:3000/wishlists?userId=${userId}`);
@@ -32,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // ✅ Fetch existing cart items for the current user (logged-in or guest)
             try {
                 const cartUserId = getCurrentUserId();
                 const cartRes = await fetch(`http://localhost:3000/carts?userId=${cartUserId}`);
@@ -61,19 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 return { ...p, CategoryName: cat ? cat.name : 'Uncategorized' };
             });
 
+            renderCategoryFilters();
             applyFiltersAndSort();
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     }
 
-    // ✅ NEW: Fetch and render recommendations
     async function fetchRecommendations() {
         try {
             const res = await fetch('http://localhost:3000/products');
             const allProds = await res.json();
 
-            // Pick top 8 by rating (or just first 8 if no rating)
             const recommended = [...allProds]
                 .sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
                 .slice(0, 8);
@@ -115,9 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </div>
-            `}).join('');
+            `;
+            }).join('');
 
-            // Initialize Owl Carousel after content is injected
             if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
                 $('#recommendationsCarousel').owlCarousel({
                     loop: true,
@@ -137,22 +165,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function truncateText(text, limit = 12) {
-        if (!text) return "";
-        return text.length > limit ? text.slice(0, limit) + "..." : text;
+        if (!text) return '';
+        return text.length > limit ? text.slice(0, limit) + '...' : text;
     }
 
     function applyFiltersAndSort() {
         let filtered = [...allProducts];
 
         if (currentFilter.category) {
-            filtered = filtered.filter(p => p.CategoryName === currentFilter.category);
+            const selected = normalize(currentFilter.category);
+            filtered = filtered.filter(p => {
+                const cat = categories.find(c => String(c.id) === String(p.cat_id));
+                if (!cat) return false;
+                return normalize(cat.name) === selected || normalize(cat.slug) === selected;
+            });
         }
+
         if (currentFilter.brand) {
             filtered = filtered.filter(p => {
                 if (p.brand && p.brand.toLowerCase() === currentFilter.brand.toLowerCase()) return true;
                 return p.ProductTitle.toLowerCase().includes(currentFilter.brand.toLowerCase());
             });
         }
+
         if (currentFilter.search) {
             const query = currentFilter.search.toLowerCase();
             filtered = filtered.filter(p =>
@@ -174,13 +209,14 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'rating': filtered.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)); break;
             case 'name-az': filtered.sort((a, b) => a.ProductTitle.localeCompare(b.ProductTitle)); break;
             case 'name-za': filtered.sort((a, b) => b.ProductTitle.localeCompare(a.ProductTitle)); break;
-            default: filtered.sort((a, b) => parseInt(a.id) - parseInt(b.id)); break;
+            default: filtered.sort((a, b) => parseInt(a.id, 10) - parseInt(b.id, 10)); break;
         }
 
         products = filtered;
         currentPage = 1;
         renderProducts(currentPage);
         renderPagination();
+        updateActiveCategoryLink();
     }
 
     function renderProducts(page) {
@@ -194,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const start = (page - 1) * itemsPerPage;
         const pageProducts = products.slice(start, start + itemsPerPage);
 
-        // ✅ Build HTML once, assign once (avoids DOM re-parse on each +=)
         productGrid.innerHTML = pageProducts.map(product => {
             const isWishlisted = userWishlistIds.includes(String(product.id));
             const inCart = userCartItemIds.includes(String(product.id));
@@ -231,10 +266,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             </div>
-        `}).join('');
+        `;
+        }).join('');
     }
 
-    // ✅ FIXED: Pagination - extracted goToPage() to avoid duplication and bugs
     function goToPage(page) {
         currentPage = page;
         renderProducts(currentPage);
@@ -242,29 +277,24 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.addEventListener("click", function (e) {
-
-        const card = e.target.closest(".s_shop_product_card");
+    document.addEventListener('click', function (e) {
+        const card = e.target.closest('.s_shop_product_card');
 
         if (card
-            && !e.target.closest(".s_btn_add_cart")
-            && !e.target.closest(".s_btn_wishlist")
-            && !e.target.closest("a")) {
+            && !e.target.closest('.s_btn_add_cart')
+            && !e.target.closest('.s_btn_wishlist')
+            && !e.target.closest('a')) {
             const productId = card.dataset.id;
             window.location.href = `productDetails.html?id=${productId}`;
         }
-
     });
 
-
-    // Function to render pagination controls
     function renderPagination() {
         if (!paginationContainer) return;
         paginationContainer.innerHTML = '';
 
         const totalPages = Math.ceil(products.length / itemsPerPage);
 
-        // Always query fresh references - never use stale cached ones
         const prevButton = document.querySelector('.s_shop_pagination .s_rec_prev');
         const nextButton = document.querySelector('.s_shop_pagination .s_rec_next');
 
@@ -274,56 +304,80 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Render page numbers
-        for (let i = 1; i <= totalPages; i++) {
-            const pageLink = document.createElement('a');
-            pageLink.href = '#';
-            pageLink.className = `s_page_number${i === currentPage ? ' active' : ''}`;
-            pageLink.textContent = i;
-            pageLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                goToPage(i);
-            });
-            paginationContainer.appendChild(pageLink);
+        const pagesToShow = [];
+        if (totalPages <= 7) {
+            for (let i = 1; i <= totalPages; i++) pagesToShow.push(i);
+        } else {
+            const candidates = new Set([
+                1, 2,
+                totalPages - 1, totalPages,
+                currentPage - 1, currentPage, currentPage + 1
+            ]);
+
+            const ordered = Array.from(candidates)
+                .filter((p) => p >= 1 && p <= totalPages)
+                .sort((a, b) => a - b);
+
+            for (let i = 0; i < ordered.length; i++) {
+                const page = ordered[i];
+                const prev = ordered[i - 1];
+
+                if (i > 0 && page - prev > 1) {
+                    pagesToShow.push('dots');
+                }
+                pagesToShow.push(page);
+            }
         }
 
-        // ✅ FIX: Update visibility based on current page
+        pagesToShow.forEach((item) => {
+            if (item === 'dots') {
+                const dots = document.createElement('span');
+                dots.className = 's_dots';
+                dots.textContent = '...';
+                paginationContainer.appendChild(dots);
+                return;
+            }
+
+            const pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.className = `s_page_number${item === currentPage ? ' active' : ''}`;
+            pageLink.textContent = item;
+            pageLink.addEventListener('click', (evt) => {
+                evt.preventDefault();
+                goToPage(item);
+            });
+            paginationContainer.appendChild(pageLink);
+        });
+
         if (prevButton) {
-            // Hide on first page, show on all others
             prevButton.style.visibility = currentPage === 1 ? 'hidden' : 'visible';
 
-            // Remove old listener by cloning
             const newPrev = prevButton.cloneNode(true);
             prevButton.parentNode.replaceChild(newPrev, prevButton);
-            newPrev.addEventListener('click', (e) => {
-                e.preventDefault();
+            newPrev.addEventListener('click', (evt) => {
+                evt.preventDefault();
                 if (currentPage > 1) goToPage(currentPage - 1);
             });
         }
 
         if (nextButton) {
-            // Hide on last page, show on all others
             nextButton.style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
 
-            // Remove old listener by cloning
             const newNext = nextButton.cloneNode(true);
             nextButton.parentNode.replaceChild(newNext, nextButton);
-            newNext.addEventListener('click', (e) => {
-                e.preventDefault();
+            newNext.addEventListener('click', (evt) => {
+                evt.preventDefault();
                 if (currentPage < totalPages) goToPage(currentPage + 1);
             });
         }
     }
 
-    // Add to Cart & Wishlist (delegated)
-    document.addEventListener("click", async function (e) {
-        // Add to Cart
-        if (e.target.classList.contains("s_btn_add_cart")) {
+    document.addEventListener('click', async function (e) {
+        if (e.target.classList.contains('s_btn_add_cart')) {
             const btn = e.target;
             if (window.addToCart) {
                 const success = await window.addToCart(btn.dataset.id, btn.dataset.name, parseFloat(btn.dataset.price), btn.dataset.image);
                 if (success) {
-                    // ✅ Update button + local cart cache so it shows "In Cart" and is disabled
                     btn.textContent = 'In Cart';
                     btn.disabled = true;
                     const idStr = String(btn.dataset.id);
@@ -334,20 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Add to Wishlist
-        const wishlistBtn = e.target.closest(".s_btn_wishlist");
+        const wishlistBtn = e.target.closest('.s_btn_wishlist');
         if (wishlistBtn) {
             const productId = wishlistBtn.dataset.id;
             if (window.addToWishlist) {
                 const success = await window.addToWishlist(productId);
                 if (success) {
-                    wishlistBtn.classList.add("active");
-                    const icon = wishlistBtn.querySelector("i");
+                    wishlistBtn.classList.add('active');
+                    const icon = wishlistBtn.querySelector('i');
                     if (icon) {
-                        icon.classList.remove("far");
-                        icon.classList.add("fas");
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
                     }
-                    // Add to local list too
                     if (!userWishlistIds.includes(String(productId))) {
                         userWishlistIds.push(String(productId));
                     }
@@ -356,19 +408,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Category filter
-    document.querySelectorAll('.s_category_list a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const category = link.textContent.trim();
-            document.querySelectorAll('.s_category_list a').forEach(l => l.classList.remove('active'));
-            currentFilter.category = currentFilter.category === category ? null : category;
-            if (currentFilter.category) link.classList.add('active');
-            applyFiltersAndSort();
-        });
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.s_category_list a');
+        if (!link) return;
+        e.preventDefault();
+
+        const selectedCategory = (link.dataset.categorySlug || link.dataset.categoryName || link.textContent || '').trim();
+        currentFilter.category = normalize(currentFilter.category) === normalize(selectedCategory)
+            ? null
+            : selectedCategory;
+
+        applyFiltersAndSort();
     });
 
-    // Brand filter
     document.querySelectorAll('.s_brand_list a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -380,7 +432,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Sort
     if (sortBySelect) {
         sortBySelect.addEventListener('change', (e) => {
             currentSort = e.target.value;
@@ -388,66 +439,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Clear filters
     const handleClear = (e) => {
         e.preventDefault();
         currentFilter = { category: null, brand: null, search: null };
         document.querySelectorAll('.s_category_list a, .s_brand_list a').forEach(l => l.classList.remove('active'));
-        // Clear search input if visible
+
         const headerSearchInput = document.getElementById('headerSearchInput');
         if (headerSearchInput) headerSearchInput.value = '';
 
-        // Remove search param from URL without refreshing
         const url = new URL(window.location);
         url.searchParams.delete('search');
+        url.searchParams.delete('category');
         window.history.pushState({}, '', url);
 
         applyFiltersAndSort();
     };
+
     document.getElementById('clearFilters')?.addEventListener('click', handleClear);
     document.getElementById('clearFiltersMobile')?.addEventListener('click', handleClear);
 
-    // ✅ Custom Sort Dropdown (moved INSIDE the single DOMContentLoaded)
-    const originalSelect = document.getElementById("sortBy");
-    if (originalSelect && !document.querySelector(".s_custom_select_wrapper")) {
-        const newWrapper = document.createElement("div");
-        newWrapper.classList.add("s_custom_select_wrapper");
+    const originalSelect = document.getElementById('sortBy');
+    if (originalSelect && !document.querySelector('.s_custom_select_wrapper')) {
+        const newWrapper = document.createElement('div');
+        newWrapper.classList.add('s_custom_select_wrapper');
 
-        const selected = document.createElement("div");
-        selected.classList.add("s_custom_select_selected");
+        const selected = document.createElement('div');
+        selected.classList.add('s_custom_select_selected');
         selected.innerHTML = `<span>${originalSelect.options[originalSelect.selectedIndex].text}</span>`;
 
-        const optionsList = document.createElement("div");
-        optionsList.classList.add("s_custom_select_options");
+        const optionsList = document.createElement('div');
+        optionsList.classList.add('s_custom_select_options');
 
         Array.from(originalSelect.options).forEach((opt, index) => {
-            const item = document.createElement("div");
-            item.classList.add("s_custom_select_option");
-            if (index === originalSelect.selectedIndex) item.classList.add("selected");
+            const item = document.createElement('div');
+            item.classList.add('s_custom_select_option');
+            if (index === originalSelect.selectedIndex) item.classList.add('selected');
             item.textContent = opt.text;
             item.dataset.value = opt.value;
-            item.addEventListener("click", function () {
-                selected.querySelector("span").textContent = this.textContent;
-                optionsList.querySelectorAll(".s_custom_select_option").forEach(el => el.classList.remove("selected"));
-                this.classList.add("selected");
+            item.addEventListener('click', function () {
+                selected.querySelector('span').textContent = this.textContent;
+                optionsList.querySelectorAll('.s_custom_select_option').forEach(el => el.classList.remove('selected'));
+                this.classList.add('selected');
                 originalSelect.value = this.dataset.value;
-                originalSelect.dispatchEvent(new Event("change"));
-                newWrapper.classList.remove("open");
+                originalSelect.dispatchEvent(new Event('change'));
+                newWrapper.classList.remove('open');
             });
             optionsList.appendChild(item);
         });
 
-        selected.addEventListener("click", (e) => { e.stopPropagation(); newWrapper.classList.toggle("open"); });
-        document.addEventListener("click", () => newWrapper.classList.remove("open"));
+        selected.addEventListener('click', (e) => {
+            e.stopPropagation();
+            newWrapper.classList.toggle('open');
+        });
+        document.addEventListener('click', () => newWrapper.classList.remove('open'));
 
         newWrapper.appendChild(selected);
         newWrapper.appendChild(optionsList);
-        originalSelect.insertAdjacentElement("afterend", newWrapper);
+        originalSelect.insertAdjacentElement('afterend', newWrapper);
     }
 
-    // Init
     async function init() {
-        // Check for URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
         const categoryParam = urlParams.get('category');
@@ -459,39 +510,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (categoryParam) {
-            // Note: we'll match by slug if possible, but the UI might need to update
             currentFilter.category = categoryParam;
         }
 
         await fetchData();
         await fetchRecommendations();
     }
+
     init();
 });
-
-console.log("Category script loaded ✅");
-
-fetch("http://localhost:3000/categories")
-    .then(response => response.json())
-    .then(categories => {
-
-        const categoryList = document.getElementById("categoryList");
-        categoryList.innerHTML = "";
-
-        categories.forEach(cat => {
-            const li = document.createElement("li");
-
-            li.innerHTML = `
-        <a href="shop.html?category=${cat.slug}">
-          <i class="fas ${cat.icon}" style="margin-right:8px;"></i>
-          ${cat.name}
-        </a>
-      `;
-
-            categoryList.appendChild(li);
-        });
-
-  })
-  .catch(error => {
-    console.error("Error loading categories:", error);
-  });

@@ -18,7 +18,7 @@ body {
 }
 
 .x_section {
-  padding: 52px 0;
+  padding: 50px 0;
 }
 
 /* ====================================== Categories =========================================== */
@@ -958,6 +958,12 @@ body {
   .x_minimal_collection .row {
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
+
+  .x_wishlist_btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
   }
 }
 

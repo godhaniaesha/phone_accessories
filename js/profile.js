@@ -379,15 +379,16 @@ function createOrderCard(order) {
     // Format order items
     const orderItemsHtml = order.items.map(item => `
         <div class="z_order_item">
+        <div class="z_order_item_grp_1">
             <img src="${item.image}" alt="Product" class="z_order_item_image">
             <div class="z_order_item_details">
                 <div class="z_order_item_name" title="${item.name}">
-    ${truncateText(item.name, 25)}
-</div>
-
+                    ${truncateText(item.name, 25)}
+                </div>
                 <div class="z_order_item_meta">Qty: ${item.quantity} | Price: $${item.price}</div>
             </div>
-            <div class="z_order_item_price">$${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+        <div class="z_order_item_price">$${(item.price * item.quantity).toFixed(2)}</div>
         </div>
     `).join('');
 
@@ -464,10 +465,35 @@ function viewOrderDetails(orderId) {
     showOrderModal(targetOrder);
 }
 
+let orderModalScrollY = 0;
+
+function lockBodyScrollForModal() {
+    orderModalScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${orderModalScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+}
+
+function unlockBodyScrollForModal() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, orderModalScrollY);
+}
+
 // ============================================
 // SHOW ORDER MODAL
 // ============================================
 function showOrderModal(order) {
+    const existingModal = document.getElementById('orderModal');
+    if (existingModal) existingModal.remove();
+
     // Create modal HTML
     const modalHtml = `
         <div class="z_order_modal_overlay" id="orderModal">
@@ -531,6 +557,7 @@ function showOrderModal(order) {
 
     // Add modal to page
     document.body.insertAdjacentHTML('beforeend', modalHtml);
+    lockBodyScrollForModal();
 
     // Add overlay click to close
     document.getElementById('orderModal').addEventListener('click', function (e) {
@@ -538,6 +565,8 @@ function showOrderModal(order) {
             closeOrderModal();
         }
     });
+
+    document.addEventListener('keydown', handleOrderModalEscClose);
 }
 
 // ============================================
@@ -676,6 +705,14 @@ function closeOrderModal() {
     const modal = document.getElementById('orderModal');
     if (modal) {
         modal.remove();
+    }
+    unlockBodyScrollForModal();
+    document.removeEventListener('keydown', handleOrderModalEscClose);
+}
+
+function handleOrderModalEscClose(e) {
+    if (e.key === 'Escape') {
+        closeOrderModal();
     }
 }
 // ============================================

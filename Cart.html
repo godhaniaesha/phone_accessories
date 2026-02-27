@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,6 +17,24 @@
     <link rel="stylesheet" href="style/x_style.css">
     <link rel="stylesheet" href="style/z_style.css">
     <title>Cart</title>
+    <style>
+        /* Cart table: keep header and body columns perfectly aligned */
+        .z_cart_table {
+            --z-cart-cols: 1.6fr 0.45fr 0.7fr 0.45fr;
+        }
+
+        .z_cart_table_head,
+        .z_cart_row {
+            display: grid;
+            grid-template-columns: var(--z-cart-cols);
+        }
+
+        .z_cart_table_head>div,
+        .z_cart_row>div {
+            width: 100%;
+            text-align: left;
+        }
+    </style>
 
 </head>
 
@@ -144,7 +162,7 @@
                 loop: true,
                 margin: 10,
                 nav: true,
-                /* ✅ AUTO SCROLL */
+                /* ? AUTO SCROLL */
                 autoplay: true,
                 autoplayTimeout: 3000,      // 3 seconds
                 autoplayHoverPause: true,   // pause on hover
@@ -170,3 +188,4 @@
 </body>
 
 </html>
+

@@ -2,15 +2,16 @@
 
 /* ================= HERO SECTION ================= */
 .s_shop_hero {
-    position: relative;
-    height: 400px;
-    background: url('https://www.webx.pk/images/Article/-0007-guide-to-starting-an-online-store-for-mobile-accessori-58-260123063106.png') no-repeat center center/cover;
-    /* background: url('https://i.ibb.co/Vj1SL9C/photo-2024-05-25-17-48-14.jpg') no-repeat center center/cover; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: -1;
+  position: relative;
+  height: 400px;
+  background: url("https://www.webx.pk/images/Article/-0007-guide-to-starting-an-online-store-for-mobile-accessori-58-260123063106.png")
+    no-repeat center center/cover;
+  /* background: url('https://i.ibb.co/Vj1SL9C/photo-2024-05-25-17-48-14.jpg') no-repeat center center/cover; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: -1;
 }
 
 .s_shop_hero_overlay {
@@ -29,7 +30,7 @@
 
 .s_category_list li a {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   /* padding: 8px 10px; */
   transition: 0.3s;
 }
@@ -225,7 +226,7 @@
 
 @media (max-width: 425px) {
   .offcanvas {
-    width: 280px !important;
+    width: 290px !important;
   }
 }
 
@@ -517,6 +518,12 @@
   color: #999;
 }
 
+@media (max-width: 576px) {
+  .s_page_numbers {
+    gap: 4px;
+  }
+}
+
 /* ================= RECOMMENDATIONS ================= */
 .s_shop_recommendations {
   padding: 60px 0;
@@ -533,6 +540,18 @@
 .s_rec_header h3 {
   font-size: 24px;
   font-weight: 600;
+  position: relative;
+}
+
+.s_rec_header h3::after {
+  position: absolute;
+  content: "";
+  height: 6px;
+  width: 68px;
+  background: #94a691;
+  left: 0;
+  bottom: -12px;
+  border-radius: 3px;
 }
 
 .s_small_card {
@@ -541,4 +560,10 @@
 
 .s_small_card .s_product_img_wrapper {
   height: 150px;
+}
+
+@media (max-width: 768px) {
+  .s_shop_recommendations {
+    padding: 40px 0 0 0;
+  }
 }

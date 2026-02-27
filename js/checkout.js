@@ -21,7 +21,7 @@ function validateCheckoutForm() {
     document.querySelectorAll('.z_error_msg').forEach(el => el.textContent = '');
     
     // Email validation
-    const email = document.getElementById('checkoutEmail').value;
+    const email = document.getElementById('checkoutEmail').value.trim();
     const emailError = document.getElementById('checkoutEmailError');
     if (!email) {
         if (emailError) emailError.textContent = 'Email is required';
@@ -365,6 +365,8 @@ async function processCheckout(e) {
 document.addEventListener('DOMContentLoaded', function() {
     const checkoutForm = document.getElementById('checkoutForm');
     if (checkoutForm) {
+        // Use custom JS validation messages instead of browser default popups.
+        checkoutForm.setAttribute('novalidate', 'novalidate');
         checkoutForm.addEventListener('submit', processCheckout);
     }
     
