@@ -2,7 +2,7 @@
     let allProducts = [];
     let products = [];
     let categories = [];
-    const itemsPerPage = 6;
+    const itemsPerPage = 8;
     let currentPage = 1;
     let currentFilter = { category: null, brand: null, search: null };
     let currentSort = 'featured';
@@ -154,8 +154,10 @@
                     dots: true,
                     responsive: {
                         0: { items: 1 },
+                        376: { items: 2 },
                         600: { items: 3 },
-                        1000: { items: 4 }
+                        769: { items: 4 },
+                        1200: { items: 5 }
                     }
                 });
             }
@@ -234,7 +236,7 @@
             const isWishlisted = userWishlistIds.includes(String(product.id));
             const inCart = userCartItemIds.includes(String(product.id));
             return `
-            <div class="col-sm-6 col-xl-4">
+            <div class="col-sm-6 col-md-4 col-lg-6 col-xl-3 px-1">
                 <div class="s_shop_product_card" data-id="${product.id}">
                     <span class="s_product_tag">${product.CategoryName}</span>
                     <div class="s_product_img_wrapper">
@@ -305,28 +307,39 @@
         }
 
         const pagesToShow = [];
-        if (totalPages <= 7) {
+        if (totalPages <= 6) {
             for (let i = 1; i <= totalPages; i++) pagesToShow.push(i);
         } else {
-            const candidates = new Set([
-                1, 2,
-                totalPages - 1, totalPages,
-                currentPage - 1, currentPage, currentPage + 1
-            ]);
+            const first = 1;
+            const second = 2;
+            const penultimate = totalPages - 1;
+            const last = totalPages;
 
-            const ordered = Array.from(candidates)
-                .filter((p) => p >= 1 && p <= totalPages)
-                .sort((a, b) => a - b);
+            // Determine sliding window around current page
+            const windowStart = Math.max(3, currentPage - 1);
+            const windowEnd = Math.min(totalPages - 2, currentPage + 1);
 
-            for (let i = 0; i < ordered.length; i++) {
-                const page = ordered[i];
-                const prev = ordered[i - 1];
+            pagesToShow.push(first, second);
 
-                if (i > 0 && page - prev > 1) {
-                    pagesToShow.push('dots');
-                }
-                pagesToShow.push(page);
+            if (windowStart > 3) {
+                pagesToShow.push('dots');
+            } else {
+                // include any pages between 2 and windowStart when close to beginning
+                for (let i = 3; i < windowStart; i++) pagesToShow.push(i);
             }
+
+            for (let i = windowStart; i <= windowEnd; i++) {
+                pagesToShow.push(i);
+            }
+
+            if (windowEnd < totalPages - 2) {
+                pagesToShow.push('dots');
+            } else {
+                // include any pages between windowEnd and penultimate when close to end
+                for (let i = windowEnd + 1; i < penultimate; i++) pagesToShow.push(i);
+            }
+
+            pagesToShow.push(penultimate, last);
         }
 
         pagesToShow.forEach((item) => {

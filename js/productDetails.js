@@ -182,7 +182,7 @@ async function fetchRelatedProducts(categoryId, currentProductId) {
                         </div>
                         <div class="s_product_details">
                             <h6 class="s_product_title">
-                                <a href="productDetails.html?id=${product.id}" style="text-decoration: none; color: inherit;">
+                                <a style="text-decoration: none; color: inherit;">
                                     ${product.shortTitle || product.ProductTitle}
                                 </a>
                             </h6>
@@ -232,8 +232,8 @@ function initCarousel() {
         responsive: {
             0: { items: 1 },
             576: { items: 2 },
-            768: { items: 3 },
-            992: { items: 4 }
+            768: { items: 4 },
+            992: { items: 5 }
         }
     });
 }

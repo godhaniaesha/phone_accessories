@@ -42,7 +42,7 @@
       "First Name": "Hasti",
       "Last Name": "Prajapati",
       "email": "hasti@gmail.com",
-      "phone": "8403946545",
+      "phone": "9878765431",
       "password": "hasti@1711",
       "role": "user",
       "bio": ""
@@ -1394,10 +1394,6 @@
         {
           "id": "9",
           "quantity": 1
-        },
-        {
-          "id": "51",
-          "quantity": 1
         }
       ]
     },
@@ -1464,7 +1460,7 @@
       "id": "5ea9",
       "userId": "50db",
       "fullName": "Hasti Prajapati",
-      "phone": "8406536564",
+      "phone": "9865463218",
       "address": "sarthana jakatnaka",
       "address2": "",
       "city": "surat",

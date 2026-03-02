@@ -154,6 +154,9 @@
         }
 
         /* --- FEATURE CARDS --- */
+        .d_abt_built_moments {
+            margin-top: 48px ;
+        }
         .d_abt_feature_card {
             background: var(--glass);
             backdrop-filter: blur(10px);
@@ -233,6 +236,11 @@
             font-weight: 600;
         }
 
+        @media (max-width: 768px) {
+            .d_abt_hero_wrap {
+                padding: 50px 0 50px;
+            }
+        }
 
         @media (max-width: 576px) {
             .d_abt_btn_main {
@@ -241,6 +249,14 @@
 
             .d_abt_story_btn {
                 padding: 16px;
+            }
+
+            .d_abt_hero_wrap {
+                padding: 35px 0 50px;
+            }
+
+            .d_abt_built_moments {
+                margin-top: 1rem ;
             }
         }
     </style>
@@ -295,7 +311,7 @@
             </div>
         </div>
 
-        <section class="container py-5 mt-5">
+        <section class="container py-4 py-md-5 d_abt_built_moments">
             <div class="text-center mb-5">
                 <h2 class="display-4">Built for the "Oops" moments.</h2>
             </div>
@@ -333,7 +349,7 @@
             </div>
         </section>
 
-        <section class="container py-5" id="story">
+        <section class="container py-4 py-md-5" id="story">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5">
                     <h2 class="display-5 mb-4">The Curators <br>of <span style="color: var(--accent);">Calm Tech</span>
