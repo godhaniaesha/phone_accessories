@@ -347,7 +347,7 @@ async function renderCartPage(cart = null) {
                     </div>
                 </div>
                 <div class="z_cart_price" data-label="Price">$${price.toFixed(2)}</div>
-                <div class="z_cart_qty" data-label="Quantity">
+                <div class="z_cart_qty" data-label="Quantity" style="width: auto;">
                     <button class="z_qty_btn" data-qty="-1" data-cart-id="${product.cartId}" data-product-id="${product.productId}" data-current="${qty}">-</button>
                     <span class="z_qty_value">${qty}</span>
                     <button class="z_qty_btn" data-qty="1"  data-cart-id="${product.cartId}" data-product-id="${product.productId}" data-current="${qty}">+</button>

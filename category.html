@@ -609,8 +609,14 @@
     /* ====================================================
        STATE
     ==================================================== */
-    const USER_ID = localStorage.getItem("userId");
-    const wishlist = new Set();
+    function getCurrentUserId() {
+      return localStorage.getItem("userId");
+    }
+
+    function isUserLoggedIn() {
+      return localStorage.getItem("userLoggedIn") === "true" && !!getCurrentUserId();
+    }
+
     let userWishlistIds = [];
     let cartProductIds = new Set(); // Track products in cart
     let currentCatId = null;
@@ -715,7 +721,7 @@
       }
 
       toRender.forEach(p => {
-        const isLiked = userWishlistIds.includes(String(p.id));
+        const isLiked = isUserLoggedIn() && userWishlistIds.includes(String(p.id));
         const isInCart = cartProductIds.has(String(p.id));
         const card = document.createElement('div');
         card.className = 'product-card';
@@ -774,6 +780,14 @@
         const wishBtn = card.querySelector('.wishlist-btn');
         wishBtn.addEventListener('click', function (e) {
           e.stopPropagation(); // Prevent card click
+          if (!isUserLoggedIn()) {
+            if (typeof window.addToWishlist === "function") {
+              window.addToWishlist(p.id); // opens login prompt/modal from wishlist.js
+            } else {
+              alert("Please login to add items to your wishlist.");
+            }
+            return;
+          }
           toggleWish(this, p.id);
         });
 
@@ -814,8 +828,14 @@
        WISHLIST
     ==================================================== */
     async function loadUserWishlist() {
+      const userId = getCurrentUserId();
+      if (!isUserLoggedIn() || !userId) {
+        userWishlistIds = [];
+        return;
+      }
+
       try {
-        const res = await fetch(`http://localhost:3000/wishlists?userId=${USER_ID}`);
+        const res = await fetch(`http://localhost:3000/wishlists?userId=${userId}`);
         const data = await res.json();
         userWishlistIds = data.length > 0
           ? (data[0].productIds || []).map(id => String(id))
@@ -827,10 +847,15 @@
     }
 
     async function toggleWish(btn, productId) {
+      const userId = getCurrentUserId();
+      if (!isUserLoggedIn() || !userId) {
+        return;
+      }
+
       const icon = btn.querySelector('i');
 
       try {
-        const res = await fetch(`http://localhost:3000/wishlists?userId=${USER_ID}`);
+        const res = await fetch(`http://localhost:3000/wishlists?userId=${userId}`);
         const data = await res.json();
 
         if (data.length > 0) {
@@ -867,7 +892,7 @@
           // Create new wishlist
           const newWishlist = {
             id: Date.now().toString(),
-            userId: USER_ID,
+            userId: userId,
             productIds: [String(productId)]
           };
 
@@ -890,8 +915,14 @@
        LOAD USER'S CART ITEMS
     ==================================================== */
     async function loadUserCart() {
+      const userId = getCurrentUserId();
+      if (!userId) {
+        cartProductIds.clear();
+        return;
+      }
+
       try {
-        const res = await fetch(`http://localhost:3000/carts?userId=${USER_ID}`);
+        const res = await fetch(`http://localhost:3000/carts?userId=${userId}`);
         const carts = await res.json();
         cartProductIds.clear();
         if (carts.length > 0) {

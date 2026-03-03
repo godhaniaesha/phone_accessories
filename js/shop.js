@@ -279,17 +279,17 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.addEventListener('click', function (e) {
-        const card = e.target.closest('.s_shop_product_card');
+    // document.addEventListener('click', function (e) {
+    //     const card = e.target.closest('.s_shop_product_card');
 
-        if (card
-            && !e.target.closest('.s_btn_add_cart')
-            && !e.target.closest('.s_btn_wishlist')
-            && !e.target.closest('a')) {
-            const productId = card.dataset.id;
-            window.location.href = `productDetails.html?id=${productId}`;
-        }
-    });
+    //     if (card
+    //         && !e.target.closest('.s_btn_add_cart')
+    //         && !e.target.closest('.s_btn_wishlist')
+    //         && !e.target.closest('a')) {
+    //         const productId = card.dataset.id;
+    //         window.location.href = `productDetails.html?id=${productId}`;
+    //     }
+    // });
 
     function renderPagination() {
         if (!paginationContainer) return;

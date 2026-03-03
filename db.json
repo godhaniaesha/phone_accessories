@@ -11,15 +11,6 @@
       "bio": ""
     },
     {
-      "id": "2",
-      "First Name": "admin",
-      "Last Name": "admin",
-      "email": "admin@example.com",
-      "phone": "1234567890",
-      "password": "admin123",
-      "role": "admin"
-    },
-    {
       "id": "528d",
       "First Name": "Aesha",
       "Last Name": "Godhani",
@@ -38,12 +29,12 @@
       "role": "user"
     },
     {
-      "id": "50db",
+      "id": "c66e",
       "First Name": "Hasti",
       "Last Name": "Prajapati",
       "email": "hasti@gmail.com",
-      "phone": "9878765431",
-      "password": "hasti@1711",
+      "phone": "07069229312",
+      "password": "h@12345678",
       "role": "user",
       "bio": ""
     }
@@ -1169,10 +1160,6 @@
     {
       "id": "f06a",
       "email": "aesha.kalathiyainfotech@gmail.com"
-    },
-    {
-      "id": "c75e",
-      "email": "hasti@gmail.com"
     }
   ],
   "wishlists": [
@@ -1188,14 +1175,6 @@
       ]
     },
     {
-      "id": "2",
-      "userId": 2,
-      "productIds": [
-        2,
-        3
-      ]
-    },
-    {
       "id": "3f2b",
       "userId": "c537",
       "productIds": [
@@ -1206,16 +1185,6 @@
       ]
     },
     {
-      "id": "ced5",
-      "userId": "50db",
-      "productIds": [
-        "1",
-        "28",
-        "51",
-        "26"
-      ]
-    },
-    {
       "id": "6126",
       "userId": "528d",
       "productIds": [
@@ -1223,6 +1192,21 @@
         "29",
         "53",
         "51"
+      ]
+    },
+    {
+      "id": "1772444709309",
+      "userId": null,
+      "productIds": []
+    },
+    {
+      "id": "1772446316210",
+      "userId": "c66e",
+      "productIds": [
+        "44",
+        "27",
+        "53",
+        "8"
       ]
     }
   ],
@@ -1380,24 +1364,6 @@
       ]
     },
     {
-      "id": "cart_mlyyiy17",
-      "userId": "50db",
-      "items": [
-        {
-          "id": "5",
-          "quantity": 1
-        },
-        {
-          "id": "53",
-          "quantity": 1
-        },
-        {
-          "id": "9",
-          "quantity": 1
-        }
-      ]
-    },
-    {
       "id": "cart_mm0ewuk6",
       "userId": "528d",
       "items": [
@@ -1414,6 +1380,11 @@
           "quantity": 1
         }
       ]
+    },
+    {
+      "id": "cart_1772446324335",
+      "userId": "c66e",
+      "items": []
     }
   ],
   "addresses": [
@@ -1457,32 +1428,18 @@
       "isDefault": true
     },
     {
-      "id": "5ea9",
-      "userId": "50db",
-      "fullName": "Hasti Prajapati",
-      "phone": "9865463218",
+      "id": "30dc",
+      "userId": "c66e",
+      "fullName": "hasti prajapati prajapati",
+      "phone": "+917069229312",
+      "email": "hasti@gmail.com",
       "address": "sarthana jakatnaka",
       "address2": "",
       "city": "surat",
       "state": "gujarat",
       "pincode": "395006",
-      "country": "India",
-      "type": "Home",
+      "country": "IN",
       "isDefault": true
-    },
-    {
-      "id": "1b0b",
-      "userId": "50db",
-      "fullName": "Dhanvi Prajapati",
-      "phone": "9687027739",
-      "address": "Yogichawk",
-      "address2": "",
-      "city": "surat",
-      "state": "gujarat",
-      "pincode": "395006",
-      "country": "India",
-      "type": "Office",
-      "isDefault": false
     }
   ],
   "orders": [
@@ -2130,36 +2087,36 @@
       "createdAt": "2026-02-20"
     },
     {
-      "id": "d78c",
-      "userId": "50db",
+      "id": "f2ad",
+      "userId": "c66e",
       "items": [
-        {
-          "productId": "5",
-          "quantity": 1,
-          "price": 450
-        },
-        {
-          "productId": "28",
-          "quantity": 1,
-          "price": 199
-        },
-        {
-          "productId": "26",
-          "quantity": 1,
-          "price": 199
-        },
         {
           "productId": "52",
           "quantity": 1,
           "price": 34.99
+        },
+        {
+          "productId": "48",
+          "quantity": 1,
+          "price": 89.99
+        },
+        {
+          "productId": "14",
+          "quantity": 1,
+          "price": 799
+        },
+        {
+          "productId": "24",
+          "quantity": 1,
+          "price": 199
         }
       ],
-      "totalAmount": 882.99,
-      "paymentMethod": "card",
+      "totalAmount": 1122.98,
+      "paymentMethod": "cod",
       "paymentStatus": "Pending",
       "orderStatus": "Processing",
       "shippingAddress": {
-        "fullName": "Hasti Prajapati prajapati",
+        "fullName": "hasti prajapati prajapati",
         "phone": "+917069229312",
         "address": "sarthana jakatnaka",
         "address2": "",
@@ -2168,7 +2125,7 @@
         "pincode": "395006",
         "country": "IN"
       },
-      "createdAt": "2026-02-26"
+      "createdAt": "2026-03-02"
     }
   ],
   "reviews": [

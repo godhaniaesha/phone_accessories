@@ -37,7 +37,7 @@
 
 /* --- Product Section --- */
 .pd-main-section {
-    padding: 60px 0;
+    padding: 50px 0;
     background-color: #fff;
     font-family: 'Poppins', sans-serif;
     /* Clean sans-serif */
@@ -156,7 +156,7 @@
     line-height: 1.6;
     margin-bottom: 25px;
     border-bottom: 1px solid #eee;
-    padding-bottom: 25px;
+    /* padding-bottom: 25px; */
 }
 
 .pd-share-actions {
@@ -282,7 +282,7 @@
     color: #94a691;
     border: 1px solid rgba(212, 175, 55, 0.5);
     padding: 12px 30px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
@@ -302,7 +302,7 @@
     background: none;
     border: none;
     color: #555;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -685,12 +685,6 @@
         width: 100%;
     }
 
-    .pd-cart-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-    }
-
     .pd-btn-add-cart,
     .pd-btn-wishlist {
         width: 100%;
@@ -699,6 +693,12 @@
 }
 
 @media (max-width: 576px) {
+    .pd-cart-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
     .pd-hero-section {
         padding: 40px 0;
     }

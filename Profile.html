@@ -888,12 +888,159 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 10px;
             padding: 15px 0;
             border-bottom: 1px solid #f5f5f5;
         }
 
         .z_settings_item:last-child {
             border-bottom: none;
+        }
+
+        .z_password_modal_overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 16px;
+        }
+
+        .z_password_modal_overlay.active {
+            display: flex;
+        }
+
+        .z_password_modal {
+            width: 100%;
+            max-width: 460px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .z_password_modal_header {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+        }
+
+        .z_password_modal_title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .z_password_modal_close {
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .z_password_modal_body {
+            padding: 18px 20px 20px;
+        }
+
+        .z_password_form_group {
+            margin-bottom: 12px;
+        }
+
+        .z_password_form_group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .z_password_form_group input {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 14px;
+        }
+
+        .z_password_input_wrap {
+            position: relative;
+        }
+
+        .z_password_input_wrap input {
+            padding-right: 44px;
+        }
+
+        .z_password_toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #6b7280;
+            font-size: 15px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+
+        .z_password_form_group input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .z_password_modal_actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .z_btn_password_cancel,
+        .z_btn_password_save {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .z_btn_password_cancel {
+            background: #ffffff;
+            color: #111827;
+        }
+
+        .z_btn_password_save {
+            background: #94a691;
+            color: #fff;
+        }
+
+        .z_delete_modal_message {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 14px;
+        }
+
+        .z_delete_modal_warning {
+            font-size: 13px;
+            color: #b91c1c;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .z_btn_delete_confirm {
+            background: #b91c1c;
+            color: #fff;
         }
 
         .z_settings_info h4 {
@@ -909,8 +1056,9 @@
         }
 
         .z_toggle_switch {
+            min-width: 50px;
             position: relative;
-            width: 50px;
+            width: 50px !important;
             height: 26px;
         }
 
@@ -961,6 +1109,7 @@
             cursor: pointer;
             font-size: 0.9rem;
             transition: all 0.2s ease;
+            text-wrap: nowrap;
         }
 
         .z_btn_danger:hover {
@@ -1080,6 +1229,10 @@
             .z_order_modal_item_meta {
                 font-size: 12px;
             }
+
+            .z_password_modal_actions {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1095,6 +1248,11 @@
             .z_btn_add_to_cart {
                 font-size: 13px;
                 padding: 10px;
+            }
+
+            .z_btn_danger {
+                padding: 8px 16px;
+                font-size: 11px;
             }
         }
     </style>
@@ -1153,7 +1311,7 @@
                         </div>
                         <form class="z_edit_profile_form" id="editProfileForm">
                             <div class="z_form_group z_avatar_upload">
-                                <img id="avatarPreview" class="z_avatar_preview" alt="Avatar preview">
+                                <img id="avatarPreview" class="z_avatar_preview" alt="Avatar preview" src="./Image/cute-pookie-photo.webp">
                                 <div class="z_avatar_input">
                                     <label for="avatarInput">Profile Image</label>
                                     <input type="file" id="avatarInput" name="avatarInput" accept="image/*">
@@ -1441,7 +1599,7 @@
                                     <h4>Change Password</h4>
                                     <p>Update your account password</p>
                                 </div>
-                                <button class="z_btn_danger">Change</button>
+                                <button class="z_btn_danger" id="openPasswordModalBtn">Change</button>
                             </div>
                             <div class="z_settings_item">
                                 <div class="z_settings_info">
@@ -1462,11 +1620,79 @@
                                     <h4>Delete Account</h4>
                                     <p>Permanently delete your account and all data</p>
                                 </div>
-                                <button class="z_btn_danger">Delete Account</button>
+                                <button class="z_btn_danger" id="openDeleteAccountModalBtn">Delete Account</button>
                             </div>
                         </div>
                     </div>
                 </main>
+            </div>
+        </div>
+    </div>
+
+    <div class="z_password_modal_overlay" id="passwordModalOverlay">
+        <div class="z_password_modal" role="dialog" aria-modal="true" aria-labelledby="passwordModalTitle">
+            <div class="z_password_modal_header">
+                <h3 class="z_password_modal_title" id="passwordModalTitle">Change Password</h3>
+                <button class="z_password_modal_close" id="closePasswordModalBtn" aria-label="Close">&times;</button>
+            </div>
+            <div class="z_password_modal_body">
+                <form id="changePasswordForm">
+                    <div class="z_password_form_group">
+                        <label for="currentPasswordInput">Current Password</label>
+                        <div class="z_password_input_wrap">
+                            <input type="password" id="currentPasswordInput" required>
+                            <button type="button" class="z_password_toggle" data-target="currentPasswordInput"
+                                aria-label="Show current password">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="z_password_form_group">
+                        <label for="newPasswordInput">New Password</label>
+                        <div class="z_password_input_wrap">
+                            <input type="password" id="newPasswordInput" required>
+                            <button type="button" class="z_password_toggle" data-target="newPasswordInput"
+                                aria-label="Show new password">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="z_password_form_group">
+                        <label for="confirmPasswordInput">Set New Password</label>
+                        <div class="z_password_input_wrap">
+                            <input type="password" id="confirmPasswordInput" required>
+                            <button type="button" class="z_password_toggle" data-target="confirmPasswordInput"
+                                aria-label="Show confirm password">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="z_password_modal_actions">
+                        <button type="button" class="z_btn_password_cancel" id="cancelPasswordModalBtn">Cancel</button>
+                        <button type="submit" class="z_btn_password_save">Save Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="z_password_modal_overlay" id="deleteAccountModalOverlay">
+        <div class="z_password_modal" role="dialog" aria-modal="true" aria-labelledby="deleteAccountModalTitle">
+            <div class="z_password_modal_header">
+                <h3 class="z_password_modal_title" id="deleteAccountModalTitle">Delete Account</h3>
+                <button class="z_password_modal_close" id="closeDeleteAccountModalBtn"
+                    aria-label="Close">&times;</button>
+            </div>
+            <div class="z_password_modal_body">
+                <p class="z_delete_modal_message">Are you sure you want to delete your account?</p>
+                <p class="z_delete_modal_warning">Once deleted, your account and all associated data will be permanently
+                    removed. This action cannot be undone.
+                <div class="z_password_modal_actions">
+                    <button type="button" class="z_btn_password_cancel" id="cancelDeleteAccountModalBtn">Keep My
+                        Account</button>
+                    <button type="button" class="z_btn_password_save z_btn_delete_confirm"
+                        id="confirmDeleteAccountBtn">Delete Account</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1669,6 +1895,36 @@
             setProfileEditMode(false);
         }
 
+        async function getCurrentUserForPasswordUpdate() {
+            const resolved = await resolveCurrentUser();
+            if (resolved && resolved.id != null) return resolved;
+
+            const userId = (localStorage.getItem("userId") || "").toString().trim();
+            if (userId) {
+                try {
+                    const response = await fetch(`http://localhost:3000/users/${encodeURIComponent(userId)}`);
+                    if (response.ok) return await response.json();
+                } catch (error) {
+                    console.warn("User lookup by id failed:", error);
+                }
+            }
+
+            const email = (localStorage.getItem("userEmail") || "").toString().trim().toLowerCase();
+            if (email) {
+                try {
+                    const response = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`);
+                    if (response.ok) {
+                        const users = await response.json();
+                        if (Array.isArray(users) && users.length > 0) return users[0];
+                    }
+                } catch (error) {
+                    console.warn("User lookup by email failed:", error);
+                }
+            }
+
+            return null;
+        }
+
         function setAvatar(src) {
             const avatarImage = document.getElementById('profileAvatar');
             const avatarIcon = document.getElementById('profileAvatarIcon');
@@ -1807,6 +2063,246 @@
                 populateProfileForm(lastLoadedProfile);
             }
             setProfileEditMode(false);
+        });
+
+        // Change password modal
+        const passwordModalOverlay = document.getElementById('passwordModalOverlay');
+        const openPasswordModalBtn = document.getElementById('openPasswordModalBtn');
+        const closePasswordModalBtn = document.getElementById('closePasswordModalBtn');
+        const cancelPasswordModalBtn = document.getElementById('cancelPasswordModalBtn');
+        const changePasswordForm = document.getElementById('changePasswordForm');
+        const passwordToggleButtons = document.querySelectorAll('.z_password_toggle');
+
+        function closePasswordModal() {
+            passwordModalOverlay?.classList.remove('active');
+            if (changePasswordForm) changePasswordForm.reset();
+            passwordToggleButtons.forEach(button => {
+                const targetId = button.getAttribute('data-target');
+                const input = targetId ? document.getElementById(targetId) : null;
+                if (!input) return;
+                input.type = 'password';
+                button.innerHTML = '<i class="fa-solid fa-eye"></i>';
+            });
+        }
+
+        openPasswordModalBtn?.addEventListener('click', function () {
+            passwordModalOverlay?.classList.add('active');
+        });
+
+        closePasswordModalBtn?.addEventListener('click', closePasswordModal);
+        cancelPasswordModalBtn?.addEventListener('click', closePasswordModal);
+
+        passwordModalOverlay?.addEventListener('click', function (e) {
+            if (e.target === passwordModalOverlay) {
+                closePasswordModal();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && passwordModalOverlay?.classList.contains('active')) {
+                closePasswordModal();
+            }
+        });
+
+        passwordToggleButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const input = targetId ? document.getElementById(targetId) : null;
+                if (!input) return;
+
+                const shouldShow = input.type === 'password';
+                input.type = shouldShow ? 'text' : 'password';
+                this.innerHTML = shouldShow
+                    ? '<i class="fa-solid fa-eye-slash"></i>'
+                    : '<i class="fa-solid fa-eye"></i>';
+            });
+        });
+
+        changePasswordForm?.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const currentPassword = document.getElementById('currentPasswordInput')?.value || '';
+            const newPassword = document.getElementById('newPasswordInput')?.value || '';
+            const confirmPassword = document.getElementById('confirmPasswordInput')?.value || '';
+
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                alert('Please fill all password fields.');
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                alert('New password and confirm password do not match.');
+                return;
+            }
+
+            if (newPassword.length < 6) {
+                alert('New password must be at least 6 characters.');
+                return;
+            }
+
+            const currentUser = await getCurrentUserForPasswordUpdate();
+            if (!currentUser || currentUser.id == null) {
+                alert('Unable to find your account. Please login again.');
+                return;
+            }
+
+            if ((currentUser.password || '') !== currentPassword) {
+                alert('Current password is incorrect.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:3000/users/${encodeURIComponent(currentUser.id)}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        password: newPassword
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Password update request failed');
+                }
+
+                const updatedUser = await response.json();
+                const cached = readStoredCurrentUser() || {};
+                localStorage.setItem('currentUser', JSON.stringify({
+                    ...cached,
+                    id: updatedUser.id,
+                    email: updatedUser.email || cached.email || ''
+                }));
+
+                closePasswordModal();
+                alert('Password updated successfully.');
+            } catch (error) {
+                console.error('Password update failed:', error);
+                alert('Failed to update password. Make sure json-server is running.');
+            }
+        });
+
+        // Delete account modal + flow
+        const deleteAccountModalOverlay = document.getElementById('deleteAccountModalOverlay');
+        const openDeleteAccountModalBtn = document.getElementById('openDeleteAccountModalBtn');
+        const closeDeleteAccountModalBtn = document.getElementById('closeDeleteAccountModalBtn');
+        const cancelDeleteAccountModalBtn = document.getElementById('cancelDeleteAccountModalBtn');
+        const confirmDeleteAccountBtn = document.getElementById('confirmDeleteAccountBtn');
+
+        function closeDeleteAccountModal() {
+            deleteAccountModalOverlay?.classList.remove('active');
+        }
+
+        async function deleteByUserId(resourceName, userId) {
+            const response = await fetch(`http://localhost:3000/${resourceName}`);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${resourceName}`);
+            }
+
+            const rows = await response.json();
+            const matchedRows = Array.isArray(rows)
+                ? rows.filter(row => String(row.userId) === String(userId))
+                : [];
+
+            await Promise.all(matchedRows.map(row =>
+                fetch(`http://localhost:3000/${resourceName}/${encodeURIComponent(row.id)}`, {
+                    method: 'DELETE'
+                })
+            ));
+        }
+
+        async function deleteByEmail(resourceName, email) {
+            const normalizedEmail = (email || '').toString().trim().toLowerCase();
+            if (!normalizedEmail) return;
+
+            const response = await fetch(`http://localhost:3000/${resourceName}?email=${encodeURIComponent(normalizedEmail)}`);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${resourceName}`);
+            }
+
+            const rows = await response.json();
+            const matchedRows = Array.isArray(rows)
+                ? rows.filter(row => (row.email || '').toString().trim().toLowerCase() === normalizedEmail)
+                : [];
+
+            await Promise.all(matchedRows.map(row =>
+                fetch(`http://localhost:3000/${resourceName}/${encodeURIComponent(row.id)}`, {
+                    method: 'DELETE'
+                })
+            ));
+        }
+
+        async function deleteAccountAndRelatedData() {
+            console.log('deleteAccountAndRelatedData() called');
+            const currentUser = await getCurrentUserForPasswordUpdate();
+            if (!currentUser || currentUser.id == null) {
+                alert('Unable to find your account. Please login again.');
+                return;
+            }
+
+            const userId = currentUser.id;
+            const email = (currentUser.email || localStorage.getItem("userEmail") || '').toString().trim().toLowerCase();
+
+            try {
+                await Promise.all([
+                    deleteByUserId('wishlists', userId),
+                    deleteByUserId('carts', userId),
+                    deleteByUserId('addresses', userId),
+                    deleteByUserId('orders', userId),
+                    deleteByUserId('reviews', userId)
+                ]);
+
+                if (email) {
+                    await deleteByEmail('subscribers', email);
+                }
+
+                const userDeleteResponse = await fetch(`http://localhost:3000/users/${encodeURIComponent(userId)}`, {
+                    method: 'DELETE'
+                });
+                if (!userDeleteResponse.ok) {
+                    throw new Error('Failed to delete user account');
+                }
+
+                closeDeleteAccountModal();
+                localStorage.removeItem("userLoggedIn");
+                localStorage.removeItem("userName");
+                localStorage.removeItem("userEmail");
+                localStorage.removeItem("userId");
+                localStorage.removeItem("currentUser");
+                localStorage.removeItem("userPhone");
+                localStorage.removeItem("userBio");
+                localStorage.removeItem("userAvatar");
+                console.log('Account deletion succeeded, showing alert');
+                alert('Your account has been deleted successfully.');
+                // schedule redirect after alert returns so it can't be blocked
+                setTimeout(() => {
+                    console.log('Redirecting to Home.html now');
+                    window.location.replace('Home.html');
+                }, 0);
+                return; // ensure we stop here
+            } catch (error) {
+                console.error('Delete account failed:', error);
+                alert('Failed to delete account. Make sure json-server is running.');
+            }
+        }
+
+        openDeleteAccountModalBtn?.addEventListener('click', function () {
+            deleteAccountModalOverlay?.classList.add('active');
+        });
+        closeDeleteAccountModalBtn?.addEventListener('click', closeDeleteAccountModal);
+        cancelDeleteAccountModalBtn?.addEventListener('click', closeDeleteAccountModal);
+        confirmDeleteAccountBtn?.addEventListener('click', deleteAccountAndRelatedData);
+
+        deleteAccountModalOverlay?.addEventListener('click', function (e) {
+            if (e.target === deleteAccountModalOverlay) {
+                closeDeleteAccountModal();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && deleteAccountModalOverlay?.classList.contains('active')) {
+                closeDeleteAccountModal();
+            }
         });
 
         // Logout functionality
