@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aesthetic FAQs | Mobile Studio</title>
+    <title>FAQs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./style/d_style.css">
-	<link rel="stylesheet" href="/style/x_style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Quicksand:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style/d_style.css">
+    <link rel="stylesheet" href="/style/x_style.css">
 
     <style>
         :root {
             --x_faq_text: #4a4e69;
-            --x_faq_accent: #9d8189; /* Dusty Rose */
+            --x_faq_accent: #9d8189;
+            /* Dusty Rose */
             --x_faq_radius: 30px;
         }
 
@@ -81,14 +84,46 @@
         }
 
         /* Pastel Color Variations */
-        .x_c1 { background: rgba(255, 238, 242, 0.7); } /* Rose */
-        .x_c2 { background: rgba(243, 232, 255, 0.7); } /* Lavender */
-        .x_c3 { background: rgba(236, 253, 245, 0.7); } /* Mint */
-        .x_c4 { background: rgba(255, 247, 237, 0.7); } /* Peach */
-        .x_c5 { background: rgba(240, 249, 255, 0.7); } /* Sky */
-        .x_c6 { background: rgba(254, 242, 242, 0.7); } /* Blossom */
-        .x_c7 { background: rgba(245, 245, 245, 0.7); } /* Pearl */
-        .x_c8 { background: rgba(255, 251, 235, 0.7); } /* Honey */
+        .x_c1 {
+            background: rgba(255, 238, 242, 0.7);
+        }
+
+        /* Rose */
+        .x_c2 {
+            background: rgba(243, 232, 255, 0.7);
+        }
+
+        /* Lavender */
+        .x_c3 {
+            background: rgba(236, 253, 245, 0.7);
+        }
+
+        /* Mint */
+        .x_c4 {
+            background: rgba(255, 247, 237, 0.7);
+        }
+
+        /* Peach */
+        .x_c5 {
+            background: rgba(240, 249, 255, 0.7);
+        }
+
+        /* Sky */
+        .x_c6 {
+            background: rgba(254, 242, 242, 0.7);
+        }
+
+        /* Blossom */
+        .x_c7 {
+            background: rgba(245, 245, 245, 0.7);
+        }
+
+        /* Pearl */
+        .x_c8 {
+            background: rgba(255, 251, 235, 0.7);
+        }
+
+        /* Honey */
 
         .x_faq_item:hover {
             transform: translateY(-5px);
@@ -140,16 +175,48 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .x_faq_header_section h1 { font-size: 2.8rem; }
-            .x_faq_trigger { padding: 18px 25px; font-size: 1.05rem; }
-            .x_faq_radius { --x_faq_radius: 20px; }
+            .x_faq_header_section h1 {
+                font-size: 2.8rem;
+            }
+
+            .x_faq_trigger {
+                padding: 18px 25px;
+                font-size: 1.05rem;
+            }
+
+            .x_faq_radius {
+                --x_faq_radius: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .x_faq_header_section h1 {
+                font-size: 2.2rem;
+            }
+
+            .x_faq_trigger {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+
+            .x_faq_body {
+                padding: 0 20px 15px;
+                font-size: 13px;
+            }
+
+            .x_faq_header_section {
+                padding: 40px 20px 36px;
+            }
+            .x_faq_card_container {
+                padding: 0;
+            }
         }
     </style>
 </head>
 
 <body>
 
-	<div id="header-container"></div>
+    <div id="header-container"></div>
 
     <div class="x_faq_blob" style="top: -100px; left: -150px; background: #fae1dd;"></div>
     <div class="x_faq_blob" style="bottom: 50px; right: -150px; background: #d8e2dc;"></div>
@@ -172,91 +239,106 @@
                     </button>
                     <div id="q1" class="collapse show" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            Once your goodies ship, you'll receive a magic link via email. You can follow your package's journey from our studio straight to your doorstep.
+                            Once your goodies ship, you'll receive a magic link via email. You can follow your package's
+                            journey from our studio straight to your doorstep.
                         </div>
                     </div>
                 </div>
 
                 <div class="x_faq_item x_c2">
-                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q2">
                         <span>Are the cases MagSafe compatible?</span>
                         <div class="x_faq_circle"><i class="fa-solid fa-plus"></i></div>
                     </button>
                     <div id="q2" class="collapse" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            Absolutely! Our premium series features built-in magnets that align perfectly with MagSafe chargers and accessories for a seamless experience.
+                            Absolutely! Our premium series features built-in magnets that align perfectly with MagSafe
+                            chargers and accessories for a seamless experience.
                         </div>
                     </div>
                 </div>
 
                 <div class="x_faq_item x_c3">
-                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q3">
                         <span>Do you offer international shipping?</span>
                         <div class="x_faq_circle"><i class="fa-solid fa-plus"></i></div>
                     </button>
                     <div id="q3" class="collapse" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            Yes, we share the love globally! We ship to over 50+ countries. Shipping times vary between 7-15 business days depending on your location.
+                            Yes, we share the love globally! We ship to over 50+ countries. Shipping times vary between
+                            7-15 business days depending on your location.
                         </div>
                     </div>
                 </div>
 
                 <div class="x_faq_item x_c4">
-                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q4">
                         <span>How do I clean my silicone case?</span>
                         <div class="x_faq_circle"><i class="fa-solid fa-plus"></i></div>
                     </button>
                     <div id="q4" class="collapse" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            Simply use a soft, damp cloth with a touch of mild soap. Avoid harsh chemicals to maintain that buttery-soft finish and vibrant color.
+                            Simply use a soft, damp cloth with a touch of mild soap. Avoid harsh chemicals to maintain
+                            that buttery-soft finish and vibrant color.
                         </div>
                     </div>
                 </div>
 
                 <div class="x_faq_item x_c5">
-                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">
+                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q5">
                         <span>Is the packaging eco-friendly?</span>
                         <div class="x_faq_circle"><i class="fa-solid fa-plus"></i></div>
                     </button>
                     <div id="q5" class="collapse" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            Yes! We believe in beauty without waste. Our packaging is 100% recyclable and plastic-free, because we love the planet as much as you do.
+                            Yes! We believe in beauty without waste. Our packaging is 100% recyclable and plastic-free,
+                            because we love the planet as much as you do.
                         </div>
                     </div>
                 </div>
 
                 <div class="x_faq_item x_c6">
-                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">
+                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q6">
                         <span>What if I receive a damaged product?</span>
                         <div class="x_faq_circle"><i class="fa-solid fa-plus"></i></div>
                     </button>
                     <div id="q6" class="collapse" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            Oh no! If your item arrives less than perfect, just send us a photo within 48 hours of delivery, and we'll send a replacement immediately.
+                            Oh no! If your item arrives less than perfect, just send us a photo within 48 hours of
+                            delivery, and we'll send a replacement immediately.
                         </div>
                     </div>
                 </div>
 
                 <div class="x_faq_item x_c7">
-                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">
+                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q7">
                         <span>Can I change my order after placing it?</span>
                         <div class="x_faq_circle"><i class="fa-solid fa-plus"></i></div>
                     </button>
                     <div id="q7" class="collapse" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            We process orders quickly, but if you email us within 2 hours of placing the order, we can usually make changes to your shipping address or items.
+                            We process orders quickly, but if you email us within 2 hours of placing the order, we can
+                            usually make changes to your shipping address or items.
                         </div>
                     </div>
                 </div>
 
                 <div class="x_faq_item x_c8">
-                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q8">
+                    <button class="x_faq_trigger collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q8">
                         <span>Do you have a physical store?</span>
                         <div class="x_faq_circle"><i class="fa-solid fa-plus"></i></div>
                     </button>
                     <div id="q8" class="collapse" data-bs-parent="#aestheticFAQ">
                         <div class="x_faq_body">
-                            Currently, we are an online-only studio. This allows us to keep our designs unique and affordable while reaching customers all over the world!
+                            Currently, we are an online-only studio. This allows us to keep our designs unique and
+                            affordable while reaching customers all over the world!
                         </div>
                     </div>
                 </div>
@@ -265,14 +347,17 @@
         </div>
 
         <div class="text-center mt-5">
-            <div class="d-inline-block py-3 px-5" style="background: white; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                <span class="small">Still have questions?</span> 
-                <a href="/contact.html" style="color: var(--x_faq_accent); font-weight: 700; text-decoration: none; margin-left: 10px;">Contact Us</a>
+            <div class="d-inline-block py-3 px-5"
+                style="background: white; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <span class="small">Still have questions?</span>
+                <a href="/contact.html"
+                    style="color: var(--x_faq_accent); font-weight: 700; text-decoration: none; margin-left: 10px;">Contact
+                    Us</a>
             </div>
         </div>
     </div>
 
-	<div id="footer"></div>
+    <div id="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
@@ -281,4 +366,5 @@
     <script src="./js/wishlist.js"></script>
 
 </body>
+
 </html>

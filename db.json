@@ -1203,7 +1203,6 @@
       "id": "1772446316210",
       "userId": "c66e",
       "productIds": [
-        "44",
         "27",
         "53",
         "8"
@@ -1384,7 +1383,12 @@
     {
       "id": "cart_1772446324335",
       "userId": "c66e",
-      "items": []
+      "items": [
+        {
+          "id": "44",
+          "quantity": 1
+        }
+      ]
     }
   ],
   "addresses": [
@@ -1430,7 +1434,7 @@
     {
       "id": "30dc",
       "userId": "c66e",
-      "fullName": "hasti prajapati prajapati",
+      "fullName": "Hasti Prajapati",
       "phone": "+917069229312",
       "email": "hasti@gmail.com",
       "address": "sarthana jakatnaka",
@@ -1438,8 +1442,23 @@
       "city": "surat",
       "state": "gujarat",
       "pincode": "395006",
-      "country": "IN",
-      "isDefault": true
+      "country": "INDIA",
+      "isDefault": true,
+      "type": "Home"
+    },
+    {
+      "id": "7471",
+      "userId": "c66e",
+      "fullName": "Dhanvi Prajapati",
+      "phone": "9687027739",
+      "address": "Yogichawk",
+      "address2": "",
+      "city": "Surat",
+      "state": "Gujarat",
+      "pincode": "395006",
+      "country": "India",
+      "type": "Office",
+      "isDefault": false
     }
   ],
   "orders": [
@@ -2126,6 +2145,37 @@
         "country": "IN"
       },
       "createdAt": "2026-03-02"
+    },
+    {
+      "id": "5434",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 2,
+          "price": 299
+        },
+        {
+          "productId": "18",
+          "quantity": 1,
+          "price": 2499
+        }
+      ],
+      "totalAmount": 3097,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Hasti  Prajapati",
+        "phone": "+917069229312",
+        "address": "sarthana jakatnaka",
+        "address2": "",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-03"
     }
   ],
   "reviews": [

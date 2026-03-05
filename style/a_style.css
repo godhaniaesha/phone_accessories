@@ -710,10 +710,20 @@ h6 {
 
 .form-row {
   display: flex;
+  justify-content: flex-start;
+  width: 100%;
   gap: 15px;
   margin-bottom: 15px;
 }
-
+.checkbox-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 8px;
+}
+.checkbox-wrap input {
+  width: fit-content !important;
+}
 .leave-comment input,
 .leave-comment textarea {
   width: 100%;
@@ -793,11 +803,19 @@ h6 {
     width: 100%;
   }
 
+  .related-grid {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
   .form-row {
     flex-direction: column;
   }
-
-  .related-grid {
-    flex-direction: column;
+  .blog-detail-section {
+    padding: 20px 20px 0px 20px;
+  }
+  .blog-header .blog-maintitle {
+    font-size: 28px;
   }
 }
