@@ -240,7 +240,7 @@
     <script>
         (function () {
             var params = new URLSearchParams(window.location.search);
-            var orderId = params.get("order") || "ORD-" + Math.random().toString(36).substr(2, 9).toUpperCase();
+            var orderId = params.get("order") || localStorage.getItem("lastOrderId") || "ORD-" + Math.random().toString(36).substr(2, 9).toUpperCase();
             var el = document.getElementById("orderId");
             if (el) el.textContent = orderId;
         })();

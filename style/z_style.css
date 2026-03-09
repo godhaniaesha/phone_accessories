@@ -1702,6 +1702,102 @@
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
+.z_native_select_hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.z_custom_select {
+  position: relative;
+}
+
+.z_custom_select_trigger {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.z_custom_select_trigger:focus {
+  outline: none;
+  border-color: #94a691;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.z_custom_select_text.is_placeholder {
+  color: #888;
+}
+
+.z_custom_select_trigger i {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.z_custom_select.z_open .z_custom_select_trigger i {
+  transform: rotate(180deg);
+}
+
+.z_custom_select_menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+}
+
+.z_custom_select.z_open .z_custom_select_menu {
+  display: block;
+}
+
+.z_custom_select_option {
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  color: #333;
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.z_custom_select_option:last-child {
+  border-bottom: 0;
+}
+
+.z_custom_select_option:hover,
+.z_custom_select_option:focus {
+  outline: none;
+  background: #fffef9;
+}
+
+.z_custom_select_option.is_selected {
+  color: #94a691;
+  font-weight: 600;
+  background: #f8fbf8;
+}
+
 .z_payment_options {
   display: flex;
   flex-direction: column;
@@ -2075,7 +2171,8 @@
   .z_checkout_form .z_form_group input[type="text"],
   .z_checkout_form .z_form_group input[type="email"],
   .z_checkout_form .z_form_group input[type="tel"],
-  .z_form_select {
+  .z_form_select,
+  .z_custom_select_trigger {
     padding: 9px 10px;
     font-size: 16px;
   }
@@ -2221,7 +2318,7 @@
   }
 }
 
-.z_checkout_btn_cancel {
+/* .z_checkout_btn_cancel {
   padding: 12px 20px;
   background: transparent;
   border: 1px solid #ddd;
@@ -2234,4 +2331,44 @@
 .z_checkout_btn_cancel:hover {
   border-color: #94a691;
   color: #94a691;
+} */
+
+/* Button base design */
+.z_checkout_btn_cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* The Double Round Indicator */
+.z_checkout_btn_cancel::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow:
+    0 0 0 4px #94a691,
+    0 0 0 5.5px #94a691;
+  margin-left: 6px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect: Changes to Green */
+.z_checkout_btn_cancel:hover::before {
+  background-color: #94a691;
+  box-shadow:
+    0 0 0 4px #ffffff,
+    0 0 0 5.5px #94a691;
 }

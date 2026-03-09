@@ -1202,11 +1202,7 @@
     {
       "id": "1772446316210",
       "userId": "c66e",
-      "productIds": [
-        "27",
-        "53",
-        "8"
-      ]
+      "productIds": []
     }
   ],
   "carts": [
@@ -1383,16 +1379,7 @@
     {
       "id": "cart_1772446324335",
       "userId": "c66e",
-      "items": [
-        {
-          "id": "44",
-          "quantity": 1
-        },
-        {
-          "id": "29",
-          "quantity": 1
-        }
-      ]
+      "items": []
     }
   ],
   "addresses": [
@@ -1447,6 +1434,20 @@
       "pincode": "395006",
       "country": "India",
       "type": "Home",
+      "isDefault": true
+    },
+    {
+      "id": "fc17",
+      "userId": "c66e",
+      "fullName": "Dhanvi Prajapati",
+      "phone": "+91 8434646314",
+      "address": "Gokuldham Society",
+      "address2": "Mota Varachha",
+      "city": "surat",
+      "state": "gujarat",
+      "pincode": "395006",
+      "country": "Canada",
+      "type": "Office",
       "isDefault": false
     }
   ],
@@ -2165,6 +2166,364 @@
         "country": "IN"
       },
       "createdAt": "2026-03-03"
+    },
+    {
+      "id": "c4ab",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "44",
+          "quantity": 1,
+          "price": 49.99
+        },
+        {
+          "productId": "29",
+          "quantity": 1,
+          "price": 199
+        }
+      ],
+      "totalAmount": 248.99,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "hasti prajapati",
+        "phone": "+91 7069229312",
+        "address": "Bhagvati society, gate no: 6",
+        "address2": "sarthana jakatnaka",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "b7c0",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "7",
+          "quantity": 1,
+          "price": 899
+        },
+        {
+          "productId": "53",
+          "quantity": 1,
+          "price": 22.99
+        },
+        {
+          "productId": "8",
+          "quantity": 1,
+          "price": 299
+        }
+      ],
+      "totalAmount": 1220.99,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Dhanvi Prajapati",
+        "phone": "+91 8434646314",
+        "address": "Gokuldham Society",
+        "address2": "Mota Varachha",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "CA"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "9e12",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "46",
+          "quantity": 1,
+          "price": 199.99
+        },
+        {
+          "productId": "8",
+          "quantity": 1,
+          "price": 299
+        }
+      ],
+      "totalAmount": 498.99,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "hasti prajapati",
+        "phone": "+91 7069229312",
+        "address": "Bhagvati society, gate no: 6",
+        "address2": "sarthana jakatnaka",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "aeb4",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "54",
+          "quantity": 1,
+          "price": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "hasti prajapati",
+        "phone": "+91 7069229312",
+        "address": "Bhagvati society, gate no: 6",
+        "address2": "sarthana jakatnaka",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "f7d7",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "6",
+          "quantity": 1,
+          "price": 1200
+        }
+      ],
+      "totalAmount": 1200,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "hasti prajapati",
+        "phone": "+91 7069229312",
+        "address": "Bhagvati society, gate no: 6",
+        "address2": "sarthana jakatnaka",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "5a16",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 1,
+          "price": 299
+        }
+      ],
+      "totalAmount": 299,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "hasti prajapati",
+        "phone": "+91 7069229312",
+        "address": "Bhagvati society, gate no: 6",
+        "address2": "sarthana jakatnaka",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "966e",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "27",
+          "quantity": 1,
+          "price": 199
+        }
+      ],
+      "totalAmount": 199,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "hasti prajapati",
+        "phone": "+91 7069229312",
+        "address": "Bhagvati society, gate no: 6",
+        "address2": "sarthana jakatnaka",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "b03a",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "16",
+          "quantity": 1,
+          "price": 299
+        }
+      ],
+      "totalAmount": 299,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Dhanvi Prajapati",
+        "phone": "+91 8434646314",
+        "address": "Gokuldham Society",
+        "address2": "Mota Varachha",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "CA"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "80db",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "7",
+          "quantity": 1,
+          "price": 899
+        }
+      ],
+      "totalAmount": 899,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Dhanvi Prajapati",
+        "phone": "+91 8434646314",
+        "address": "Gokuldham Society",
+        "address2": "Mota Varachha",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "CA"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "d5b2",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1,
+          "price": 450
+        }
+      ],
+      "totalAmount": 450,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "hasti prajapati",
+        "phone": "+91 7069229312",
+        "address": "Bhagvati society, gate no: 6",
+        "address2": "sarthana jakatnaka",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "IN"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "e611",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "2",
+          "quantity": 1,
+          "price": 520
+        }
+      ],
+      "totalAmount": 520,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Dhanvi Prajapati",
+        "phone": "+91 8434646314",
+        "address": "Gokuldham Society",
+        "address2": "Mota Varachha",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "CA"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "f4c3",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "3",
+          "quantity": 1,
+          "price": 200
+        }
+      ],
+      "totalAmount": 200,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Dhanvi Prajapati",
+        "phone": "+91 8434646314",
+        "address": "Gokuldham Society",
+        "address2": "Mota Varachha",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "CA"
+      },
+      "createdAt": "2026-03-09"
+    },
+    {
+      "id": "beff",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "52",
+          "quantity": 1,
+          "price": 34.99
+        }
+      ],
+      "totalAmount": 34.99,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Dhanvi Prajapati",
+        "phone": "+91 8434646314",
+        "address": "Gokuldham Society",
+        "address2": "Mota Varachha",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "CA"
+      },
+      "createdAt": "2026-03-09"
     }
   ],
   "reviews": [
