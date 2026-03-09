@@ -248,21 +248,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
             const itemsPerPage = 4;
-            const blogItems = document.querySelectorAll(".a_blog_item");
+            const blogItems = Array.from(document.querySelectorAll(".a_blog_item"));
             const paginationContainer = document.querySelector(".a_pagination");
+            const searchInputs = document.querySelectorAll('.a_sidebar_box input[placeholder="Search..."]');
 
             let currentPage = 1;
-            const totalPages = Math.ceil(blogItems.length / itemsPerPage);
+            let filteredItems = [...blogItems];
 
-            function showPage(page) {
-                blogItems.forEach((item, index) => {
-                    if (index >= (page - 1) * itemsPerPage &&
-                        index < page * itemsPerPage) {
+            function showPage(page, items) {
+                const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
+                currentPage = Math.min(page, totalPages);
+
+                blogItems.forEach(item => {
+                    item.style.display = "none";
+                });
+
+                items.forEach((item, index) => {
+                    if (index >= (currentPage - 1) * itemsPerPage &&
+                        index < currentPage * itemsPerPage) {
                         item.style.display = "block";
-                    } else {
-                        item.style.display = "none";
                     }
                 });
 
@@ -270,12 +275,11 @@
                     li.classList.remove("active")
                 );
 
-                document.querySelector(`.a_page_item[data-page="${page}"]`)?.classList.add("active");
-
-                currentPage = page;
+                document.querySelector(`.a_page_item[data-page="${currentPage}"]`)?.classList.add("active");
             }
 
-            function createPagination() {
+            function createPagination(items) {
+                const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
                 paginationContainer.innerHTML = "";
 
                 // Previous Button
@@ -297,30 +301,57 @@
             <li class="a_page_item" data-page="next"><a href="#"><i class="fa-solid fa-angles-right"></i></a></li>
         `;
 
-                addPaginationEvents();
+                addPaginationEvents(items);
             }
 
-            function addPaginationEvents() {
+            function addPaginationEvents(items) {
                 document.querySelectorAll(".a_page_item").forEach(item => {
                     item.addEventListener("click", function (e) {
                         e.preventDefault();
                         let page = this.getAttribute("data-page");
+                        const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
 
                         if (page === "prev") {
-                            if (currentPage > 1) showPage(currentPage - 1);
+                            if (currentPage > 1) showPage(currentPage - 1, items);
                         }
                         else if (page === "next") {
-                            if (currentPage < totalPages) showPage(currentPage + 1);
+                            if (currentPage < totalPages) showPage(currentPage + 1, items);
                         }
                         else {
-                            showPage(parseInt(page));
+                            showPage(parseInt(page), items);
                         }
                     });
                 });
             }
 
-            createPagination();
-            showPage(1);
+            function applySearch(value) {
+                const query = value.trim().toLowerCase();
+
+                filteredItems = blogItems.filter(item =>
+                    item.textContent.toLowerCase().includes(query)
+                );
+
+                currentPage = 1;
+                createPagination(filteredItems);
+                showPage(1, filteredItems);
+            }
+
+            searchInputs.forEach(input => {
+                input.addEventListener("input", function () {
+                    const value = this.value;
+
+                    searchInputs.forEach(otherInput => {
+                        if (otherInput !== this) {
+                            otherInput.value = value;
+                        }
+                    });
+
+                    applySearch(value);
+                });
+            });
+
+            createPagination(filteredItems);
+            showPage(1, filteredItems);
 
         });
     </script>

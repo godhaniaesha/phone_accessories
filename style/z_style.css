@@ -2220,3 +2220,18 @@
     gap: 15px;
   }
 }
+
+.z_checkout_btn_cancel {
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: clamp(14px, 3.5vw, 16px);
+  transition: all 0.2s ease;
+}
+
+.z_checkout_btn_cancel:hover {
+  border-color: #94a691;
+  color: #94a691;
+}

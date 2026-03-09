@@ -1436,32 +1436,17 @@
       "isDefault": true
     },
     {
-      "id": "30dc",
+      "id": "9e91",
       "userId": "c66e",
-      "fullName": "Hasti Prajapati",
-      "phone": "+917069229312",
-      "email": "hasti@gmail.com",
-      "address": "sarthana jakatnaka",
-      "address2": "",
+      "fullName": "hasti prajapati",
+      "phone": "+91 7069229312",
+      "address": "Bhagvati society, gate no: 6",
+      "address2": "sarthana jakatnaka",
       "city": "surat",
       "state": "gujarat",
       "pincode": "395006",
-      "country": "INDIA",
-      "isDefault": true,
-      "type": "Home"
-    },
-    {
-      "id": "7471",
-      "userId": "c66e",
-      "fullName": "Dhanvi Prajapati",
-      "phone": "9687027739",
-      "address": "Yogichawk",
-      "address2": "",
-      "city": "Surat",
-      "state": "Gujarat",
-      "pincode": "395006",
       "country": "India",
-      "type": "Office",
+      "type": "Home",
       "isDefault": false
     }
   ],
