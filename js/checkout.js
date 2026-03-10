@@ -143,11 +143,13 @@ function renderSavedAddressList() {
             <button type="button" class="z_checkout_btn_cancel saved-address-item"
                 data-address-id="${address.id}"
                 style="text-align:left; width:100%; background:#fff;">
+                <div class="w-100">
                 <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
-                    <strong style="text-wrap: nowrap; font-size: 16px;">${address.fullName || 'Saved Address'}</strong>
-                    ${badge}
+                <strong style="text-wrap: nowrap; font-size: 16px;">${address.fullName || 'Saved Address'}</strong>
+                ${badge}
                 </div>
                 <div style="font-size:13px; color:#666; margin-top:3px;">${addressText}</div>
+                </div>
             </button>
         `;
     }).join('');

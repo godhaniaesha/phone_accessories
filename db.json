@@ -1379,7 +1379,12 @@
     {
       "id": "cart_1772446324335",
       "userId": "c66e",
-      "items": []
+      "items": [
+        {
+          "id": "50",
+          "quantity": 1
+        }
+      ]
     }
   ],
   "addresses": [
