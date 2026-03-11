@@ -62,6 +62,9 @@ async function loadProductDetails() {
                         icon.classList.remove('far');
                         icon.classList.add('fas');
                     }
+                    wishBtn.innerHTML = `<i class="fas fa-heart"></i> Added to Wishlist`;
+                } else {
+                    wishBtn.innerHTML = `<i class="far fa-heart"></i> Add to Wishlist`;
                 }
             }
         }
@@ -84,19 +87,28 @@ async function loadProductDetails() {
         // Load Related Products
         fetchRelatedProducts(product.cat_id, product.id);
 
-        // Add to Cart Button Listener
+        // Add to Cart Button Listener + in-cart state
         const addToCartBtn = document.querySelector('.pd-btn-add-cart');
         if (addToCartBtn) {
+            if (typeof window.getCartProductIds === 'function') {
+                try {
+                    const inCartIds = await window.getCartProductIds();
+                    if (inCartIds.includes(String(product.id))) {
+                        addToCartBtn.textContent = 'In Cart';
+                        addToCartBtn.disabled = true;
+                    }
+                } catch (_) {}
+            }
+
             addToCartBtn.onclick = async () => {
+                if (addToCartBtn.disabled) return;
                 const qtyInput = document.getElementById('qtyInput');
                 const qty = qtyInput ? parseInt(qtyInput.value) : 1;
                 if (window.addToCart) {
                     const success = await window.addToCart(product.id, product.ProductTitle, product.currentPrice, product.image, qty);
                     if (success) {
-                        addToCartBtn.textContent = 'Added to Cart!';
-                        setTimeout(() => {
-                            addToCartBtn.textContent = 'Add to Cart';
-                        }, 2000);
+                        addToCartBtn.textContent = 'In Cart';
+                        addToCartBtn.disabled = true;
                     }
                 }
             };
@@ -194,7 +206,7 @@ async function fetchRelatedProducts(categoryId, currentProductId) {
                                     data-name="${(product.ProductTitle || '').replace(/"/g, '&quot;')}"
                                     data-price="${product.currentPrice}"
                                     data-image="${product.image || ''}" ${inCart ? 'disabled' : ''}>
-                                    ${inCart ? 'Already in Cart' : 'Add to Cart'}
+                                    ${inCart ? 'In Cart' : 'Add to Cart'}
                                 </button>
                                 <button class="s_btn_wishlist ${isWishlisted ? 'active' : ''}" 
                                     data-id="${product.id}"
@@ -281,6 +293,24 @@ function selectColor(element) {
 // Initialize on Load
 $(document).ready(function () {
     loadProductDetails();
+});
+
+// Related products add-to-cart behavior
+document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.s_btn_add_cart');
+    if (!btn || btn.disabled) return;
+    if (window.addToCart) {
+        const success = await window.addToCart(
+            btn.dataset.id,
+            btn.dataset.name,
+            parseFloat(btn.dataset.price),
+            btn.dataset.image
+        );
+        if (success) {
+            btn.textContent = 'In Cart';
+            btn.disabled = true;
+        }
+    }
 });
 
 // Toggle Review Form

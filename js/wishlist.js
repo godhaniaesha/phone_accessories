@@ -34,7 +34,7 @@ window.addToWishlist = async function (productId) {
             wishlist = wishlists[0];
             // Check if product is already in wishlist
             if (wishlist.productIds.map(String).includes(pid)) {
-                alert('Product is already in your wishlist!');
+                // alert('Product is already in your wishlist!');
                 return;
             }
             // Update existing wishlist
@@ -91,12 +91,18 @@ window.toggleWishlistUI = function (productId, isActive) {
                 icon.classList.remove('far');
                 icon.classList.add('fas');
             }
+            if (btn.classList.contains('pd-btn-wishlist')) {
+                btn.innerHTML = `<i class="fas fa-heart"></i> Added to Wishlist`;
+            }
         } else {
             btn.classList.remove('active');
             const icon = btn.querySelector('i');
             if (icon) {
                 icon.classList.remove('fas');
                 icon.classList.add('far');
+            }
+            if (btn.classList.contains('pd-btn-wishlist')) {
+                btn.innerHTML = `<i class="far fa-heart"></i> Add to Wishlist`;
             }
         }
     });

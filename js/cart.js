@@ -198,6 +198,13 @@ async function addToCart(id, name, price, image, quantity = 1) {
 window.addToCart = addToCart;
 window.cartAddToCart = addToCart;
 
+// Helper: return product ids currently in cart (string list)
+async function getCartProductIds() {
+    const cart = await getCart();
+    return cart.map(item => String(item.productId));
+}
+window.getCartProductIds = getCartProductIds;
+
 // ============================================
 // REMOVE FROM CART
 // ============================================
