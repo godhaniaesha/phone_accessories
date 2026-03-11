@@ -1203,11 +1203,8 @@
       "id": "1772446316210",
       "userId": "c66e",
       "productIds": [
-        "3",
-        "45",
         "5",
         "7",
-        "31",
         "39"
       ]
     }
@@ -1388,19 +1385,7 @@
       "userId": "c66e",
       "items": [
         {
-          "id": "52",
-          "quantity": 1
-        },
-        {
-          "id": "29",
-          "quantity": 1
-        },
-        {
-          "id": "16",
-          "quantity": 1
-        },
-        {
-          "id": "7",
+          "id": "33",
           "quantity": 1
         }
       ]
@@ -2613,6 +2598,47 @@
         "state": "gujarat",
         "pincode": "395006",
         "country": "IN"
+      },
+      "createdAt": "2026-03-11"
+    },
+    {
+      "id": "9f80",
+      "userId": "c66e",
+      "items": [
+        {
+          "productId": "52",
+          "quantity": 1,
+          "price": 34.99
+        },
+        {
+          "productId": "29",
+          "quantity": 1,
+          "price": 199
+        },
+        {
+          "productId": "16",
+          "quantity": 1,
+          "price": 299
+        },
+        {
+          "productId": "7",
+          "quantity": 1,
+          "price": 899
+        }
+      ],
+      "totalAmount": 1431.99,
+      "paymentMethod": "cod",
+      "paymentStatus": "Pending",
+      "orderStatus": "Processing",
+      "shippingAddress": {
+        "fullName": "Dhanvi Prajapati",
+        "phone": "+91 8434646314",
+        "address": "Gokuldham Society",
+        "address2": "Mota Varachha",
+        "city": "surat",
+        "state": "gujarat",
+        "pincode": "395006",
+        "country": "CA"
       },
       "createdAt": "2026-03-11"
     }

@@ -644,12 +644,12 @@ function createWishlistCard(product) {
 
 // Helper functions for wishlist actions
 window.handleRemoveFromWishlist = async function (productId) {
-    if (confirm('Remove this item from your wishlist?')) {
+    // if (confirm('Remove this item from your wishlist?')) {
         const success = await window.removeFromWishlist(productId);
         if (success) {
             loadUserWishlist(); // Refresh grid
         }
-    }
+    // }
 }
 
 window.addToCartFromWishlist = async function (productId) {
