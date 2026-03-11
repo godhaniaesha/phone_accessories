@@ -691,10 +691,7 @@ async function processCheckout(e) {
         // Clear discount
         localStorage.removeItem('checkoutDiscount');
 
-        // Show success message
-        alert(`Order placed successfully! Order ID: ${order.id}`);
-
-        // Redirect to success page immediately after alert OK
+        // Redirect to success page
         // Keep storage as best-effort so it never blocks navigation.
         const orderId = String((order && order.id) || '');
         try {

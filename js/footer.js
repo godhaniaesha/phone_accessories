@@ -17,7 +17,7 @@ if (form) {
             const existing = await check.json();
 
             if (existing.length > 0) {
-                alert("Email already subscribed!");
+                // alert("Email already subscribed!");
                 return;
             }
 
@@ -33,7 +33,7 @@ if (form) {
             });
 
             if (response.ok) {
-                alert("Subscribed Successfully 🎉");
+                // alert("Subscribed Successfully 🎉");
                 emailInput.value = "";
             } else {
                 console.log("POST failed");

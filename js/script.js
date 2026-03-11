@@ -326,7 +326,7 @@ async function loadBestSellers() {
 							if (typeof window.updateCartUI === 'function') {
 								window.updateCartUI();
 							}
-							alert('Product added to cart!');
+							// // alert('Product added to cart!');
 						} else {
 							alert('Failed to add to cart. Please try again.');
 						}

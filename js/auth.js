@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('userPhone', phone);
             localStorage.setItem('userLoggedIn', 'true');
             localStorage.setItem('currentUser', JSON.stringify({ id: created.id, email, name: displayName, phone }));
-            alert('Account created! User added to API (id: ' + created.id + '). You can see it at ' + API_BASE + '/users');
+            // alert('Account created! User added to API (id: ' + created.id + '). You can see it at ' + API_BASE + '/users');
             closeModal('registerModal');
             updateUserIcon();
         } catch (err) {
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('userPhone', (user.phone || '').toString());
             localStorage.setItem('userBio', (user.bio || '').toString());
             localStorage.setItem('currentUser', JSON.stringify({ id: user.id, email, name: displayName, phone: user.phone || '', bio: user.bio || '' }));
-            alert('Login successful');
+            // alert('Login successful');
             closeModal('loginModal');
             updateUserIcon();
             if (window.updateWishlistBadge) window.updateWishlistBadge();
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 🧹 Clean reset flag
             localStorage.removeItem('passwordResetVerified');
 
-            alert("Password updated successfully! Please login.");
+            // alert("Password updated successfully! Please login.");
             closeModal('resetPasswordModal');
             openModal('loginModal');
         } catch (error) {

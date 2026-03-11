@@ -2051,7 +2051,7 @@
                 avatar: localStorage.getItem("userAvatar") || ""
             };
             setProfileEditMode(false);
-            alert('Profile updated successfully!');
+            // alert('Profile updated successfully!');
         });
 
         // Edit/Cancel actions for static profile view
@@ -2175,7 +2175,7 @@
                 }));
 
                 closePasswordModal();
-                alert('Password updated successfully.');
+                // alert('Password updated successfully.');
             } catch (error) {
                 console.error('Password update failed:', error);
                 alert('Failed to update password. Make sure json-server is running.');
@@ -2236,7 +2236,7 @@
             console.log('deleteAccountAndRelatedData() called');
             const currentUser = await getCurrentUserForPasswordUpdate();
             if (!currentUser || currentUser.id == null) {
-                alert('Unable to find your account. Please login again.');
+                // alert('Unable to find your account. Please login again.');
                 return;
             }
 
@@ -2274,7 +2274,7 @@
                 localStorage.removeItem("userAvatar");
                 console.log('Account deletion succeeded, showing alert');
                 alert('Your account has been deleted successfully.');
-                // schedule redirect after alert returns so it can't be blocked
+                // schedule redirect after // alert returns so it can't be blocked
                 setTimeout(() => {
                     console.log('Redirecting to Home.html now');
                     window.location.replace('Home.html');
@@ -2314,7 +2314,7 @@
             localStorage.removeItem("currentUser");
             localStorage.removeItem("userPhone");
             localStorage.removeItem("userBio");
-            alert('Logged out successfully!');
+            // alert('Logged out successfully!');
             window.location.href = "Home.html";
         }
 

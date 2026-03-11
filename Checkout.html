@@ -366,7 +366,7 @@
                             ? (subtotal * coupon.discount) / 100
                             : coupon.discount;
                         localStorage.setItem('checkoutDiscount', discount);
-                        alert('Coupon applied! You save $' + discount.toFixed(2));
+                        // alert('Coupon applied! You save $' + discount.toFixed(2));
                         applyTotals(subtotal);
                     } else {
                         alert('Minimum purchase $' + coupon.min_purchase + ' required.');

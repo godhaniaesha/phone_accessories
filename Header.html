@@ -517,7 +517,7 @@
 				localStorage.setItem("userEmail", email);
 				localStorage.setItem("userLoggedIn", "true");
 				isLoggedIn = true;
-				alert("Login Successful!");
+				// alert("Login Successful!");
 				closeModal("loginModal");
 				updateUserIcon();
 			}
@@ -578,7 +578,7 @@
 			e.preventDefault();
 			const email = document.getElementById("resetEmail").value;
 			if (validateEmail(email)) {
-				alert("Password reset link sent to: " + email);
+				// alert("Password reset link sent to: " + email);
 				closeModal("forgotPasswordModal");
 				openModal("loginModal");
 			} else {
@@ -618,7 +618,7 @@
 				localStorage.setItem("userEmail", email);
 				localStorage.setItem("userLoggedIn", "true");
 				isLoggedIn = true;
-				alert("Account created successfully!");
+				// alert("Account created successfully!");
 				closeModal("registerModal");
 				updateUserIcon();
 			}
@@ -734,7 +734,7 @@
 				localStorage.removeItem("userName");
 				localStorage.removeItem("userEmail");
 				isLoggedIn = false;
-				alert("Logged out successfully!");
+				// alert("Logged out successfully!");
 				closeModal("profileModal");
 				updateUserIcon();
 			});

@@ -428,7 +428,7 @@ async function applyCoupon(couponCode) {
                     ? (subtotal * coupon.discount) / 100
                     : coupon.discount;
                 localStorage.setItem('discount', discount);
-                alert('Coupon applied successfully!');
+                // alert('Coupon applied successfully!');
             } else {
                 alert(`Minimum purchase $${coupon.min_purchase} required.`);
                 localStorage.setItem('discount', 0);

@@ -121,7 +121,7 @@
 					localStorage.setItem("userBio", (user.bio || "").toString());
 					localStorage.setItem("currentUser", JSON.stringify({ id: user.id, email, name: displayName, phone: user.phone || "", bio: user.bio || "" }));
 					isLoggedIn = true;
-					alert("Login successful!");
+					// alert("Login successful!");
 					closeModal("loginModal");
 					updateUserIcon();
 				} catch (err) {
@@ -182,7 +182,7 @@
 				e.preventDefault();
 				const email = document.getElementById("resetEmail").value;
 				if (validateEmail(email)) {
-					alert("Password reset link sent to: " + email);
+					// alert("Password reset link sent to: " + email);
 					closeModal("forgotPasswordModal");
 					openModal("loginModal");
 				} else {
@@ -260,7 +260,7 @@
 					localStorage.setItem("userLoggedIn", "true");
 					localStorage.setItem("currentUser", JSON.stringify({ id: created.id, email, name: displayName, phone }));
 					isLoggedIn = true;
-					alert("Account created! User added to API. Check http://localhost:3000/users");
+					// alert("Account created! User added to API. Check http://localhost:3000/users");
 					closeModal("registerModal");
 					updateUserIcon();
 				} catch (err) {
@@ -370,7 +370,7 @@
 				localStorage.removeItem("userPhone");
 				localStorage.removeItem("userBio");
 				isLoggedIn = false;
-				alert("Logged out successfully!");
+				// alert("Logged out successfully!");
 				closeModal("profileModal");
 				updateUserIcon();
 			});

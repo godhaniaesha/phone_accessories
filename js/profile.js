@@ -120,7 +120,7 @@ async function addNewAddress(addressData) {
         // Hide form
         hideAddressForm();
 
-        alert('Address added successfully!');
+        // // alert('Address added successfully!');
 
     } catch (error) {
         console.error('Add address error:', error);
@@ -186,7 +186,7 @@ async function updateAddress(addressId, addressData) {
         // Hide form
         hideAddressForm();
 
-        alert('Address updated successfully!');
+        // alert('Address updated successfully!');
 
     } catch (error) {
         console.error('Update address error:', error);
@@ -224,7 +224,7 @@ async function setDefaultAddress(addressId) {
         // Reload addresses
         await loadUserAddresses();
 
-        alert('Default address updated!');
+        // alert('Default address updated!');
 
     } catch (error) {
         console.error('Set default address error:', error);
@@ -252,7 +252,7 @@ async function deleteAddress(addressId) {
         // Reload addresses
         await loadUserAddresses();
 
-        alert('Address deleted successfully!');
+        // alert('Address deleted successfully!');
 
     } catch (error) {
         console.error('Delete address error:', error);

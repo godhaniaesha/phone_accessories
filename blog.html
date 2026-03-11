@@ -37,6 +37,10 @@
 
                 <!-- BLOG AREA -->
                 <div class="col-lg-8">
+                    <div class="a_no_results text-center py-5" style="display: none;">
+                        <h5 class="mb-2">Result not found</h5>
+                        <p class="text-muted mb-0">Try a different keyword.</p>
+                    </div>
                     <div class="row g-4">
 
                         <div class="col-md-6 a_blog_item">
@@ -251,12 +255,32 @@
             const itemsPerPage = 4;
             const blogItems = Array.from(document.querySelectorAll(".a_blog_item"));
             const paginationContainer = document.querySelector(".a_pagination");
+            const paginationWrapper = document.querySelector(".a_pagination_wrapper");
+            const noResultsEl = document.querySelector(".a_no_results");
             const searchInputs = document.querySelectorAll('.a_sidebar_box input[placeholder="Search..."]');
 
             let currentPage = 1;
             let filteredItems = [...blogItems];
 
+            function toggleNoResults(items) {
+                if (items.length === 0) {
+                    noResultsEl.style.display = "block";
+                    paginationWrapper.style.display = "none";
+                } else {
+                    noResultsEl.style.display = "none";
+                    paginationWrapper.style.display = "block";
+                }
+            }
+
             function showPage(page, items) {
+                if (items.length === 0) {
+                    blogItems.forEach(item => {
+                        item.style.display = "none";
+                    });
+                    toggleNoResults(items);
+                    return;
+                }
+
                 const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
                 currentPage = Math.min(page, totalPages);
 
@@ -276,9 +300,15 @@
                 );
 
                 document.querySelector(`.a_page_item[data-page="${currentPage}"]`)?.classList.add("active");
+                toggleNoResults(items);
             }
 
             function createPagination(items) {
+                if (items.length === 0) {
+                    paginationContainer.innerHTML = "";
+                    return;
+                }
+
                 const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
                 paginationContainer.innerHTML = "";
 

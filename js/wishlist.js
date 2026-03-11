@@ -46,7 +46,7 @@ window.addToWishlist = async function (productId) {
             });
 
             if (updateResponse.ok) {
-                alert('Product added to wishlist!');
+                // // alert('Product added to wishlist!');
                 toggleWishlistUI(pid, true);
             }
         } else {
@@ -62,7 +62,7 @@ window.addToWishlist = async function (productId) {
             });
 
             if (createResponse.ok) {
-                alert('Product added to wishlist!');
+                // // alert('Product added to wishlist!');
                 toggleWishlistUI(pid, true);
             }
         }
